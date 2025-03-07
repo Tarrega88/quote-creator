@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-//example: import uiReducer from "./ui/uiSlice";
-import jobReducer from "./jobs/jobSlice"
+import jobReducer from "./jobs/jobSlice";
+import quoteReducer from "./quoteSlice";
 
 const store = configureStore({
-reducer: { job: jobReducer }, //example: { ui: uiReducer }
+    reducer: { job: jobReducer, quote: quoteReducer },
 });
 
 export default store;
