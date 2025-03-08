@@ -1,32 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-/*
-from quoteSlice:
-
-const initialState = {
-    customer: "",
-    quoteNumber: 0,
-    total: 0,
-    quote: [],
-};
-
-what if we did this instead:
-
-{ [customerName]:
-    [{
-        customer: "",
-        quoteNumber: 0,
-        total: 0,
-        quote: [],
-},
-
-]
+const dumbyData = {
+    Marco: [
+        { customer: "Marco", quote: [], quoteNumber: 1, total: 0 },
+        { customer: "Marco", quote: [], quoteNumber: 2, total: 0 }
+    ],
+    Tina: [{ customer: "Tina", quote: [], quoteNumber: 1, total: 0 },]
 }
-*/
 
 const initialState = {
-    customers: {},
+    // customers: {},
+    customers: dumbyData,
 };
 
 
