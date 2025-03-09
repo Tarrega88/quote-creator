@@ -5,7 +5,7 @@ function Nav() {
     { name: "Create New Quote", link: "create" },
     { name: "Edit Current Quote", link: "edit" },
     { name: "View Current Quote", link: "currentQuote" },
-    { name: "All Quotes", link: "allQuotes" },
+    { name: "Customers", link: "customers" },
   ];
   return (
     <div>
@@ -14,7 +14,7 @@ function Nav() {
           <Link
             to={e.link}
             key={i}
-            className="transition-all duration-200 hover:text-slate-400"
+            className="w-fit transition-all duration-200 hover:text-slate-400"
           >
             {e.name}
           </Link>

@@ -17,9 +17,11 @@ function CreateNewQuote() {
   const navigate = useNavigate();
 
   // const allCustomers = useSelector(state => state.customer)
-  const customerNames = useSelector((state) =>
-    Object.keys(state.customer.customers),
+  const customerData = useSelector((state) =>
+    state.customer.customers,
   );
+
+  const customerNames = Object.keys(customerData);
 
   function backButtonClicked() {
     if (isNewCustomer === null) {
@@ -36,13 +38,15 @@ function CreateNewQuote() {
   function submitCustomer() {
     if (!customer.length) return;
     dispatch(createQuote(customer));
-    console.log(isCurrentCustomer);
+    // console.log(isCurrentCustomer);
     dispatch(updateCustomer(customer));
-    navigate("/editQuote");
+    navigate("/edit");
   }
 
-  const allCustomers = useSelector((state) => state.customer);
-  console.log(allCustomers);
+  // const allCustomers = useSelector((state) => state.customer);
+  // console.log(allCustomers);
+
+  // console.log(customerData);
 
   {
     return isNewCustomer === null ? (
@@ -67,9 +71,9 @@ function CreateNewQuote() {
         <div className="flex justify-center">
           <div className="flex flex-col gap-4">
             <InstructionText text="Which customer?" />
-            <Dropdown options={["", ...customerNames]} />
+            <Dropdown options={["", ...customerNames]} onChange={(e) => setCustomer(e.target.value)}/>
             <div className="self-center pt-4">
-              <AcceptButton />
+              <AcceptButton onClick={submitCustomer}/>
             </div>
           </div>
         </div>

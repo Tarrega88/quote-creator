@@ -1,11 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
-import { setJobType } from "../jobs/jobSlice";
-import LandSurvey from "../jobs/LandSurvey";
+import LandSurvey from "../jobs/LandSurvey/LandSurvey";
 import InstructionText from "./InstructionText";
 
-function JobTypeDropdown() {
-  const dispatch = useDispatch();
-  const jobType = useSelector((state) => state.job.jobType);
+function JobTypeDropdown({ onChange, jobType }) {
+  // const jobType = useSelector((state) => state.job.jobType);
   const jobTypes = [
     "",
     "Land Survey",
@@ -16,20 +13,16 @@ function JobTypeDropdown() {
     "Dirt Removal",
   ];
 
-  console.log(jobType);
+  // console.log(jobType);
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       <InstructionText text="Select a job type" />
-      <select
-        className="bg-slate-700 w-full"
-        onChange={(e) => dispatch(setJobType(e.target.value))}
-      >
+      <select className="w-full bg-slate-700" onChange={onChange}>
         {jobTypes.map((job, i) => (
           <option key={i}>{job}</option>
         ))}
       </select>
-      {jobType === "Land Survey" && <LandSurvey />}
     </div>
   );
 }

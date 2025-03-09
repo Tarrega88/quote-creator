@@ -5,7 +5,7 @@ import "./index.css";
 import CreateNewQuote from "./pages/CreateNewQuote";
 import EditQuote from "./pages/EditQuote";
 import CurrentQuote from "./pages/CurrentQuote";
-import AllQuotes from "./pages/AllQuotes";
+import Customers from "./pages/Customers";
 
 const router = createBrowserRouter([
   {
@@ -30,8 +30,8 @@ const router = createBrowserRouter([
         element: <CurrentQuote />,
       },
       {
-        path: "/allQuotes",
-        element: <AllQuotes />,
+        path: "/customers",
+        element: <Customers />,
       },
     ],
   },
