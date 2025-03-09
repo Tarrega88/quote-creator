@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AddToQuoteButton from "./AddToQuoteButton";
 import { useDispatch, useSelector } from "react-redux";
-import { setTotal, addQuote } from "../quoteSlice";
+import { setTotal, addJob } from "../quoteSlice";
 
 function PriceRange({ surveyData, min, max, name, labelText }) {
   const dispatch = useDispatch();
@@ -12,11 +12,11 @@ function PriceRange({ surveyData, min, max, name, labelText }) {
   function addToQuotes() {
     dispatch(setTotal(value));
     dispatch(
-      addQuote({
+      addJob({
         jobType: jobType,
         type: surveyData.type,
         cost: value,
-      })
+      }),
     );
   }
 

@@ -4,7 +4,7 @@ const initialState = {
     client: false,
     quoteNumber: 0,
     total: 0,
-    quote: [],
+    job: [],
 };
 
 const quoteSlice = createSlice({
@@ -14,8 +14,8 @@ const quoteSlice = createSlice({
         setTotal(state, action) {
             state.total += action.payload;
         },
-        addQuote(state, action) {
-            state.quote.push(action.payload);
+        addJob(state, action) {
+            state.job.push(action.payload);
         },
         createQuote(state, action) {
             state.client = action.payload;
@@ -24,5 +24,5 @@ const quoteSlice = createSlice({
     },
 });
 
-export const { setTotal, addQuote, createQuote } = quoteSlice.actions;
+export const { setTotal, addJob, createQuote } = quoteSlice.actions;
 export default quoteSlice.reducer;

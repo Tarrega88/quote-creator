@@ -3,12 +3,9 @@ import JobTypeDropdown from "../../ui/JobTypeDropdown";
 import LandSurvey from "../../jobs/LandSurvey/LandSurvey";
 import BackButton from "../../ui/BackButton";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import InstructionText from "../../ui/InstructionText";
 import SquareButton from "../../ui/SquareButton";
-import Dropdown from "../../ui/Dropdown";
-import AcceptButton from "../../ui/AcceptButton";
-import { createQuote } from "../../quoteSlice";
 
 //This should check to make sure there's an active client first from the quoteSlice (grabbed from store).
 // If not, it should require the user choose a client and quote
@@ -16,15 +13,16 @@ import { createQuote } from "../../quoteSlice";
 
 function EditQuote() {
   const [jobType, setJobType] = useState("");
-  const [client, setClient] = useState("");
+  // const [client, setClient] = useState("");
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
   function handleBackButton() {
     if (!jobType) {
       navigate("/");
+      //should add logic for when user reaches /edit through no client Edit instead of through New
     } //Maybe should bring to existing client instead?
   }
 
@@ -39,11 +37,11 @@ function EditQuote() {
 
   const clientNames = Object.keys(clientData);
 
-  function submitClient() {
-    if (!client.length) return;
-  }
+  // function submitClient() {
+  //   if (!client.length) return;
+  // }
 
-  console.log(client);
+  // console.log(client);
 
   // const jobTypes = [
   //   "",
