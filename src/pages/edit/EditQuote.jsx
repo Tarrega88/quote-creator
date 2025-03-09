@@ -17,6 +17,9 @@ function EditQuote() {
 
   // const dispatch = useDispatch();
 
+  //TODO 3/9/2025: Consider making the Edit button for the "or update" section take you to the Client list
+  //If that's the change then the instructional text should change a bit too
+
   const navigate = useNavigate();
 
   function handleBackButton() {
@@ -29,9 +32,6 @@ function EditQuote() {
   const quoteData = useSelector((state) => state.quote);
   const activeClient = quoteData.client;
   const quoteNumber = quoteData.quoteNumber;
-  console.log(quoteData);
-
-  console.log(jobType);
 
   const clientData = useSelector((state) => state.client.clients);
 

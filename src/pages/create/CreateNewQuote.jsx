@@ -25,7 +25,7 @@ function CreateNewQuote() {
 
   const clientData = useSelector((state) => state.client.clients);
 
-  const clientNames = Object.keys(clientData);
+  const clientNames = Object.keys(clientData).sort();
 
   function messageAlert(time, message) {
     setTimeout();
