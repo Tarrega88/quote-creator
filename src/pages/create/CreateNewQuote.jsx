@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import AcceptButton from "../ui/AcceptButton";
-import InstructionText from "../ui/InstructionText";
-import TextInput from "../ui/TextInput";
-import { createQuote } from "../quoteSlice";
+import AcceptButton from "../../ui/AcceptButton";
+import InstructionText from "../../ui/InstructionText";
+import TextInput from "../../ui/TextInput";
+import { createQuote } from "../../quoteSlice";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SquareButton from "../ui/SquareButton";
-import BackButton from "../ui/BackButton";
-import Dropdown from "../ui/Dropdown";
-import { updateClient } from "../clientSlice";
+import SquareButton from "../../ui/SquareButton";
+import BackButton from "../../ui/BackButton";
+import Dropdown from "../../ui/Dropdown";
+import { updateClient } from "../../clientSlice";
 
 function CreateNewQuote() {
   const [isNewClient, setIsNewClient] = useState(null);

@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./pages/home/Home";
 import AppLayout from "./ui/AppLayout";
 import "./index.css";
-import CreateNewQuote from "./pages/CreateNewQuote";
-import EditQuote from "./pages/EditQuote";
-import CurrentQuote from "./pages/CurrentQuote";
-import Clients from "./pages/Clients";
+import CreateNewQuote from "./pages/create/CreateNewQuote";
+import EditQuote from "./pages/edit/EditQuote";
+import CurrentQuote from "./pages/view/CurrentQuote";
+import Clients from "./pages/clients/Clients";
 
 const router = createBrowserRouter([
   {
