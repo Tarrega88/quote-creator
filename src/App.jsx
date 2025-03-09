@@ -6,6 +6,7 @@ import CreateNewQuote from "./pages/create/CreateNewQuote";
 import EditQuote from "./pages/edit/EditQuote";
 import CurrentQuote from "./pages/view/CurrentQuote";
 import Clients from "./pages/clients/Clients";
+import ClientData from "./pages/clients/ClientData";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/clients",
         element: <Clients />,
+      },
+      {
+        path: "/clients/:clientUrl",
+        element: <ClientData />,
       },
     ],
   },

@@ -9,16 +9,27 @@ import SquareButton from "../../ui/SquareButton";
 import BackButton from "../../ui/BackButton";
 import Dropdown from "../../ui/Dropdown";
 import { updateClient } from "../../clientSlice";
+import FadeMessage from "../../ui/FadeMessage";
 
 function CreateNewQuote() {
+  //TODO 3/8/2025: If a new client is entered with the same name as an existing client,
+  //prompt the user and let them know that client already exists.
+  //Give them the option to create a new quote for the existing client or to (auto or manual?) change the entered name
+
   const [isNewClient, setIsNewClient] = useState(null);
   const [client, setClient] = useState("");
+  const [showFadeMessage, setShowFadeMessage] = useState(false);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const clientData = useSelector((state) => state.client.clients);
 
   const clientNames = Object.keys(clientData);
+
+  function messageAlert(time, message) {
+    setTimeout();
+  }
 
   function backButtonClicked() {
     if (isNewClient === null) {
@@ -34,6 +45,11 @@ function CreateNewQuote() {
 
   function submitClient() {
     if (!client.length) return;
+    if (!client.match(/^[a-zA-Z0-9 ]+$/)) {
+      setShowFadeMessage(true);
+      if (!showFadeMessage) setTimeout(() => setShowFadeMessage(false), 8000);
+      return;
+    }
     dispatch(createQuote(client));
     dispatch(updateClient(client));
     navigate("/edit");
@@ -83,7 +99,11 @@ function CreateNewQuote() {
               onChange={(e) => setClient(e.target.value)}
               onEnter={submitClient}
             />
-            <div className="self-center pt-8">
+            <FadeMessage
+              display={showFadeMessage}
+              text="Client names can only be letters, numbers, and spaces."
+            />
+            <div className="self-center">
               <AcceptButton onClick={submitClient} />
             </div>
           </div>
