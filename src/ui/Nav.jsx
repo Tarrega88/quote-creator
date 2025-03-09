@@ -5,7 +5,7 @@ function Nav() {
     { name: "Create New Quote", link: "create" },
     { name: "Edit Current Quote", link: "edit" },
     { name: "View Current Quote", link: "currentQuote" },
-    { name: "Customers", link: "customers" },
+    { name: "View Clients", link: "clients" },
   ];
   return (
     <div>

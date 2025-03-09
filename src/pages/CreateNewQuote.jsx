@@ -3,77 +3,71 @@ import AcceptButton from "../ui/AcceptButton";
 import InstructionText from "../ui/InstructionText";
 import TextInput from "../ui/TextInput";
 import { createQuote } from "../quoteSlice";
-import { updateCustomer } from "../customersSlice";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SquareButton from "../ui/SquareButton";
 import BackButton from "../ui/BackButton";
 import Dropdown from "../ui/Dropdown";
+import { updateClient } from "../clientSlice";
 
 function CreateNewQuote() {
-  const [isNewCustomer, setIsNewCustomer] = useState(null);
-  const [customer, setCustomer] = useState("");
+  const [isNewClient, setIsNewClient] = useState(null);
+  const [client, setClient] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const allCustomers = useSelector(state => state.customer)
-  const customerData = useSelector((state) =>
-    state.customer.customers,
-  );
+  const clientData = useSelector((state) => state.client.clients);
 
-  const customerNames = Object.keys(customerData);
+  const clientNames = Object.keys(clientData);
 
   function backButtonClicked() {
-    if (isNewCustomer === null) {
+    if (isNewClient === null) {
       navigate("/");
     } else {
-      setIsNewCustomer(null);
+      setIsNewClient(null);
     }
   }
 
-  const isCurrentCustomer = useSelector((state) =>
-    Object.hasOwn(state.customer.customers, customer),
+  const isCurrentClient = useSelector((state) =>
+    Object.hasOwn(state.client.clients, client),
   );
 
-  function submitCustomer() {
-    if (!customer.length) return;
-    dispatch(createQuote(customer));
-    // console.log(isCurrentCustomer);
-    dispatch(updateCustomer(customer));
+  function submitClient() {
+    if (!client.length) return;
+    dispatch(createQuote(client));
+    dispatch(updateClient(client));
     navigate("/edit");
   }
 
-  // const allCustomers = useSelector((state) => state.customer);
-  // console.log(allCustomers);
-
-  // console.log(customerData);
-
   {
-    return isNewCustomer === null ? (
+    return isNewClient === null ? (
       <div>
         <BackButton text="Back" onClick={backButtonClicked} />
         <div className="flex justify-center pt-8">
           <div className="flex flex-col gap-4">
-            <InstructionText text="Is this for a new or existing customer?" />
+            <InstructionText text="Is this for a new or existing client?" />
             <div className="flex justify-evenly">
-              <SquareButton text="New" onClick={() => setIsNewCustomer(true)} />
+              <SquareButton text="New" onClick={() => setIsNewClient(true)} />
               <SquareButton
                 text="Existing"
-                onClick={() => setIsNewCustomer(false)}
+                onClick={() => setIsNewClient(false)}
               />
             </div>
           </div>
         </div>
       </div>
-    ) : isNewCustomer === false ? (
+    ) : isNewClient === false ? (
       <div>
         <BackButton text="Back" onClick={backButtonClicked} />
         <div className="flex justify-center">
           <div className="flex flex-col gap-4">
-            <InstructionText text="Which customer?" />
-            <Dropdown options={["", ...customerNames]} onChange={(e) => setCustomer(e.target.value)}/>
+            <InstructionText text="Which client?" />
+            <Dropdown
+              options={["", ...clientNames]}
+              onChange={(e) => setClient(e.target.value)}
+            />
             <div className="self-center pt-4">
-              <AcceptButton onClick={submitCustomer}/>
+              <AcceptButton onClick={submitClient} />
             </div>
           </div>
         </div>
@@ -84,13 +78,13 @@ function CreateNewQuote() {
 
         <div className="flex justify-center pt-12">
           <div className="flex flex-col gap-4">
-            <InstructionText text="What is the customer's name?" />
+            <InstructionText text="What is the client's name?" />
             <TextInput
-              onChange={(e) => setCustomer(e.target.value)}
-              onEnter={submitCustomer}
+              onChange={(e) => setClient(e.target.value)}
+              onEnter={submitClient}
             />
             <div className="self-center pt-8">
-              <AcceptButton onClick={submitCustomer} />
+              <AcceptButton onClick={submitClient} />
             </div>
           </div>
         </div>

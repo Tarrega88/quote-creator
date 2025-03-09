@@ -6,7 +6,7 @@ function TopNav() {
     { name: "New", link: "create" },
     { name: "Edit", link: "edit" },
     { name: "View Quote", link: "currentQuote" },
-    { name: "Customers", link: "customers" },
+    { name: "Clients", link: "clients" },
   ];
   return (
     // <div>

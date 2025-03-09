@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    customer: "",
+    client: false,
     quoteNumber: 0,
     total: 0,
     quote: [],
@@ -18,7 +18,7 @@ const quoteSlice = createSlice({
             state.quote.push(action.payload);
         },
         createQuote(state, action) {
-            state.customer = action.payload;
+            state.client = action.payload;
             state.quoteNumber++;
         }
     },
