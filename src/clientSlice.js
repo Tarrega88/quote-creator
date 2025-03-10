@@ -13,8 +13,8 @@ const dumbyData = {
 }
 
 const initialState = {
-    // clients: {},
-    clients: dumbyData,
+    clients: {},
+    // clients: dumbyData,
 };
 
 
