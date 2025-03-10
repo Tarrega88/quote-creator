@@ -1,16 +1,7 @@
+import { jobTypes } from "../helpers/jobTypes";
 import InstructionText from "./InstructionText";
 
 function JobTypeDropdown({ onChange }) {
-  const jobTypes = [
-    "",
-    "Land Survey",
-    "Land Grading",
-    "Leveling",
-    "Installation",
-    "Soil Removal",
-    "Dirt Removal",
-  ];
-
   return (
     <div className="flex flex-col gap-4">
       <InstructionText text="Select a job type" />

@@ -8,6 +8,7 @@ import InstructionText from "../../ui/InstructionText";
 import SquareButton from "../../ui/SquareButton";
 import Subtitle from "../../ui/Subtitle";
 import { setCurrPage, setPrevPage } from "../pageSlice";
+import CustomJob from "../../jobs/custom/CustomJob";
 
 //This should check to make sure there's an active client first from the quoteSlice (grabbed from store).
 // If not, it should require the user choose a client and quote
@@ -63,16 +64,6 @@ function EditQuote() {
 
   // console.log(client);
 
-  // const jobTypes = [
-  //   "",
-  //   "Land Survey",
-  //   "Land Grading",
-  //   "Leveling",
-  //   "Installation",
-  //   "Soil Removal",
-  //   "Dirt Removal",
-  // ];
-
   function jobDisplay(jobType) {
     switch (jobType) {
       case "":
@@ -82,6 +73,8 @@ function EditQuote() {
             jobType={jobType}
           />
         );
+      case "Custom":
+        return <CustomJob />;
       case "Land Survey":
         return <LandSurvey />;
       case "Land Grading":
@@ -93,7 +86,7 @@ function EditQuote() {
       case "Soil Removal":
         return <div>Soil Removal</div>;
       case "Dirt Removal":
-        return <div>"Dirt Removal</div>;
+        return <div>Dirt Removal</div>;
     }
   }
 
