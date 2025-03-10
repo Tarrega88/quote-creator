@@ -10,7 +10,7 @@ import ClientData from "./pages/clients/ClientData";
 import JobAdded from "./jobs/JobAdded";
 import Expenses from "./pages/expenses/Expenses";
 import AddExpense from "./pages/expenses/AddExpense";
-import ViewExpenses from "./pages/expenses/ViewExpenses";
+import ExpensesList from "./pages/expenses/ExpensesList";
 
 const router = createBrowserRouter([
   {
@@ -39,8 +39,8 @@ const router = createBrowserRouter([
         element: <AddExpense />,
       },
       {
-        path: "/expenses/view",
-        element: <ViewExpenses />,
+        path: "/expenses/list",
+        element: <ExpensesList />,
       },
       {
         path: "/currentQuote",
