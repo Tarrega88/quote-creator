@@ -27,10 +27,6 @@ function CreateNewQuote() {
 
   const clientNames = Object.keys(clientData).sort();
 
-  function messageAlert(time, message) {
-    setTimeout();
-  }
-
   function backButtonClicked() {
     if (isNewClient === null) {
       navigate("/");
@@ -38,6 +34,8 @@ function CreateNewQuote() {
       setIsNewClient(null);
     }
   }
+
+  // console.log(clientData);
 
   const isCurrentClient = useSelector((state) =>
     Object.hasOwn(state.client.clients, client),
@@ -50,6 +48,8 @@ function CreateNewQuote() {
       if (!showFadeMessage) setTimeout(() => setShowFadeMessage(false), 8000);
       return;
     }
+    // dispatch(setPrevPage("/create"));
+    // dispatch(setCurrPage("/edit"));
     dispatch(createQuote(client));
     dispatch(updateClient(client));
     navigate("/edit");

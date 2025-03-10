@@ -2,11 +2,16 @@ import { useState } from "react";
 import AddToQuoteButton from "./AddToQuoteButton";
 import { useDispatch, useSelector } from "react-redux";
 import { setTotal, addJob } from "../quoteSlice";
+import InstructionText from "./InstructionText";
+import AcceptButton from "./AcceptButton";
+import { useNavigate } from "react-router-dom";
 
 function PriceRange({ surveyData, min, max, name, labelText }) {
   const dispatch = useDispatch();
   const [value, setValue] = useState(min);
   const jobType = useSelector((state) => state.job.jobType);
+
+  const navigate = useNavigate();
 
   //        onChange={(e) => dispatch(setJobType(e.target.value))}
   function addToQuotes() {
@@ -18,13 +23,13 @@ function PriceRange({ surveyData, min, max, name, labelText }) {
         cost: value,
       }),
     );
+    navigate("/added");
   }
 
   const test = useSelector((state) => state.quote);
-  console.log(test);
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       <div>Current Price: ${value}.00</div>
       <div>{labelText}</div>
       <input
@@ -37,8 +42,11 @@ function PriceRange({ surveyData, min, max, name, labelText }) {
         onChange={(e) => setValue(Number(e.target.value))}
       ></input>
 
-      <div>Add job to quote</div>
-      <AddToQuoteButton text="Add" onClick={addToQuotes} />
+      <InstructionText text="Add job to quote" />
+      <div>
+        {/* <AddToQuoteButton text="Add" onClick={addToQuotes} /> */}
+        <AcceptButton text="Add" onClick={addToQuotes} />
+      </div>
     </div>
   );
 }

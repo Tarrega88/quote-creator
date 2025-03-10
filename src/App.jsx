@@ -7,6 +7,7 @@ import EditQuote from "./pages/edit/EditQuote";
 import CurrentQuote from "./pages/view/CurrentQuote";
 import Clients from "./pages/clients/Clients";
 import ClientData from "./pages/clients/ClientData";
+import JobAdded from "./jobs/JobAdded";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
         path: "/clients/:clientUrl",
         element: <ClientData />,
       },
+      { path: "/added", element: <JobAdded /> },
     ],
   },
 ]);

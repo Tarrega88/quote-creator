@@ -4,8 +4,6 @@ import PriceRange from "../../ui/PriceRange";
 import SlideView from "../../ui/SlideView";
 
 function LandSurvey() {
-  const [isVisible, setIsVisible] = useState(false);
-  console.log(isVisible);
   const surveyTypes = [
     { type: "" },
     { type: "Boundary", minCost: 300, maxCost: 900 },
@@ -21,11 +19,12 @@ function LandSurvey() {
   ];
 
   const [surveyType, setSurveyType] = useState("");
+  const isVisible = surveyType.length > 0;
 
   const surveyData = surveyTypes.find((e) => e.type === surveyType);
 
   return (
-    <div className="flex justify-center">
+    <div>
       <div className="flex flex-col gap-4">
         <InstructionText text="Select a survey type" />
         <select
@@ -37,10 +36,10 @@ function LandSurvey() {
           ))}
         </select>
         {
-          <SlideView isVisible={surveyType.length > 0}>
-            <div>
+          <SlideView isVisible={isVisible}>
+            <div className="text-center">
               <InstructionText text="Select a price" />
-              <div>
+              <div className="my-2">
                 {surveyType} surveys cost between ${surveyData.minCost}.00 & $
                 {surveyData.maxCost}.00
               </div>

@@ -1,8 +1,6 @@
-import LandSurvey from "../jobs/LandSurvey/LandSurvey";
 import InstructionText from "./InstructionText";
 
-function JobTypeDropdown({ onChange, jobType }) {
-  // const jobType = useSelector((state) => state.job.jobType);
+function JobTypeDropdown({ onChange }) {
   const jobTypes = [
     "",
     "Land Survey",
@@ -12,8 +10,6 @@ function JobTypeDropdown({ onChange, jobType }) {
     "Soil Removal",
     "Dirt Removal",
   ];
-
-  // console.log(jobType);
 
   return (
     <div className="flex flex-col gap-4">

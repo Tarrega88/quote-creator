@@ -3,9 +3,11 @@ import JobTypeDropdown from "../../ui/JobTypeDropdown";
 import LandSurvey from "../../jobs/LandSurvey/LandSurvey";
 import BackButton from "../../ui/BackButton";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import InstructionText from "../../ui/InstructionText";
 import SquareButton from "../../ui/SquareButton";
+import Subtitle from "../../ui/Subtitle";
+import { setCurrPage, setPrevPage } from "../pageSlice";
 
 //This should check to make sure there's an active client first from the quoteSlice (grabbed from store).
 // If not, it should require the user choose a client and quote
@@ -20,22 +22,40 @@ function EditQuote() {
   //TODO 3/9/2025: Consider making the Edit button for the "or update" section take you to the Client list
   //If that's the change then the instructional text should change a bit too
 
+  const prevPage = useSelector((state) => state.page.prevPage);
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function handleBackButton() {
     if (!jobType) {
       navigate("/");
+      return;
       //should add logic for when user reaches /edit through no client Edit instead of through New
     } //Maybe should bring to existing client instead?
+    setJobType("");
   }
 
   const quoteData = useSelector((state) => state.quote);
   const activeClient = quoteData.client;
-  const quoteNumber = quoteData.quoteNumber;
 
   const clientData = useSelector((state) => state.client.clients);
 
+  const quoteNumber = clientData[activeClient]?.length;
+
   const clientNames = Object.keys(clientData);
+
+  function handleViewClients() {
+    dispatch(setPrevPage("/edit"));
+    dispatch(setCurrPage("/clients"));
+    navigate("/clients");
+  }
+
+  function handleNew() {
+    dispatch(setPrevPage("/edit"));
+    dispatch(setCurrPage("/create"));
+    navigate("/create");
+  }
 
   // function submitClient() {
   //   if (!client.length) return;
@@ -93,11 +113,14 @@ function EditQuote() {
       ) : (
         <div className="flex flex-col gap-4 px-4">
           <InstructionText text="No quote active" />
-          <InstructionText text="Want to create a new quote" />
-          <InstructionText text="or update an old one?" />
+          <div className="min-w-40">
+            <Subtitle text="Would you like to create a new quote or view your list of clients to update an old quote?" />
+          </div>
+          {/* <InstructionText text="Want to create a new quote" />
+          <InstructionText text="or update an old one?" /> */}
           <div className="flex justify-center gap-12 pt-4">
-            <SquareButton text="New" onClick={() => navigate("/create")} />
-            <SquareButton text="Edit" />
+            <SquareButton text="New" onClick={handleNew} />
+            <SquareButton text="View Clients" onClick={handleViewClients} />
             {/*should take us to a list of customers*/}
           </div>
         </div>

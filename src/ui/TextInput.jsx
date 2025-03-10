@@ -5,7 +5,7 @@ function TextInput({ onChange, onEnter }) {
 
   return (
     <input
-      className="bg-slate-500 text-slate-50 pl-2 py-2"
+      className="mx-6 bg-slate-500 py-2 pl-2 text-slate-50"
       onChange={onChange}
       onKeyDown={handleEnter}
     ></input>
