@@ -8,6 +8,9 @@ import CurrentQuote from "./pages/view/CurrentQuote";
 import Clients from "./pages/clients/Clients";
 import ClientData from "./pages/clients/ClientData";
 import JobAdded from "./jobs/JobAdded";
+import Expenses from "./pages/expenses/Expenses";
+import AddExpense from "./pages/expenses/AddExpense";
+import ViewExpenses from "./pages/expenses/ViewExpenses";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +29,18 @@ const router = createBrowserRouter([
       {
         path: "/edit",
         element: <EditQuote />,
+      },
+      {
+        path: "/expenses",
+        element: <Expenses />,
+      },
+      {
+        path: "/expenses/add",
+        element: <AddExpense />,
+      },
+      {
+        path: "/expenses/view",
+        element: <ViewExpenses />,
       },
       {
         path: "/currentQuote",

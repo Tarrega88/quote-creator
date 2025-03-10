@@ -4,6 +4,7 @@ function Nav() {
   const links = [
     { name: "Create New Quote", link: "create" },
     { name: "Edit Current Quote", link: "edit" },
+    { name: "Expenses", link: "expenses" },
     { name: "View Current Quote", link: "currentQuote" },
     { name: "View Clients", link: "clients" },
   ];

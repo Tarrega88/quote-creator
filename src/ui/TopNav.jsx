@@ -5,7 +5,8 @@ function TopNav() {
   const links = [
     { name: "New", link: "create" },
     { name: "Edit", link: "edit" },
-    { name: "View Quote", link: "currentQuote" },
+    { name: "Expenses", link: "expenses" },
+    { name: "Quote", link: "currentQuote" },
     { name: "Clients", link: "clients" },
   ];
   return (
