@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import BackButton from "../../ui/BackButton";
-import Header from "../../ui/Header";
-import InstructionText from "../../ui/InstructionText";
-import TextInput from "../../ui/TextInput";
+import BackButton from "../../../ui/BackButton";
+import Header from "../../../ui/Header";
+import InstructionText from "../../../ui/InstructionText";
+import TextInput from "../../../ui/TextInput";
 import { useState } from "react";
-import AcceptButton from "../../ui/AcceptButton";
+import AcceptButton from "../../../ui/AcceptButton";
 import { useDispatch } from "react-redux";
-import { setCurrentExpenseName } from "./expenseSlice";
+import { setCurrentExpenseName } from "../expenseSlice";
 
 function Materials() {
   const dispatch = useDispatch();
@@ -15,7 +15,9 @@ function Materials() {
 
   function confirmExpenseName() {
     if (tempName.length === 0) return;
-    //TODO 3/11/25: add logic to make sure there's no duplicate
+    //TODO 3/11/25: maybe add logic to make sure there's no duplicate
+    //might not be necessary though
+    //let's also navigate to measurements after this
     dispatch(setCurrentExpenseName(tempName));
   }
 
