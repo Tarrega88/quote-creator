@@ -11,6 +11,9 @@ import JobAdded from "./jobs/JobAdded";
 import Expenses from "./pages/expenses/Expenses";
 import AddExpense from "./pages/expenses/AddExpense";
 import ExpensesList from "./pages/expenses/ExpensesList";
+import Materials from "./pages/expenses/Materials";
+import Labor from "./pages/expenses/Labor";
+import Rentals from "./pages/expenses/Rentals";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +40,18 @@ const router = createBrowserRouter([
       {
         path: "/expenses/add",
         element: <AddExpense />,
+      },
+      {
+        path: "/expenses/add/materials",
+        element: <Materials />,
+      },
+      {
+        path: "/expenses/add/labor",
+        element: <Labor />,
+      },
+      {
+        path: "/expenses/add/rentals",
+        element: <Rentals />,
       },
       {
         path: "/expenses/list",

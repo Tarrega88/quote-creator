@@ -12,9 +12,18 @@ function AddExpense() {
         <div className="flex flex-col items-center pt-8">
           <InstructionText text="Is this a material, labor, or rental expense?" />
           <div className="flex gap-8 pt-8">
-            <SquareButton text="Material" />
-            <SquareButton text="Labor" />
-            <SquareButton text="Rental" />
+            <SquareButton
+              text="Material"
+              onClick={() => navigate("/expenses/add/materials")}
+            />
+            <SquareButton
+              text="Labor"
+              onClick={() => navigate("/expenses/add/labor")}
+            />
+            <SquareButton
+              text="Rental"
+              onClick={() => navigate("/expenses/add/rentals")}
+            />
           </div>
         </div>
       </div>

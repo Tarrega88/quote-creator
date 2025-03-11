@@ -27,7 +27,6 @@ const store = configureStore({
 if (ipcRenderer) {
     store.subscribe(() => {
         const currentState = store.getState();
-        console.log("📢 Sending Redux state to main process:", currentState);
         ipcRenderer.send('save-state', currentState);
     });
 }

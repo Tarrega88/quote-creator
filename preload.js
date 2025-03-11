@@ -7,5 +7,3 @@ contextBridge.exposeInMainWorld('electron', {
         on: (channel, callback) => ipcRenderer.on(channel, (event, ...args) => callback(...args))
     }
 });
-
-console.log("✅ Preload script loaded! IPC exposed to renderer.");

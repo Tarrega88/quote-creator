@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import InstructionText from "../../ui/InstructionText";
 import SquareButton from "../../ui/SquareButton";
 import Subtitle from "../../ui/Subtitle";
-import { setCurrPage, setPrevPage } from "../pageSlice";
 import CustomJob from "../../jobs/custom/CustomJob";
 
 //This should check to make sure there's an active client first from the quoteSlice (grabbed from store).
@@ -22,8 +21,6 @@ function EditQuote() {
 
   //TODO 3/9/2025: Consider making the Edit button for the "or update" section take you to the Client list
   //If that's the change then the instructional text should change a bit too
-
-  const prevPage = useSelector((state) => state.page.prevPage);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -47,14 +44,10 @@ function EditQuote() {
   const clientNames = Object.keys(clientData);
 
   function handleViewClients() {
-    dispatch(setPrevPage("/edit"));
-    dispatch(setCurrPage("/clients"));
     navigate("/clients");
   }
 
   function handleNew() {
-    dispatch(setPrevPage("/edit"));
-    dispatch(setCurrPage("/create"));
     navigate("/create");
   }
 
