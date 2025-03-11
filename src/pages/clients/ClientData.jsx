@@ -1,6 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
 import BackButton from "../../ui/BackButton";
-import { setCurrPage, setPrevPage } from "../pageSlice";
 import { useDispatch } from "react-redux";
 
 function ClientData() {
@@ -11,8 +10,6 @@ function ClientData() {
   const dispatch = useDispatch();
 
   function handleBack() {
-    dispatch(setPrevPage("/"));
-    dispatch(setCurrPage("/clients"));
     navigate("/clients");
   }
 

@@ -48,8 +48,6 @@ function CreateNewQuote() {
       if (!showFadeMessage) setTimeout(() => setShowFadeMessage(false), 8000);
       return;
     }
-    // dispatch(setPrevPage("/create"));
-    // dispatch(setCurrPage("/edit"));
     dispatch(createQuote(client));
     dispatch(updateClient(client));
     navigate("/edit");
