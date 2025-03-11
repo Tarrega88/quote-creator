@@ -2,7 +2,24 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  optimizeDeps: {
+    exclude: ['electron'], // ⬅️ Prevents Vite from breaking IPC
+  },
+  build: {
+    rollupOptions: {
+      external: ['electron'], // ⬅️ Ensures Electron modules aren't bundled incorrectly
+    }
+  }
 })
+
+
+// import { defineConfig } from 'vite'
+// import react from '@vitejs/plugin-react'
+// import tailwindcss from '@tailwindcss/vite'
+
+// // https://vite.dev/config/
+// export default defineConfig({
+//   plugins: [react(), tailwindcss()],
+// })
