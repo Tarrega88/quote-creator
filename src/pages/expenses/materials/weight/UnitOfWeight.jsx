@@ -1,4 +1,4 @@
-import InstructionText from "../../../ui/InstructionText";
+import InstructionText from "../../../../ui/InstructionText";
 
 function UnitOfWeight() {
   return (

@@ -1,4 +1,4 @@
-import MainFlexContainer from "../../../ui/MainFlexContainer";
+import MainFlexContainer from "../../../../ui/MainFlexContainer";
 
 function Quantity() {
   return (

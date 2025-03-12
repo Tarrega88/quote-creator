@@ -17,11 +17,11 @@ import Rentals from "./pages/expenses/Rentals";
 import Measurements from "./pages/expenses/materials/Measurements";
 import ExistingClient from "./pages/create/ExistingClient";
 import NewClient from "./pages/create/NewClient";
-import Length from "./pages/expenses/materials/Length";
-import Area from "./pages/expenses/materials/Area";
-import Volume from "./pages/expenses/materials/Volume";
-import Weight from "./pages/expenses/materials/Weight";
-import Quantity from "./pages/expenses/materials/Quantity";
+import Length from "./pages/expenses/materials/length/Length";
+import Area from "./pages/expenses/materials/area/Area";
+import Volume from "./pages/expenses/materials/volume/Volume";
+import Weight from "./pages/expenses/materials/weight/Weight";
+import Quantity from "./pages/expenses/materials/quantity/Quantity";
 
 const router = createBrowserRouter([
   {

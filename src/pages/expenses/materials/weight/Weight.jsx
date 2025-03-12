@@ -1,4 +1,4 @@
-import MainFlexContainer from "../../../ui/MainFlexContainer";
+import MainFlexContainer from "../../../../ui/MainFlexContainer";
 import UnitOfWeight from "./UnitOfWeight";
 
 function Weight() {
