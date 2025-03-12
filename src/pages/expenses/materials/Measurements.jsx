@@ -39,7 +39,7 @@ function Measurements() {
         />
         <SquareButton
           text="Quantity"
-          onClick={() => confirmMeasurementType("quantity")}
+          onClick={() => confirmMeasurementType("quantity/count")}
         />
       </div>
     </MainFlexContainer>

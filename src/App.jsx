@@ -18,11 +18,12 @@ import Measurements from "./pages/expenses/materials/Measurements";
 import ExistingClient from "./pages/create/ExistingClient";
 import NewClient from "./pages/create/NewClient";
 import Length from "./pages/expenses/materials/length/Length";
-import Area from "./pages/expenses/materials/Area/Area";
+import Area from "./pages/expenses/materials/area/Area";
 import Volume from "./pages/expenses/materials/volume/Volume";
 import Weight from "./pages/expenses/materials/weight/Weight";
 import Quantity from "./pages/expenses/materials/quantity/Quantity";
 import MeasurementCost from "./pages/expenses/materials/MeasurementCost";
+import QuantityCost from "./pages/expenses/materials/quantity/QuantityCost";
 
 const router = createBrowserRouter([
   {
@@ -101,6 +102,10 @@ const router = createBrowserRouter([
       {
         path: "/expenses/add/materials/measurements/quantity",
         element: <Quantity />,
+      },
+      {
+        path: "/expenses/add/materials/measurements/quantity/:measurementUnit",
+        element: <QuantityCost />,
       },
       {
         path: "/expenses/add/labor",
