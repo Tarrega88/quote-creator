@@ -9,6 +9,8 @@ const initialState = {
     currentExpense: {
         type: "",
         name: "",
+        measurementType: "",
+        measurementUnit: "",
     },
 };
 
@@ -26,10 +28,16 @@ const expenseSlice = createSlice({
         },
         setCurrentExpenseName(state, action) {
             state.currentExpense.name = action.payload;
+        },
+        setCurrentExpenseMeasurementType(state, action) {
+            state.currentExpense.measurementType = action.payload;
+        },
+        setCurrentExpenseMeasurementUnit(state, action) {
+            state.currentExpense.measurementUnit = action.payload;
         }
 
     },
 });
 
-export const { addToExpenses, setCurrentExpenseType, setCurrentExpenseName } = expenseSlice.actions;
+export const { addToExpenses, setCurrentExpenseType, setCurrentExpenseName, setCurrentExpenseMeasurementType, setCurrentExpenseMeasurementUnit } = expenseSlice.actions;
 export default expenseSlice.reducer;
