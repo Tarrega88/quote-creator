@@ -21,6 +21,7 @@ function MeasurementCost() {
   const back = `/expenses/add/materials/measurements/${measurementType}`;
 
   const { measurementUnit } = useParams();
+  const measurementUnitSpaces = measurementUnit.replaceAll("_", " ");
 
   const test = useSelector((state) => state.expense);
 
@@ -30,7 +31,7 @@ function MeasurementCost() {
     expenseType: "materials",
     materialName,
     measurementType,
-    measurementUnit,
+    measurementUnit: measurementUnitSpaces,
     costInDollars: dollars,
     unitAmount,
   };
@@ -47,20 +48,15 @@ function MeasurementCost() {
     <MainFlexContainer back={back}>
       <InstructionText text="How much does it cost?" />
       {/* <Subtitle text="(Try to enter the smallest amount you're able to buy it in)" /> */}
-      {/* <div> */}
       <div className="flex gap-2">
         <span>It costs</span>
-        <NumberInput
-          // value={dollars}
-          onChange={(e) => setDollars(Number(e.target.value))}
-        />
+        <NumberInput onChange={(e) => setDollars(Number(e.target.value))} />
         <span>dollars per</span>
         <NumberInput onChange={(e) => setUnitAmount(Number(e.target.value))} />
         <span>
-          {measurementUnit} of {materialName}
+          {measurementUnitSpaces} of {materialName}
         </span>
       </div>
-      {/* </div> */}
       <AcceptButton
         isActive={dollars > 0 && unitAmount > 0}
         onClick={handleClick}

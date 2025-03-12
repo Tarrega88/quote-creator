@@ -2,7 +2,7 @@ import InstructionText from "../../../../ui/InstructionText";
 import SquareButton from "../../../../ui/SquareButton";
 
 /*
-inch, foot, yard, mile, meter, kilometer
+inch, foot, yard
 
 */
 function UnitOfLength({ chooseLength }) {
