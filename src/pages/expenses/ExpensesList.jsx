@@ -1,5 +1,7 @@
+import MainFlexContainer from "../../ui/MainFlexContainer";
+
 function ExpensesList() {
-  return <div></div>;
+  return <MainFlexContainer back="/expenses"></MainFlexContainer>;
 }
 
 export default ExpensesList;

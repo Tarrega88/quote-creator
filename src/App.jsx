@@ -87,8 +87,16 @@ const router = createBrowserRouter([
         element: <Volume />,
       },
       {
+        path: "/expenses/add/materials/measurements/volume/:measurementUnit",
+        element: <MeasurementCost />,
+      },
+      {
         path: "/expenses/add/materials/measurements/weight",
         element: <Weight />,
+      },
+      {
+        path: "/expenses/add/materials/measurements/weight/:measurementUnit",
+        element: <MeasurementCost />,
       },
       {
         path: "/expenses/add/materials/measurements/quantity",

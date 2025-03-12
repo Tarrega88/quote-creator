@@ -5,7 +5,7 @@ import UnitOfArea from "./UnitOfArea";
 function Area() {
   const navigate = useNavigate();
   function handleSetAreaType(type) {
-    navigate(`/expenses/add/materials/measurements/length/${type}`);
+    navigate(`/expenses/add/materials/measurements/area/${type}`);
   }
   return (
     <MainFlexContainer back="/expenses/add/materials/measurements">
