@@ -20,8 +20,6 @@ const expenseSlice = createSlice({
             state.expenses[state.currentExpense.type].push(action.payload);
         },
         setCurrentExpenseType(state, action) {
-            console.log(state);
-            console.log(action.payload);
             state.currentExpense.type = action.payload;
         },
         setCurrentExpenseName(state, action) {

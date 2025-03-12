@@ -8,6 +8,7 @@ import AcceptButton from "../../../ui/AcceptButton";
 import { useDispatch } from "react-redux";
 import { setCurrentExpenseName } from "../../../store/slices/expenseSlice";
 import MainFlexContainer from "../../../ui/MainFlexContainer";
+import { setMaterialName } from "../../../store/slices/materialSlice";
 
 function Materials() {
   const dispatch = useDispatch();
@@ -21,7 +22,9 @@ function Materials() {
     //TODO 3/11/25: maybe add logic to make sure there's no duplicate
     //might not be necessary though
     //let's also navigate to measurements after this
-    dispatch(setCurrentExpenseName(tempName));
+
+    // dispatch(setCurrentExpenseName(tempName));
+    dispatch(setMaterialName(tempName));
     navigate("/expenses/add/materials/measurements");
   }
 

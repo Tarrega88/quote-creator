@@ -6,16 +6,6 @@ import { useParams } from "react-router-dom";
 import MainFlexContainer from "../../../ui/MainFlexContainer";
 
 function HowMany() {
-  //   const materialType = useSelector(
-  //     (state) => state.expense.currentExpense.name,
-  //   );
-
-  const measurementType = useSelector(
-    (state) => state.expense.currentExpense.measurementType,
-  );
-
-  console.log(measurementType);
-
   const { measurementUnit } = useParams();
   console.log(measurementUnit);
 

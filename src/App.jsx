@@ -23,6 +23,7 @@ import Volume from "./pages/expenses/materials/volume/Volume";
 import Weight from "./pages/expenses/materials/weight/Weight";
 import Quantity from "./pages/expenses/materials/quantity/Quantity";
 import HowMany from "./pages/expenses/materials/HowMany";
+import MeasurementCost from "./pages/expenses/materials/MeasurementCost";
 
 const router = createBrowserRouter([
   {
@@ -72,7 +73,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/expenses/add/materials/measurements/length/:measurementUnit",
-        element: <HowMany />,
+        element: <MeasurementCost />,
       },
       {
         path: "/expenses/add/materials/measurements/area",

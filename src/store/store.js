@@ -3,7 +3,7 @@ import jobReducer from "./slices/jobSlice";
 import quoteReducer from "./slices/quoteSlice";
 import clientReducer from "./slices/clientSlice";
 import expenseReducer from "./slices/expenseSlice";
-import measurementReducer from "./slices/measurementSlice";
+import materialReducer from "./slices/materialSlice";
 
 const { ipcRenderer } = window?.electron || {}; // Prevent errors in non-Electron environments
 
@@ -18,7 +18,7 @@ const store = configureStore({
         quote: quoteReducer,
         client: clientReducer,
         expense: expenseReducer,
-        measurement: measurementReducer,
+        material: materialReducer,
     },
     preloadedState: persistedState,
 });
