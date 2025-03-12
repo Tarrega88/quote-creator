@@ -5,8 +5,8 @@ import MainFlexContainer from "../../ui/MainFlexContainer";
 import AcceptButton from "../../ui/AcceptButton";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { updateClient } from "../../clientSlice";
-import { createQuote } from "../../quoteSlice";
+import { updateClient } from "../../store/slices/clientSlice";
+import { createQuote } from "../../store/slices/quoteSlice";
 
 function ExistingClient() {
   const [client, setClient] = useState("");

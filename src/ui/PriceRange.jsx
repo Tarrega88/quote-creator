@@ -1,7 +1,6 @@
 import { useState } from "react";
-import AddToQuoteButton from "./AddToQuoteButton";
 import { useDispatch, useSelector } from "react-redux";
-import { setTotal, addJob } from "../quoteSlice";
+import { setTotal, addJob } from "../store/slices/quoteSlice";
 import InstructionText from "./InstructionText";
 import AcceptButton from "./AcceptButton";
 import { useNavigate } from "react-router-dom";

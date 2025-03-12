@@ -5,6 +5,9 @@ import SquareButton from "../../../ui/SquareButton";
 
 function Measurements() {
   const navigate = useNavigate();
+
+  function setMeasurementType() {}
+
   return (
     <MainFlexContainer back="/expenses/add/materials">
       <InstructionText text="What type of measurement?" />

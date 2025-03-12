@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import jobReducer from "./jobs/jobSlice";
-import quoteReducer from "./quoteSlice";
-import clientReducer from "./clientSlice";
-import pageReducer from "./pages/pageSlice";
-import expenseReducer from "./pages/expenses/expenseSlice";
+import jobReducer from "./slices/jobSlice";
+import quoteReducer from "./slices/quoteSlice";
+import clientReducer from "./slices/clientSlice";
+import expenseReducer from "./slices/expenseSlice";
+import measurementReducer from "./slices/measurementSlice";
 
 const { ipcRenderer } = window?.electron || {}; // Prevent errors in non-Electron environments
 
@@ -17,8 +17,8 @@ const store = configureStore({
         job: jobReducer,
         quote: quoteReducer,
         client: clientReducer,
-        page: pageReducer,
-        expense: expenseReducer
+        expense: expenseReducer,
+        measurement: measurementReducer,
     },
     preloadedState: persistedState,
 });

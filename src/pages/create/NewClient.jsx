@@ -6,8 +6,8 @@ import MainFlexContainer from "../../ui/MainFlexContainer";
 import TextInput from "../../ui/TextInput";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { createQuote } from "../../quoteSlice";
-import { updateClient } from "../../clientSlice";
+import { createQuote } from "../../store/slices/quoteSlice";
+import { updateClient } from "../../store/slices/clientSlice";
 
 function NewClient() {
   const [client, setClient] = useState("");

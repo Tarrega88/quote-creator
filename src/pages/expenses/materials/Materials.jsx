@@ -6,7 +6,7 @@ import TextInput from "../../../ui/TextInput";
 import { useState } from "react";
 import AcceptButton from "../../../ui/AcceptButton";
 import { useDispatch } from "react-redux";
-import { setCurrentExpenseName } from "../expenseSlice";
+import { setCurrentExpenseName } from "../../../store/slices/expenseSlice";
 import MainFlexContainer from "../../../ui/MainFlexContainer";
 
 function Materials() {

@@ -1,10 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import BackButton from "../../ui/BackButton";
 import InstructionText from "../../ui/InstructionText";
 import SquareButton from "../../ui/SquareButton";
 import Header from "../../ui/Header";
 import { useDispatch } from "react-redux";
-import { setCurrentExpenseType } from "./expenseSlice";
+import { setCurrentExpenseType } from "../../store/slices/expenseSlice";
 import MainFlexContainer from "../../ui/MainFlexContainer";
 
 function AddExpense() {

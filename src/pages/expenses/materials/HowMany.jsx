@@ -14,6 +14,8 @@ function HowMany() {
     (state) => state.expense.currentExpense.measurementType,
   );
 
+  console.log(measurementType);
+
   const { measurementUnit } = useParams();
   console.log(measurementUnit);
 
