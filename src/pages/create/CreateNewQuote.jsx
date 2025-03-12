@@ -1,15 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
-import AcceptButton from "../../ui/AcceptButton";
 import InstructionText from "../../ui/InstructionText";
-import TextInput from "../../ui/TextInput";
-import { createQuote } from "../../quoteSlice";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SquareButton from "../../ui/SquareButton";
-import BackButton from "../../ui/BackButton";
-import Dropdown from "../../ui/Dropdown";
-import { updateClient } from "../../clientSlice";
-import FadeMessage from "../../ui/FadeMessage";
 import MainFlexContainer from "../../ui/MainFlexContainer";
 
 function CreateNewQuote() {
@@ -17,101 +8,23 @@ function CreateNewQuote() {
   //prompt the user and let them know that client already exists.
   //Give them the option to create a new quote for the existing client or to (auto or manual?) change the entered name
 
-  //TODO 3/11/2025: may rework this to navigate and use router instead of using state logic here for rendering
-
-  const [isNewClient, setIsNewClient] = useState(null);
-  const [client, setClient] = useState("");
-  const [showFadeMessage, setShowFadeMessage] = useState(false);
-
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const clientData = useSelector((state) => state.client.clients);
-
-  const clientNames = Object.keys(clientData).sort();
-
-  function backButtonClicked() {
-    if (isNewClient === null) {
-      navigate("/");
-    } else {
-      setIsNewClient(null);
-    }
-  }
-
-  // console.log(clientData);
-
-  const isCurrentClient = useSelector((state) =>
-    Object.hasOwn(state.client.clients, client),
-  );
-
-  function submitClient() {
-    if (!client.length) return;
-    if (!client.match(/^[a-zA-Z0-9 ]+$/)) {
-      setShowFadeMessage(true);
-      if (!showFadeMessage) setTimeout(() => setShowFadeMessage(false), 8000);
-      return;
-    }
-    dispatch(createQuote(client));
-    dispatch(updateClient(client));
-    navigate("/edit");
-  }
-
   {
-    return isNewClient === null ? (
+    return (
       <MainFlexContainer back="/">
         <InstructionText text="Is this for a new or existing client?" />
         <div className="flex justify-evenly gap-16">
-          <SquareButton text="New" onClick={() => setIsNewClient(true)} />
-          <SquareButton text="Existing" onClick={() => setIsNewClient(false)} />
+          <SquareButton
+            text="New"
+            onClick={() => navigate("/create/new_client")}
+          />
+          <SquareButton
+            text="Existing"
+            onClick={() => navigate("/create/existing_client")}
+          />
         </div>
       </MainFlexContainer>
-    ) : isNewClient === false ? (
-      <MainFlexContainer>
-        <InstructionText text="Which client?" />
-        <Dropdown
-          options={["", ...clientNames]}
-          onChange={(e) => setClient(e.target.value)}
-        />
-        <div className="self-center pt-4">
-          <AcceptButton onClick={submitClient} />
-        </div>
-      </MainFlexContainer>
-    ) : (
-      // <div>
-      //   <BackButton text="Back" onClick={backButtonClicked} />
-      //   <div className="flex justify-center">
-      //     <div className="flex flex-col gap-4">
-      //       <InstructionText text="Which client?" />
-      //       <Dropdown
-      //         options={["", ...clientNames]}
-      //         onChange={(e) => setClient(e.target.value)}
-      //       />
-      //       <div className="self-center pt-4">
-      //         <AcceptButton onClick={submitClient} />
-      //       </div>
-      //     </div>
-      //   </div>
-      // </div>
-      <div>
-        <BackButton text="Back" onClick={backButtonClicked} />
-
-        <div className="flex justify-center pt-12">
-          <div className="flex flex-col gap-4">
-            <InstructionText text="What is the client's name?" />
-            <TextInput
-              onChange={(e) => setClient(e.target.value)}
-              onEnter={submitClient}
-            />
-            <FadeMessage
-              display={showFadeMessage}
-              text="Client names can only be letters, numbers, and spaces."
-            />
-            <div className="self-center">
-              <AcceptButton onClick={submitClient} />
-            </div>
-          </div>
-        </div>
-      </div>
     );
   }
 }

@@ -38,23 +38,6 @@ function Materials() {
         onClick={confirmExpenseName}
       />
     </MainFlexContainer>
-    // <div>
-    //   <BackButton onClick={() => navigate("/expenses/add")} />
-    //   <div className="flex justify-center">
-    //     <div className="flex flex-col items-center gap-4">
-    //       <InstructionText text="What is the material called?" />
-    //       <TextInput
-    //         onChange={(e) => setTempName(e.target.value)}
-    //         onEnter={confirmExpenseName}
-    //       />
-    //       <AcceptButton
-    //         text="Next"
-    //         isActive={isActive}
-    //         onClick={confirmExpenseName}
-    //       />
-    //     </div>
-    //   </div>
-    // </div>
   );
 }
 

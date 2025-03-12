@@ -15,6 +15,8 @@ import Materials from "./pages/expenses/materials/Materials";
 import Labor from "./pages/expenses/Labor";
 import Rentals from "./pages/expenses/Rentals";
 import Measurements from "./pages/expenses/materials/Measurements";
+import ExistingClient from "./pages/create/ExistingClient";
+import NewClient from "./pages/create/NewClient";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
       {
         path: "/create",
         element: <CreateNewQuote />,
+      },
+      {
+        path: "/create/existing_client",
+        element: <ExistingClient />,
+      },
+      {
+        path: "/create/new_client",
+        element: <NewClient />,
       },
       {
         path: "/edit",
