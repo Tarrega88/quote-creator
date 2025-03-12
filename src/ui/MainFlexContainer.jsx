@@ -3,6 +3,7 @@ import BackButton from "./BackButton";
 
 function MainFlexContainer({ children, back }) {
   const navigate = useNavigate();
+
   return (
     <div>
       <BackButton onClick={() => navigate(back)} />

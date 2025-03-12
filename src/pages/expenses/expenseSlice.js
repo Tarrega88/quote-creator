@@ -8,6 +8,7 @@ const initialState = {
     },
     currentExpense: {
         type: "",
+        name: "",
     },
 };
 
