@@ -17,7 +17,7 @@ const expenseSlice = createSlice({
     initialState,
     reducers: {
         addToExpenses(state, action) {
-            state.expenses[state.currentExpense.type].push(action.payload);
+            state.expenses[action.payload.expenseType].push(action.payload);
         },
         setCurrentExpenseType(state, action) {
             state.currentExpense.type = action.payload;

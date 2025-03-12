@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import InstructionText from "../../../ui/InstructionText";
 import MainFlexContainer from "../../../ui/MainFlexContainer";
 import SquareButton from "../../../ui/SquareButton";
-import { setType } from "../../../store/slices/measurementSlice";
 import { useDispatch } from "react-redux";
 import { setMeasurementType } from "../../../store/slices/materialSlice";
 
