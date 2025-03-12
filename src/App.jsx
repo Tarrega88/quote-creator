@@ -17,6 +17,11 @@ import Rentals from "./pages/expenses/Rentals";
 import Measurements from "./pages/expenses/materials/Measurements";
 import ExistingClient from "./pages/create/ExistingClient";
 import NewClient from "./pages/create/NewClient";
+import Length from "./pages/expenses/materials/Length";
+import Area from "./pages/expenses/materials/Area";
+import Volume from "./pages/expenses/materials/Volume";
+import Weight from "./pages/expenses/materials/Weight";
+import Quantity from "./pages/expenses/materials/Quantity";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +64,26 @@ const router = createBrowserRouter([
       {
         path: "/expenses/add/materials/measurements",
         element: <Measurements />,
+      },
+      {
+        path: "/expenses/add/materials/measurements/length",
+        element: <Length />,
+      },
+      {
+        path: "/expenses/add/materials/measurements/area",
+        element: <Area />,
+      },
+      {
+        path: "/expenses/add/materials/measurements/volume",
+        element: <Volume />,
+      },
+      {
+        path: "/expenses/add/materials/measurements/weight",
+        element: <Weight />,
+      },
+      {
+        path: "/expenses/add/materials/measurements/quantity",
+        element: <Quantity />,
       },
       {
         path: "/expenses/add/labor",
