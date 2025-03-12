@@ -14,6 +14,7 @@ import ExpensesList from "./pages/expenses/ExpensesList";
 import Materials from "./pages/expenses/materials/Materials";
 import Labor from "./pages/expenses/Labor";
 import Rentals from "./pages/expenses/Rentals";
+import Measurements from "./pages/expenses/materials/Measurements";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/expenses/add/materials",
         element: <Materials />,
+      },
+      {
+        path: "/expenses/add/materials/measurements",
+        element: <Measurements />,
       },
       {
         path: "/expenses/add/labor",

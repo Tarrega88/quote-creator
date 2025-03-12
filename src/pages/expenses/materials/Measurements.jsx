@@ -1,5 +1,9 @@
 function Measurements() {
-  return <div></div>;
+  return (
+    <div>
+      <div>Measurements</div>
+    </div>
+  );
 }
 
 export default Measurements;

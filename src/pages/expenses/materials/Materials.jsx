@@ -7,9 +7,12 @@ import { useState } from "react";
 import AcceptButton from "../../../ui/AcceptButton";
 import { useDispatch } from "react-redux";
 import { setCurrentExpenseName } from "../expenseSlice";
+import MainFlexContainer from "../../../ui/MainFlexContainer";
 
 function Materials() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [tempName, setTempName] = useState("");
   const isActive = tempName.length > 0;
 
@@ -19,27 +22,39 @@ function Materials() {
     //might not be necessary though
     //let's also navigate to measurements after this
     dispatch(setCurrentExpenseName(tempName));
+    navigate("/expenses/add/materials/measurements");
   }
 
-  const navigate = useNavigate();
   return (
-    <div>
-      <BackButton onClick={() => navigate("/expenses/add")} />
-      <div className="flex justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <InstructionText text="What is the material called?" />
-          <TextInput
-            onChange={(e) => setTempName(e.target.value)}
-            onEnter={confirmExpenseName}
-          />
-          <AcceptButton
-            text="Next"
-            isActive={isActive}
-            onClick={confirmExpenseName}
-          />
-        </div>
-      </div>
-    </div>
+    <MainFlexContainer back="/expenses/add">
+      <InstructionText text="What is the material called?" />
+      <TextInput
+        onChange={(e) => setTempName(e.target.value)}
+        onEnter={confirmExpenseName}
+      />
+      <AcceptButton
+        text="Next"
+        isActive={isActive}
+        onClick={confirmExpenseName}
+      />
+    </MainFlexContainer>
+    // <div>
+    //   <BackButton onClick={() => navigate("/expenses/add")} />
+    //   <div className="flex justify-center">
+    //     <div className="flex flex-col items-center gap-4">
+    //       <InstructionText text="What is the material called?" />
+    //       <TextInput
+    //         onChange={(e) => setTempName(e.target.value)}
+    //         onEnter={confirmExpenseName}
+    //       />
+    //       <AcceptButton
+    //         text="Next"
+    //         isActive={isActive}
+    //         onClick={confirmExpenseName}
+    //       />
+    //     </div>
+    //   </div>
+    // </div>
   );
 }
 

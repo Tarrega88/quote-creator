@@ -1,13 +1,10 @@
-import { useNavigate } from "react-router-dom";
-import BackButton from "../../ui/BackButton";
+import MainFlexContainer from "../../ui/MainFlexContainer";
 
 function Labor() {
-  const navigate = useNavigate();
   return (
-    <div>
-      <BackButton onClick={() => navigate("/expenses/add")} />
+    <MainFlexContainer back="/expenses/add">
       <div>Labor</div>
-    </div>
+    </MainFlexContainer>
   );
 }
 

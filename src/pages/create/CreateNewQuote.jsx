@@ -10,11 +10,14 @@ import BackButton from "../../ui/BackButton";
 import Dropdown from "../../ui/Dropdown";
 import { updateClient } from "../../clientSlice";
 import FadeMessage from "../../ui/FadeMessage";
+import MainFlexContainer from "../../ui/MainFlexContainer";
 
 function CreateNewQuote() {
   //TODO 3/8/2025: If a new client is entered with the same name as an existing client,
   //prompt the user and let them know that client already exists.
   //Give them the option to create a new quote for the existing client or to (auto or manual?) change the entered name
+
+  //TODO 3/11/2025: may rework this to navigate and use router instead of using state logic here for rendering
 
   const [isNewClient, setIsNewClient] = useState(null);
   const [client, setClient] = useState("");
@@ -55,38 +58,40 @@ function CreateNewQuote() {
 
   {
     return isNewClient === null ? (
-      <div>
-        <BackButton text="Back" onClick={backButtonClicked} />
-        <div className="flex justify-center pt-8">
-          <div className="flex flex-col gap-4">
-            <InstructionText text="Is this for a new or existing client?" />
-            <div className="flex justify-evenly">
-              <SquareButton text="New" onClick={() => setIsNewClient(true)} />
-              <SquareButton
-                text="Existing"
-                onClick={() => setIsNewClient(false)}
-              />
-            </div>
-          </div>
+      <MainFlexContainer back="/">
+        <InstructionText text="Is this for a new or existing client?" />
+        <div className="flex justify-evenly gap-16">
+          <SquareButton text="New" onClick={() => setIsNewClient(true)} />
+          <SquareButton text="Existing" onClick={() => setIsNewClient(false)} />
         </div>
-      </div>
+      </MainFlexContainer>
     ) : isNewClient === false ? (
-      <div>
-        <BackButton text="Back" onClick={backButtonClicked} />
-        <div className="flex justify-center">
-          <div className="flex flex-col gap-4">
-            <InstructionText text="Which client?" />
-            <Dropdown
-              options={["", ...clientNames]}
-              onChange={(e) => setClient(e.target.value)}
-            />
-            <div className="self-center pt-4">
-              <AcceptButton onClick={submitClient} />
-            </div>
-          </div>
+      <MainFlexContainer>
+        <InstructionText text="Which client?" />
+        <Dropdown
+          options={["", ...clientNames]}
+          onChange={(e) => setClient(e.target.value)}
+        />
+        <div className="self-center pt-4">
+          <AcceptButton onClick={submitClient} />
         </div>
-      </div>
+      </MainFlexContainer>
     ) : (
+      // <div>
+      //   <BackButton text="Back" onClick={backButtonClicked} />
+      //   <div className="flex justify-center">
+      //     <div className="flex flex-col gap-4">
+      //       <InstructionText text="Which client?" />
+      //       <Dropdown
+      //         options={["", ...clientNames]}
+      //         onChange={(e) => setClient(e.target.value)}
+      //       />
+      //       <div className="self-center pt-4">
+      //         <AcceptButton onClick={submitClient} />
+      //       </div>
+      //     </div>
+      //   </div>
+      // </div>
       <div>
         <BackButton text="Back" onClick={backButtonClicked} />
 
