@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import MainFlexContainer from "../../../../ui/MainFlexContainer";
 import InstructionText from "../../../../ui/InstructionText";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import NumberInput from "../../../../ui/NumberInput";
 import { useState } from "react";
 import AcceptButton from "../../../../ui/AcceptButton";
@@ -11,6 +11,7 @@ function QuantityCost() {
   const [dollars, setDollars] = useState(0);
   const [unitAmount, setUnitAmount] = useState(0);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const measurementType = useSelector(
     (state) => state.material.measurementType,
@@ -37,6 +38,7 @@ function QuantityCost() {
   function handleClick() {
     if (dollars > 0 && unitAmount > 0) {
       dispatch(addToExpenses(materialExpense));
+      navigate("/expenses/added");
     } else {
       return;
     }

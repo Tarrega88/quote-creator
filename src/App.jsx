@@ -10,7 +10,7 @@ import ClientData from "./pages/clients/ClientData";
 import JobAdded from "./jobs/JobAdded";
 import Expenses from "./pages/expenses/Expenses";
 import AddExpense from "./pages/expenses/AddExpense";
-import ExpensesList from "./pages/expenses/ExpensesList";
+import ExpensesList from "./pages/expenses/list/ExpensesList";
 import Materials from "./pages/expenses/materials/Materials";
 import Labor from "./pages/expenses/Labor";
 import Rentals from "./pages/expenses/Rentals";
@@ -24,6 +24,11 @@ import Weight from "./pages/expenses/materials/weight/Weight";
 // import Quantity from "./pages/expenses/materials/quantity/Quantity";
 import MeasurementCost from "./pages/expenses/materials/MeasurementCost";
 import QuantityCost from "./pages/expenses/materials/quantity/QuantityCost";
+import DoneOrAdd from "./pages/expenses/materials/DoneOrAdd";
+import MaterialsList from "./pages/expenses/list/MaterialsList";
+import RentalsList from "./pages/expenses/list/RentalsList";
+import LaborList from "./pages/expenses/list/LaborList";
+import AllList from "./pages/expenses/list/AllList";
 
 const router = createBrowserRouter([
   {
@@ -104,6 +109,10 @@ const router = createBrowserRouter([
       //   element: <Quantity />,
       // },
       {
+        path: "/expenses/added",
+        element: <DoneOrAdd />,
+      },
+      {
         path: "/expenses/add/materials/measurements/quantity/:measurementUnit",
         element: <QuantityCost />,
       },
@@ -118,6 +127,22 @@ const router = createBrowserRouter([
       {
         path: "/expenses/list",
         element: <ExpensesList />,
+      },
+      {
+        path: "/expenses/list/materials",
+        element: <MaterialsList />,
+      },
+      {
+        path: "/expenses/list/rentals",
+        element: <RentalsList />,
+      },
+      {
+        path: "/expenses/list/labor",
+        element: <LaborList />,
+      },
+      {
+        path: "/expenses/list/all",
+        element: <AllList />,
       },
       {
         path: "/currentQuote",
