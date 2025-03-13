@@ -8,6 +8,7 @@ function MaterialsList() {
   );
   console.log(listOfExpenses);
   const titleRow = {};
+  //TODO 3/12/2025: make a separate title row component
   return (
     <MainFlexContainer back="/expenses/list">
       <MaterialListRow data={titleRow} />
