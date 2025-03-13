@@ -13,7 +13,7 @@ function ExpensesList() {
     <MainFlexContainer back="/expenses">
       <InstructionText text="Which expense list do you want to see?" />
       <div className="flex flex-col items-center gap-4">
-        <div className="flex gap-4">
+        <div className="flex gap-8">
           <SquareButton
             text="Materials"
             onClick={() => navigate("/expenses/list/materials")}
@@ -27,10 +27,6 @@ function ExpensesList() {
             onClick={() => navigate("/expenses/list/labor")}
           />
         </div>
-        <SquareButton
-          text="All"
-          onClick={() => navigate("/expenses/list/all")}
-        />
       </div>
     </MainFlexContainer>
   );
