@@ -6,21 +6,25 @@ import TextInput from "../../../ui/TextInput";
 import { useDispatch, useSelector } from "react-redux";
 import { setName } from "../../../store/slices/laborSlice";
 import { useNavigate } from "react-router-dom";
+import FadeMessage from "../../../ui/FadeMessage";
 
 function Labor() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [laborName, setLaborName] = useState("");
+  const [showFade, setShowFade] = useState(false);
 
   const laborNames = useSelector((state) => state.expense.expenses.labor).map(
     (e) => e.name.toLowerCase(),
   );
 
-  console.log(laborNames);
-
   function handleConfirmLaborName() {
     if (laborName.length === 0) return;
-    if (laborNames.includes(laborName.toLowerCase())) return;
+    if (laborNames.includes(laborName.toLowerCase())) {
+      setShowFade(true);
+      setTimeout(() => setShowFade(false), 5000);
+      return;
+    }
     dispatch(setName(laborName));
     navigate("/expenses/add/labor/time");
   }
@@ -31,6 +35,10 @@ function Labor() {
       <TextInput
         onChange={(e) => setLaborName(e.target.value)}
         onEnter={handleConfirmLaborName}
+      />
+      <FadeMessage
+        text={`There's already a labor expense named ${laborName} - use a different name.`}
+        display={showFade}
       />
       <AcceptButton
         text="Next"
