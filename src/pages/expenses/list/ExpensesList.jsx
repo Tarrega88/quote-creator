@@ -15,16 +15,16 @@ function ExpensesList() {
       <div className="flex flex-col items-center gap-4">
         <div className="flex gap-8">
           <SquareButton
-            text="Materials"
+            text="Material"
             onClick={() => navigate("/expenses/list/materials")}
-          />
-          <SquareButton
-            text="Rentals"
-            onClick={() => navigate("/expenses/list/rentals")}
           />
           <SquareButton
             text="Labor"
             onClick={() => navigate("/expenses/list/labor")}
+          />
+          <SquareButton
+            text="Rental"
+            onClick={() => navigate("/expenses/list/rentals")}
           />
         </div>
       </div>

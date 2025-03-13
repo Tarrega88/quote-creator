@@ -28,7 +28,6 @@ const expenseSlice = createSlice({
         deleteExpense(state, action) {
             const indexToRemove = state.expenses[action.payload.expenseType].findIndex(e => e.expenseName === action.payload.expenseName);
             state.expenses[action.payload.expenseType].splice(indexToRemove, 1);
-
         }
     },
 });

@@ -9,7 +9,7 @@ function LaborListRow({ data, odd }) {
 
   //TODO 3/12/2025: add ability to edit/delete
 
-  function handleDelete(expenseName) {
+  function handleDelete() {
     dispatch(
       deleteExpense({ expenseType: expenseType, expenseName: expenseName }),
     );
@@ -25,7 +25,7 @@ function LaborListRow({ data, odd }) {
       <span>{expenseName}</span>
       <span>${costInDollars}</span>
       <span>{flatOrTimeText}</span>
-      <RowDelete onClick={() => handleDelete(expenseName)} />
+      <RowDelete onClick={handleDelete} />
     </div>
   );
 }

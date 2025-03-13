@@ -1,19 +1,28 @@
+import { useDispatch } from "react-redux";
+import RowDelete from "../RowDelete";
+import { deleteExpense } from "../../../../store/slices/expenseSlice";
+
 function MaterialListRow({ data, odd }) {
-  console.log(data);
+  const dispatch = useDispatch();
   const {
     expenseName,
+    expenseType,
     measurementType,
     measurementUnit,
     costInDollars,
     unitAmount,
   } = data;
 
-  //TODO 3/12/2025: add ability to edit/delete
+  function handleDelete() {
+    dispatch(
+      deleteExpense({ expenseType: expenseType, expenseName: expenseName }),
+    );
+  }
 
   const bgColor = odd ? "bg-slate-600" : "bg-slate-700";
 
   return (
-    <div className={`grid grid-cols-4 ${bgColor} py-1 pl-4`}>
+    <div className={`grid grid-cols-5 ${bgColor} py-1 pl-4`}>
       <span>{expenseName}</span>
       <span>{measurementType}</span>
       {/* <span>{measurementUnit}</span> */}
@@ -21,6 +30,7 @@ function MaterialListRow({ data, odd }) {
       <span>
         {unitAmount} {measurementUnit}
       </span>
+      <RowDelete onClick={handleDelete} />
     </div>
   );
 }
