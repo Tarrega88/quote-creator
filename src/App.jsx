@@ -26,10 +26,10 @@ import MeasurementCost from "./pages/expenses/materials/MeasurementCost";
 import QuantityCost from "./pages/expenses/materials/quantity/QuantityCost";
 import DoneOrAdd from "./pages/expenses/DoneOrAdd";
 import MaterialsList from "./pages/expenses/list/materialList/MaterialsList";
-import RentalsList from "./pages/expenses/list/RentalsList";
 import LaborList from "./pages/expenses/list/laborList/LaborList";
 import LaborTime from "./pages/expenses/labor/LaborTime";
 import LaborCost from "./pages/expenses/labor/LaborCost";
+import RentalsList from "./pages/expenses/list/rentalList/RentalsList";
 
 const router = createBrowserRouter([
   {

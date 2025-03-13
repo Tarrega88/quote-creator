@@ -7,9 +7,6 @@ function MaterialsList() {
   const listOfExpenses = useSelector(
     (state) => state.expense.expenses.materials,
   );
-  console.log(listOfExpenses);
-  const titleRow = {};
-  //TODO 3/12/2025: make a separate title row component
   return (
     <MainFlexContainer back="/expenses/list">
       <div className="w-dvw">
