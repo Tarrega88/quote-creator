@@ -1,0 +1,60 @@
+import { useNavigate, useParams } from "react-router-dom";
+import MainFlexContainer from "../../../ui/MainFlexContainer";
+import InstructionText from "../../../ui/InstructionText";
+import NumberInput from "../../../ui/NumberInput";
+import { useState } from "react";
+import AcceptButton from "../../../ui/AcceptButton";
+import { useDispatch, useSelector } from "react-redux";
+import { setCost } from "../../../store/slices/laborSlice";
+import { addToExpenses } from "../../../store/slices/expenseSlice";
+
+function LaborCost() {
+  const { paidByThe } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [pay, setPay] = useState(0);
+  console.log(paidByThe);
+
+  const laborName = useSelector((state) => state.labor.name);
+
+  const expenseToAdd = {
+    expenseType: "labor",
+    laborName: laborName,
+    costInDollars: pay,
+    paidByThe,
+  };
+
+  const text =
+    paidByThe === "flat"
+      ? "What's their flat rate?"
+      : `What do they charge per ${paidByThe}?`;
+  //setName, setCost, setTimeType, setTimePerCost
+  function handleConfirmPay() {
+    if (pay <= 0) return;
+    // dispatch(setCost(pay));
+    dispatch(addToExpenses(expenseToAdd));
+    navigate("/expenses/added");
+  }
+
+  function handleEnter(e) {
+    if (pay <= 0 || e.key !== "Enter") return;
+    dispatch(addToExpenses(expenseToAdd));
+    navigate("/expenses/added");
+  }
+
+  return (
+    <MainFlexContainer back="/expenses/add/labor/time">
+      <InstructionText text={text} />
+      <div className="flex gap-2">
+        <span>$</span>
+        <NumberInput
+          onChange={(e) => setPay(Number(e.target.value))}
+          onEnter={handleEnter}
+        />
+      </div>
+      <AcceptButton isActive={pay > 0} onClick={handleConfirmPay} />
+    </MainFlexContainer>
+  );
+}
+
+export default LaborCost;

@@ -18,8 +18,9 @@ function Labor() {
 
   function handleConfirmLaborName() {
     if (laborName.length === 0) return;
-    if (laborNames.include(laborName.toLowerCase())) return;
+    if (laborNames.includes(laborName.toLowerCase())) return;
     dispatch(setName(laborName));
+    navigate("/expenses/add/labor/time");
   }
 
   return (
@@ -39,18 +40,3 @@ function Labor() {
 }
 
 export default Labor;
-
-{
-  /*    <MainFlexContainer back="/expenses/add">
-      <InstructionText text="What is the material called?" />
-      <TextInput
-        onChange={(e) => setTempName(e.target.value)}
-        onEnter={confirmExpenseName}
-      />
-      <AcceptButton
-        text="Next"
-        isActive={isActive}
-        onClick={confirmExpenseName}
-      />
-    </MainFlexContainer>*/
-}

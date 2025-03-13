@@ -1,10 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import InstructionText from "../../../ui/InstructionText";
-import MainFlexContainer from "../../../ui/MainFlexContainer";
-import SquareButton from "../../../ui/SquareButton";
-import Subtitle from "../../../ui/Subtitle";
+import InstructionText from "../../ui/InstructionText";
+import MainFlexContainer from "../../ui/MainFlexContainer";
+import SquareButton from "../../ui/SquareButton";
+import Subtitle from "../../ui/Subtitle";
+import { useSelector } from "react-redux";
 
 function DoneOrAdd() {
+  const expenseTest = useSelector((state) => state.expense.expenses);
+  console.log(expenseTest);
+
   const navigate = useNavigate();
   return (
     <MainFlexContainer activeBack={false}>

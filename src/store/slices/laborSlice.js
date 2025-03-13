@@ -20,11 +20,11 @@ const laborSlice = createSlice({
         setTimeType(state, action) {
             state.timeType = action.payload;
         },
-        setTimePerCost(state, action) {
-            state.timePerCost = action.payload;
-        }
+        // setTimePerCost(state, action) {
+        //     state.timePerCost = action.payload;
+        // }
     },
 });
 
-export const { setName, setCost, setTimeType, setTimePerCost } = laborSlice.actions;
+export const { setName, setCost, setTimeType } = laborSlice.actions;
 export default laborSlice.reducer;

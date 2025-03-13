@@ -24,11 +24,13 @@ import Weight from "./pages/expenses/materials/weight/Weight";
 // import Quantity from "./pages/expenses/materials/quantity/Quantity";
 import MeasurementCost from "./pages/expenses/materials/MeasurementCost";
 import QuantityCost from "./pages/expenses/materials/quantity/QuantityCost";
-import DoneOrAdd from "./pages/expenses/materials/DoneOrAdd";
+import DoneOrAdd from "./pages/expenses/DoneOrAdd";
 import MaterialsList from "./pages/expenses/list/MaterialsList";
 import RentalsList from "./pages/expenses/list/RentalsList";
 import LaborList from "./pages/expenses/list/LaborList";
 import AllList from "./pages/expenses/list/AllList";
+import LaborTime from "./pages/expenses/labor/LaborTime";
+import LaborCost from "./pages/expenses/labor/LaborCost";
 
 const router = createBrowserRouter([
   {
@@ -119,6 +121,14 @@ const router = createBrowserRouter([
       {
         path: "/expenses/add/labor",
         element: <Labor />,
+      },
+      {
+        path: "/expenses/add/labor/time",
+        element: <LaborTime />,
+      },
+      {
+        path: "/expenses/add/labor/time/:paidByThe",
+        element: <LaborCost />,
       },
       {
         path: "/expenses/add/rentals",
