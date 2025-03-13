@@ -1,4 +1,4 @@
-function MaterialListRow({ data }) {
+function MaterialListRow({ data, odd }) {
   console.log(data);
   const {
     materialName,
@@ -8,8 +8,12 @@ function MaterialListRow({ data }) {
     unitAmount,
   } = data;
 
+  //TODO 3/12/2025: add ability to edit/delete
+
+  const bgColor = odd ? "bg-slate-600" : "bg-slate-700";
+
   return (
-    <div className="grid grid-cols-5">
+    <div className={`grid grid-cols-5 ${bgColor} px-2 py-1`}>
       <span>{materialName}</span>
       <span>{measurementType}</span>
       <span>{measurementUnit}</span>
