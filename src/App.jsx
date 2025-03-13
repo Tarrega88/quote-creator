@@ -13,7 +13,6 @@ import AddExpense from "./pages/expenses/AddExpense";
 import ExpensesList from "./pages/expenses/list/ExpensesList";
 import Materials from "./pages/expenses/materials/Materials";
 import Labor from "./pages/expenses/labor/Labor";
-import Rentals from "./pages/expenses/Rentals";
 import Measurements from "./pages/expenses/materials/Measurements";
 import ExistingClient from "./pages/create/ExistingClient";
 import NewClient from "./pages/create/NewClient";
@@ -30,6 +29,9 @@ import LaborList from "./pages/expenses/list/laborList/LaborList";
 import LaborTime from "./pages/expenses/labor/LaborTime";
 import LaborCost from "./pages/expenses/labor/LaborCost";
 import RentalsList from "./pages/expenses/list/rentalList/RentalsList";
+import Rentals from "./pages/expenses/rentals/Rentals";
+import RentalTime from "./pages/expenses/rentals/RentalTime";
+import RentalCost from "./pages/expenses/rentals/RentalCost";
 
 const router = createBrowserRouter([
   {
@@ -132,6 +134,14 @@ const router = createBrowserRouter([
       {
         path: "/expenses/add/rentals",
         element: <Rentals />,
+      },
+      {
+        path: "/expenses/add/rentals/time",
+        element: <RentalTime />,
+      },
+      {
+        path: "/expenses/add/rentals/time/:paidByThe",
+        element: <RentalCost />,
       },
       {
         path: "/expenses/list",

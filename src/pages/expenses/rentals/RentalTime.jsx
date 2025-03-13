@@ -1,5 +1,7 @@
+import MainFlexContainer from "../../../ui/MainFlexContainer";
+
 function RentalTime() {
-  return <div></div>;
+  return <MainFlexContainer back="/expenses/add/rentals"></MainFlexContainer>;
 }
 
 export default RentalTime;

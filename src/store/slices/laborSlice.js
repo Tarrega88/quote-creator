@@ -4,7 +4,6 @@ const initialState = {
     expenseName: "",
     cost: 0,
     timeType: "",
-    timePerCost: 0,
 };
 
 const laborSlice = createSlice({

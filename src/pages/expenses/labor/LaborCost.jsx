@@ -28,7 +28,7 @@ function LaborCost() {
     paidByThe === "flat"
       ? "What's their flat rate?"
       : `What do they charge per ${paidByThe}?`;
-  //setName, setCost, setTimeType, setTimePerCost
+  //setName, setCost, setTimeType
   function handleConfirmPay() {
     if (pay <= 0) return;
     // dispatch(setCost(pay));
