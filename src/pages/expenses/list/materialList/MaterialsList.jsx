@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import MainFlexContainer from "../../../ui/MainFlexContainer";
+import MainFlexContainer from "../../../../ui/MainFlexContainer";
 import MaterialListRow from "./MaterialListRow";
 import MaterialTitleRow from "./MaterialTitleRow";
 

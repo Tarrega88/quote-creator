@@ -13,12 +13,14 @@ function MaterialListRow({ data, odd }) {
   const bgColor = odd ? "bg-slate-600" : "bg-slate-700";
 
   return (
-    <div className={`grid grid-cols-5 ${bgColor} px-2 py-1`}>
+    <div className={`grid grid-cols-4 ${bgColor} px-2 py-1`}>
       <span>{materialName}</span>
       <span>{measurementType}</span>
-      <span>{measurementUnit}</span>
-      <span>{costInDollars}</span>
-      <span>{unitAmount}</span>
+      {/* <span>{measurementUnit}</span> */}
+      <span>${costInDollars}</span>
+      <span>
+        {unitAmount} {measurementUnit}
+      </span>
     </div>
   );
 }

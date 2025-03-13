@@ -16,6 +16,8 @@ function Labor() {
     (e) => e.name.toLowerCase(),
   );
 
+  console.log(laborNames);
+
   function handleConfirmLaborName() {
     if (laborName.length === 0) return;
     if (laborNames.includes(laborName.toLowerCase())) return;

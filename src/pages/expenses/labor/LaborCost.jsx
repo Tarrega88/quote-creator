@@ -19,7 +19,7 @@ function LaborCost() {
 
   const expenseToAdd = {
     expenseType: "labor",
-    laborName: laborName,
+    name: laborName,
     costInDollars: pay,
     paidByThe,
   };

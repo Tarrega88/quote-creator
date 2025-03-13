@@ -13,9 +13,10 @@ function DoneOrAdd() {
   return (
     <MainFlexContainer activeBack={false}>
       <InstructionText text="Expense Added!" />
-      <Subtitle text="Add another expense or return to home page?" />
+      <Subtitle text="Add another expense, view expenses, or return to home page?" />
       <div className="flex gap-12">
         <SquareButton text="Add" onClick={() => navigate("/expenses/add")} />
+        <SquareButton text="View" onClick={() => navigate("/expenses/list")} />
         <SquareButton text="Home" onClick={() => navigate("/")} />
       </div>
     </MainFlexContainer>
