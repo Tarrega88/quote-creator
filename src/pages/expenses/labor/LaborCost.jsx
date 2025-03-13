@@ -5,7 +5,6 @@ import NumberInput from "../../../ui/NumberInput";
 import { useState } from "react";
 import AcceptButton from "../../../ui/AcceptButton";
 import { useDispatch, useSelector } from "react-redux";
-import { setCost } from "../../../store/slices/laborSlice";
 import { addToExpenses } from "../../../store/slices/expenseSlice";
 
 function LaborCost() {
@@ -28,16 +27,9 @@ function LaborCost() {
     paidByThe === "flat"
       ? "What's their flat rate?"
       : `What do they charge per ${paidByThe}?`;
-  //setName, setCost, setTimeType
+
   function handleConfirmPay() {
     if (pay <= 0) return;
-    // dispatch(setCost(pay));
-    dispatch(addToExpenses(expenseToAdd));
-    navigate("/expenses/added");
-  }
-
-  function handleEnter(e) {
-    if (pay <= 0 || e.key !== "Enter") return;
     dispatch(addToExpenses(expenseToAdd));
     navigate("/expenses/added");
   }
@@ -49,7 +41,7 @@ function LaborCost() {
         <span>$</span>
         <NumberInput
           onChange={(e) => setPay(Number(e.target.value))}
-          onEnter={handleEnter}
+          onEnter={handleConfirmPay}
         />
       </div>
       <AcceptButton isActive={pay > 0} onClick={handleConfirmPay} />

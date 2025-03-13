@@ -24,7 +24,9 @@ function MaterialListRow({ data, odd }) {
   return (
     <div className={`grid grid-cols-5 ${bgColor} py-1 pl-4`}>
       <span>{expenseName}</span>
-      <span>{measurementType}</span>
+      <span>
+        {measurementType} in {measurementUnit}
+      </span>
       {/* <span>{measurementUnit}</span> */}
       <span>${costInDollars}</span>
       <span>

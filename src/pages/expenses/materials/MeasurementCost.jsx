@@ -46,15 +46,15 @@ function MeasurementCost() {
     }
   }
 
-  function handleOnEnter(e) {
-    console.log(e);
-    if (dollars > 0 && unitAmount > 0 && e.key === "Enter") {
-      dispatch(addToExpenses(materialExpense));
-      navigate("/expenses/added");
-    } else {
-      return;
-    }
-  }
+  // function handleOnEnter(e) {
+  //   console.log(e);
+  //   if (dollars > 0 && unitAmount > 0 && e.key === "Enter") {
+  //     dispatch(addToExpenses(materialExpense));
+  //     navigate("/expenses/added");
+  //   } else {
+  //     return;
+  //   }
+  // }
 
   return (
     <MainFlexContainer back={back}>
@@ -64,12 +64,12 @@ function MeasurementCost() {
         <span>It costs</span>
         <NumberInput
           onChange={(e) => setDollars(Number(e.target.value))}
-          onEnter={handleOnEnter}
+          onEnter={handleClick}
         />
         <span>dollars per</span>
         <NumberInput
           onChange={(e) => setUnitAmount(Number(e.target.value))}
-          onEnter={handleOnEnter}
+          onEnter={handleClick}
         />
         <span>
           {measurementUnitSpaces} of {materialName}
