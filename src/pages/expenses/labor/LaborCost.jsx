@@ -15,11 +15,11 @@ function LaborCost() {
   const [pay, setPay] = useState(0);
   console.log(paidByThe);
 
-  const laborName = useSelector((state) => state.labor.name);
+  const laborName = useSelector((state) => state.labor.expenseName);
 
   const expenseToAdd = {
     expenseType: "labor",
-    name: laborName,
+    expenseName: laborName,
     costInDollars: pay,
     paidByThe,
   };

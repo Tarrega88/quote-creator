@@ -19,7 +19,7 @@ function Materials() {
 
   const currentMaterials = useSelector(
     (state) => state.expense.expenses.materials,
-  ).map((e) => e.materialName);
+  ).map((e) => e.expenseName);
 
   console.log(currentMaterials);
 

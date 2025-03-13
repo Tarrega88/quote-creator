@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    materialName: "",
+    expenseName: "",
     measurementType: "",
     measurementUnit: "",
 };
@@ -11,7 +11,7 @@ const materialSlice = createSlice({
     initialState,
     reducers: {
         setMaterialName(state, action) {
-            state.materialName = action.payload;
+            state.expenseName = action.payload;
         },
         setMeasurementType(state, action) {
             state.measurementType = action.payload;

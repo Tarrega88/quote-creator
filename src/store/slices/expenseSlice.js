@@ -8,7 +8,7 @@ const initialState = {
     },
     currentExpense: {
         type: "",
-        name: "",
+        expenseName: "",
     },
 };
 
@@ -23,10 +23,15 @@ const expenseSlice = createSlice({
             state.currentExpense.type = action.payload;
         },
         setCurrentExpenseName(state, action) {
-            state.currentExpense.name = action.payload;
+            state.currentExpense.expenseName = action.payload;
         },
+        deleteExpense(state, action) {
+            const indexToRemove = state.expenses[action.payload.expenseType].findIndex(e => e.expenseName === action.payload.expenseName);
+            state.expenses[action.payload.expenseType].splice(indexToRemove, 1);
+
+        }
     },
 });
 
-export const { addToExpenses, setCurrentExpenseType, setCurrentExpenseName } = expenseSlice.actions;
+export const { addToExpenses, setCurrentExpenseType, setCurrentExpenseName, deleteExpense } = expenseSlice.actions;
 export default expenseSlice.reducer;

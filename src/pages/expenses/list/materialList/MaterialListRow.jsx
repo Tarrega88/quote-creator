@@ -1,7 +1,7 @@
 function MaterialListRow({ data, odd }) {
   console.log(data);
   const {
-    materialName,
+    expenseName,
     measurementType,
     measurementUnit,
     costInDollars,
@@ -13,8 +13,8 @@ function MaterialListRow({ data, odd }) {
   const bgColor = odd ? "bg-slate-600" : "bg-slate-700";
 
   return (
-    <div className={`grid grid-cols-4 ${bgColor} px-2 py-1`}>
-      <span>{materialName}</span>
+    <div className={`grid grid-cols-4 ${bgColor} py-1 pl-4`}>
+      <span>{expenseName}</span>
       <span>{measurementType}</span>
       {/* <span>{measurementUnit}</span> */}
       <span>${costInDollars}</span>

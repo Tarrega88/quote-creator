@@ -17,7 +17,7 @@ function MeasurementCost() {
     (state) => state.material.measurementType,
   );
 
-  const materialName = useSelector((state) => state.material.materialName);
+  const materialName = useSelector((state) => state.material.expenseName);
 
   const back = `/expenses/add/materials/measurements/${measurementType}`;
 
@@ -30,7 +30,7 @@ function MeasurementCost() {
 
   const materialExpense = {
     expenseType: "materials",
-    materialName,
+    expenseName: materialName,
     measurementType,
     measurementUnit: measurementUnitSpaces,
     costInDollars: dollars,

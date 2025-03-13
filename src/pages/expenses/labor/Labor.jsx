@@ -15,7 +15,7 @@ function Labor() {
   const [showFade, setShowFade] = useState(false);
 
   const laborNames = useSelector((state) => state.expense.expenses.labor).map(
-    (e) => e.name.toLowerCase(),
+    (e) => e.expenseName.toLowerCase(),
   );
 
   function handleConfirmLaborName() {

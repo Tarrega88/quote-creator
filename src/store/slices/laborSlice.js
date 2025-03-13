@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    name: "",
+    expenseName: "",
     cost: 0,
     timeType: "",
     timePerCost: 0,
@@ -12,7 +12,7 @@ const laborSlice = createSlice({
     initialState,
     reducers: {
         setName(state, action) {
-            state.name = action.payload;
+            state.expenseName = action.payload;
         },
         setCost(state, action) {
             state.cost = action.payload;
