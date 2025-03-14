@@ -12,6 +12,8 @@ import { setRentalName } from "../../../store/slices/rentalSlice";
 function Rentals() {
   const [tempName, setTempName] = useState("");
   const [showFade, setShowFade] = useState(false);
+  const [fadeText, setFadeText] = useState("");
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -22,6 +24,7 @@ function Rentals() {
   function handleConfirmRentalName() {
     if (tempName.length === 0) return;
     if (currentRentals.includes(tempName)) {
+      setFadeText(tempName);
       setShowFade(true);
       if (!showFade) setTimeout(() => setShowFade(false), 5000);
       return;
@@ -39,7 +42,7 @@ function Rentals() {
         onEnter={handleConfirmRentalName}
       />
       <FadeMessage
-        text={`There's already a rental expense named ${tempName} - use a different name.`}
+        text={`There's already a rental expense named ${fadeText} - use a different name.`}
         display={showFade}
       />
       <AcceptButton

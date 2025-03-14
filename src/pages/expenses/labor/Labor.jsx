@@ -13,6 +13,7 @@ function Labor() {
   const navigate = useNavigate();
   const [laborName, setLaborName] = useState("");
   const [showFade, setShowFade] = useState(false);
+  const [fadeText, setFadeText] = useState("");
 
   const laborNames = useSelector((state) => state.expense.expenses.labor).map(
     (e) => e.expenseName.toLowerCase(),
@@ -21,6 +22,7 @@ function Labor() {
   function handleConfirmLaborName() {
     if (laborName.length === 0) return;
     if (laborNames.includes(laborName.toLowerCase())) {
+      setFadeText(laborName);
       setShowFade(true);
       if (!showFade) setTimeout(() => setShowFade(false), 5000);
       return;
@@ -37,7 +39,7 @@ function Labor() {
         onEnter={handleConfirmLaborName}
       />
       <FadeMessage
-        text={`There's already a labor expense named ${laborName} - use a different name.`}
+        text={`There's already a labor expense named ${fadeText} - use a different name.`}
         display={showFade}
       />
       <AcceptButton

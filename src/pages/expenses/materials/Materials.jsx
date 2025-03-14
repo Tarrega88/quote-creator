@@ -16,16 +16,16 @@ function Materials() {
   const isActive = tempName.length > 0;
 
   const [showFade, setShowFade] = useState(false);
+  const [fadeText, setFadeText] = useState("");
 
   const currentMaterials = useSelector(
     (state) => state.expense.expenses.materials,
   ).map((e) => e.expenseName);
 
-  console.log(currentMaterials);
-
   function confirmExpenseName() {
     if (tempName.length === 0) return;
     if (currentMaterials.includes(tempName)) {
+      setFadeText(tempName);
       setShowFade(true);
       if (!showFade) setTimeout(() => setShowFade(false), 5000);
       return;
@@ -47,7 +47,7 @@ function Materials() {
         onEnter={confirmExpenseName}
       />
       <FadeMessage
-        text="That material name has already been used, please use a different name"
+        text={`${fadeText} has already been used, please use a different name`}
         display={showFade}
       />
       <AcceptButton

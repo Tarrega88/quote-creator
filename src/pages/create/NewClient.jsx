@@ -11,17 +11,18 @@ import { updateClient } from "../../store/slices/clientSlice";
 
 function NewClient() {
   const [client, setClient] = useState("");
-  const [showFadeMessage, setShowFadeMessage] = useState(false);
+  const [showFade, setShowFade] = useState(false);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   function submitClient() {
     if (!client.length) return;
     if (!client.match(/^[a-zA-Z0-9 ]+$/)) {
-      setShowFadeMessage(true);
-      if (!showFadeMessage) setTimeout(() => setShowFadeMessage(false), 8000);
+      setShowFade(true);
+      if (!showFade) setTimeout(() => setShowFade(false), 8000);
       return;
-    }
+    } //TODO 3/14/2025: Add check for same client name
     dispatch(createQuote(client));
     dispatch(updateClient(client));
     navigate("/quotes/edit");
@@ -34,7 +35,7 @@ function NewClient() {
         onEnter={submitClient}
       />
       <FadeMessage
-        display={showFadeMessage}
+        display={showFade}
         text="Client names can only be letters, numbers, and spaces."
       />
       <div className="self-center">

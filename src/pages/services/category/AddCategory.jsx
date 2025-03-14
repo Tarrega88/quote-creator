@@ -14,6 +14,8 @@ import {
 function AddCategory() {
   const [tempName, setTempName] = useState("");
   const [showFade, setShowFade] = useState(false);
+  const [fadeText, setFadeText] = useState("");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -27,6 +29,7 @@ function AddCategory() {
   function handleAcceptCategoryName() {
     if (!tempName) return;
     if (currentCategories.includes(tempName.toLowerCase())) {
+      setFadeText(tempName);
       setShowFade(true);
       if (!showFade) setTimeout(() => setShowFade(false), 5000);
       return;
@@ -46,7 +49,7 @@ function AddCategory() {
         onEnter={handleAcceptCategoryName}
       />
       <FadeMessage
-        text={`${tempName} is already a category.`}
+        text={`${fadeText} is already a category.`}
         display={showFade}
       />
       <AcceptButton
