@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    services: [],
-    categories: [],
+    services: {},
+    // categories: [],
     current: {
         serviceCategory: "",
         serviceName: "",
@@ -28,10 +28,10 @@ const serviceSlice = createSlice({
             state.current.serviceCosts.push(action.payload);
         },
         addCategory(state, action) {
-            state.categories.push(action.payload);
+            state.services[action.payload] = [];
         },
         addService(state, action) {
-            state.services.push(action.payload);
+            state.services[state.current.serviceCategory].push(action.payload);
         }
     },
 });

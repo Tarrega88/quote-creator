@@ -20,7 +20,10 @@ function AddService() {
   console.log(test);
 
   const servicesData = useSelector((state) => state.service);
-  const serviceNames = servicesData.services.map((e) => e.serviceName);
+  // const serviceNames = servicesData.services.map((e) => e.serviceName);
+  const serviceNames = Object.values(servicesData.services).map(
+    (e) => e.serviceName,
+  );
 
   function handleAcceptServiceName() {
     if (!tempName) return;

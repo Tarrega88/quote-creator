@@ -17,9 +17,12 @@ function AddCategory() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const currentCategories = useSelector(
-    (state) => state.service.categories,
-  ).map((e) => e.toLowerCase());
+  const serviceData = useSelector((state) => state.service);
+  const keys = Object.keys(serviceData.services);
+  const currentCategories = keys.map((e) => e.toLowerCase());
+  // const currentCategories = useSelector(
+  //   (state) => state.service.services,
+  // ).map((e) => e.toLowerCase());
 
   function handleAcceptCategoryName() {
     if (!tempName) return;
@@ -30,6 +33,7 @@ function AddCategory() {
     } else {
       dispatch(setServiceCategory(tempName));
       dispatch(addCategory(tempName));
+      // dispatch(addCategory(tempName));
       //TODO 3/14/2025: navigate to some kind of cost basis page
     }
   }
