@@ -1,12 +1,13 @@
 import InstructionText from "../../../../ui/InstructionText";
 import SquareButton from "../../../../ui/SquareButton";
+import SquareButtonRow from "../../../../ui/SquareButtonRow";
 //ounces, pounds, tons
 function UnitOfWeight({ chooseUnitOfWeight }) {
   return (
     <div>
       <InstructionText text="What's it weighed in?" />
-      <div className="flex flex-col items-center gap-8 pt-8">
-        <div className="flex gap-12">
+      <div className="pt-8">
+        <SquareButtonRow>
           <SquareButton
             text="Ounces"
             onClick={() => chooseUnitOfWeight("ounces")}
@@ -19,7 +20,7 @@ function UnitOfWeight({ chooseUnitOfWeight }) {
             text="Tons"
             onClick={() => chooseUnitOfWeight("tons")}
           />
-        </div>
+        </SquareButtonRow>
       </div>
     </div>
   );

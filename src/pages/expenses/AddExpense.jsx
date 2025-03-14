@@ -5,6 +5,7 @@ import Header from "../../ui/Header";
 import { useDispatch } from "react-redux";
 import { setCurrentExpenseType } from "../../store/slices/expenseSlice";
 import MainFlexContainer from "../../ui/MainFlexContainer";
+import SquareButtonRow from "../../ui/SquareButtonRow";
 
 function AddExpense() {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ function AddExpense() {
     <MainFlexContainer back="/expenses">
       <Header text="Add Expense" />
       <InstructionText text="Is this a material, labor, or rental expense?" />
-      <div className="flex gap-8 pt-4">
+      <SquareButtonRow>
         <SquareButton
           text="Material"
           onClick={() => handleExpenseSelection("materials")}
@@ -32,7 +33,7 @@ function AddExpense() {
           text="Rental"
           onClick={() => handleExpenseSelection("rentals")}
         />
-      </div>
+      </SquareButtonRow>
     </MainFlexContainer>
   );
 }

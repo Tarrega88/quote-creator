@@ -4,6 +4,7 @@ import MainFlexContainer from "../../../ui/MainFlexContainer";
 import SquareButton from "../../../ui/SquareButton";
 import { useDispatch } from "react-redux";
 import { setTimeType } from "../../../store/slices/laborSlice";
+import SquareButtonRow from "../../../ui/SquareButtonRow";
 
 function LaborTime() {
   const navigate = useNavigate();
@@ -17,11 +18,11 @@ function LaborTime() {
   return (
     <MainFlexContainer back="/expenses/add/labor">
       <InstructionText text="This labor is paid by the..." />
-      <div className="flex gap-8">
+      <SquareButtonRow>
         <SquareButton text="Hour" onClick={() => handleNav("hour")} />
         <SquareButton text="Day" onClick={() => handleNav("day")} />
         <SquareButton text="Flat Rate" onClick={() => handleNav("flat")} />
-      </div>
+      </SquareButtonRow>
     </MainFlexContainer>
   );
 }

@@ -6,49 +6,45 @@ import Dropdown from "../../ui/Dropdown";
 import { jobTypes } from "../../helpers/jobTypes";
 import TextInput from "../../ui/TextInput";
 import AcceptButton from "../../ui/AcceptButton";
+import MainFlexContainer from "../../ui/MainFlexContainer";
+import SquareButtonRow from "../../ui/SquareButtonRow";
 
 function CustomJob() {
   const [inputType, setInputType] = useState("textInput");
-
+  //TODO 3/14/2025: Potentially going to rework, redo, or delete this entire page
   function determineInput(inputType) {
     switch (inputType) {
       case "button":
         return (
-          <div className="flex justify-center gap-16 pt-2">
-            <div className="flex flex-col gap-4">
-              <InstructionText text="Choose a job category" />
-              <Subtitle text="We can create a new category for this job or add it to an existing category." />
-              <div className="flex justify-center gap-16 pt-8">
-                <SquareButton
-                  text="New Category"
-                  onClick={() => setInputType("textInput")}
-                />
-                <SquareButton
-                  text="Existing Category"
-                  onClick={() => setInputType("dropdown")}
-                />
-              </div>
-            </div>
-          </div>
+          <MainFlexContainer>
+            <InstructionText text="Choose a job category" />
+            <Subtitle text="We can create a new category for this job or add it to an existing category." />
+            <SquareButtonRow>
+              <SquareButton
+                text="New Category"
+                onClick={() => setInputType("textInput")}
+              />
+              <SquareButton
+                text="Existing Category"
+                onClick={() => setInputType("dropdown")}
+              />
+            </SquareButtonRow>
+          </MainFlexContainer>
         );
       case "dropdown":
         return (
-          <div className="flex justify-center pt-2">
-            <div className="flex flex-col gap-4">
-              <InstructionText text="Choose a job category" />
-              <Subtitle text="Existing categories:" />
-              <Dropdown options={jobTypes.sort()} />
-            </div>
-          </div>
+          <MainFlexContainer>
+            <InstructionText text="Choose a job category" />
+            <Subtitle text="Existing categories:" />
+            <Dropdown options={jobTypes.sort()} />
+          </MainFlexContainer>
         );
       case "textInput":
         return (
-          <div className="flex justify-center pt-4">
-            <div className="flex flex-col items-center gap-6">
-              <TextInput />
-              <AcceptButton />
-            </div>
-          </div>
+          <MainFlexContainer>
+            <TextInput />
+            <AcceptButton />
+          </MainFlexContainer>
         );
     }
   }

@@ -4,6 +4,7 @@ import MainFlexContainer from "../../../ui/MainFlexContainer";
 import SquareButton from "../../../ui/SquareButton";
 import { useDispatch } from "react-redux";
 import { setMeasurementType } from "../../../store/slices/materialSlice";
+import SquareButtonRow from "../../../ui/SquareButtonRow";
 
 function Measurements() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ function Measurements() {
   return (
     <MainFlexContainer back="/expenses/add/materials">
       <InstructionText text="What type of measurement?" />
-      <div className="flex gap-12">
+      <SquareButtonRow>
         <SquareButton
           text="Length"
           onClick={() => confirmMeasurementType("length")}
@@ -31,8 +32,8 @@ function Measurements() {
           text="Volume"
           onClick={() => confirmMeasurementType("volume")}
         />
-      </div>
-      <div className="flex gap-12">
+      </SquareButtonRow>
+      <SquareButtonRow>
         <SquareButton
           text="Weight"
           onClick={() => confirmMeasurementType("weight")}
@@ -41,7 +42,7 @@ function Measurements() {
           text="Quantity"
           onClick={() => confirmMeasurementType("quantity/count")}
         />
-      </div>
+      </SquareButtonRow>
     </MainFlexContainer>
   );
 }

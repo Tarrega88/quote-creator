@@ -8,10 +8,13 @@ import InstructionText from "../../ui/InstructionText";
 import SquareButton from "../../ui/SquareButton";
 import Subtitle from "../../ui/Subtitle";
 import CustomJob from "../../jobs/custom/CustomJob";
+import SquareButtonRow from "../../ui/SquareButtonRow";
 
 //This should check to make sure there's an active client first from the quoteSlice (grabbed from store).
 // If not, it should require the user choose a client and quote
 //
+
+//TODO 3/14/2025: Potentially going to redo this page
 
 function EditQuote() {
   const [jobType, setJobType] = useState("");
@@ -104,11 +107,11 @@ function EditQuote() {
           </div>
           {/* <InstructionText text="Want to create a new quote" />
           <InstructionText text="or update an old one?" /> */}
-          <div className="flex justify-center gap-12 pt-4">
+          <SquareButtonRow>
             <SquareButton text="New" onClick={handleNew} />
             <SquareButton text="View Clients" onClick={handleViewClients} />
-            {/*should take us to a list of customers*/}
-          </div>
+          </SquareButtonRow>
+          {/*should take us to a list of customers*/}
         </div>
       )}
     </div>

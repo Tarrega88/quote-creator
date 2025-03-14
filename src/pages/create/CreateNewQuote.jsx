@@ -2,6 +2,7 @@ import InstructionText from "../../ui/InstructionText";
 import { useNavigate } from "react-router-dom";
 import SquareButton from "../../ui/SquareButton";
 import MainFlexContainer from "../../ui/MainFlexContainer";
+import SquareButtonRow from "../../ui/SquareButtonRow";
 
 function CreateNewQuote() {
   //TODO 3/8/2025: If a new client is entered with the same name as an existing client,
@@ -14,7 +15,7 @@ function CreateNewQuote() {
     return (
       <MainFlexContainer back="/quotes">
         <InstructionText text="Is this for a new or existing client?" />
-        <div className="flex justify-evenly gap-16">
+        <SquareButtonRow>
           <SquareButton
             text="New"
             onClick={() => navigate("/quotes/create/new_client")}
@@ -23,7 +24,7 @@ function CreateNewQuote() {
             text="Existing"
             onClick={() => navigate("/quotes/create/existing_client")}
           />
-        </div>
+        </SquareButtonRow>
       </MainFlexContainer>
     );
   }

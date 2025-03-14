@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { setRentalTimeType } from "../../../store/slices/rentalSlice";
 import InstructionText from "../../../ui/InstructionText";
 import SquareButton from "../../../ui/SquareButton";
+import SquareButtonRow from "../../../ui/SquareButtonRow";
 
 function RentalTime() {
   const navigate = useNavigate();
@@ -17,11 +18,11 @@ function RentalTime() {
   return (
     <MainFlexContainer back="/expenses/add/rentals">
       <InstructionText text="This rental is paid by the..." />
-      <div className="flex gap-8">
+      <SquareButtonRow>
         <SquareButton text="Hour" onClick={() => handleNav("hour")} />
         <SquareButton text="Day" onClick={() => handleNav("day")} />
         <SquareButton text="Flat Rate" onClick={() => handleNav("flat")} />
-      </div>
+      </SquareButtonRow>
     </MainFlexContainer>
   );
 }
