@@ -22,7 +22,7 @@ function Labor() {
     if (laborName.length === 0) return;
     if (laborNames.includes(laborName.toLowerCase())) {
       setShowFade(true);
-      setTimeout(() => setShowFade(false), 5000);
+      if (!showFade) setTimeout(() => setShowFade(false), 5000);
       return;
     }
     dispatch(setName(laborName));

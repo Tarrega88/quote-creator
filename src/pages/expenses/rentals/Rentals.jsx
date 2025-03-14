@@ -23,7 +23,7 @@ function Rentals() {
     if (tempName.length === 0) return;
     if (currentRentals.includes(tempName)) {
       setShowFade(true);
-      setTimeout(() => setShowFade(false), 5000);
+      if (!showFade) setTimeout(() => setShowFade(false), 5000);
       return;
     }
 

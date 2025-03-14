@@ -27,7 +27,7 @@ function Materials() {
     if (tempName.length === 0) return;
     if (currentMaterials.includes(tempName)) {
       setShowFade(true);
-      setTimeout(() => setShowFade(false), 5000);
+      if (!showFade) setTimeout(() => setShowFade(false), 5000);
       return;
     }
     //TODO 3/11/25: maybe add logic to make sure there's no duplicate

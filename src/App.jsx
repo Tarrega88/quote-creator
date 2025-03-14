@@ -37,6 +37,7 @@ import Services from "./pages/services/Services";
 import AddService from "./pages/services/AddService";
 import ServicesList from "./pages/services/list/ServicesList";
 import ServiceCategory from "./pages/services/ServiceCategory";
+import AddCategory from "./pages/services/AddCategory";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,7 @@ const router = createBrowserRouter([
         path: "/services/choose_category",
         element: <ServiceCategory />,
       },
+      { path: "/services/add_category", element: <AddCategory /> },
       {
         path: "/services/add",
         element: <AddService />,
