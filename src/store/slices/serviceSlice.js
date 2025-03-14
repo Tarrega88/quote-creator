@@ -1,10 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    serviceCategory: "",
-    serviceName: "",
-    serviceExpenses: [],
-    serviceCosts: [],
+    services: [],
+    categories: [],
+    current: {
+        serviceCategory: "",
+        serviceName: "",
+        serviceExpenses: [],
+        serviceCosts: [],
+    }
 };
 
 const serviceSlice = createSlice({
@@ -12,19 +16,25 @@ const serviceSlice = createSlice({
     initialState,
     reducers: {
         setServiceCategory(state, action) {
-            state.serviceCategory = action.payload;
+            state.current.serviceCategory = action.payload;
         },
         setServiceName(state, action) {
-            state.serviceName = action.payload;
+            state.current.serviceName = action.payload;
         },
         pushToServiceExpenses(state, action) {
-            state.serviceExpenses.push(action.payload);
+            state.current.serviceExpenses.push(action.payload);
         },
         pushToServiceCosts(state, action) {
-            state.serviceCosts.push(action.payload);
+            state.current.serviceCosts.push(action.payload);
+        },
+        addCategory(state, action) {
+            state.categories.push(action.payload);
+        },
+        addService(state, action) {
+            state.services.push(action.payload);
         }
     },
 });
 
-export const { setServiceCategory, setServiceName, pushToServiceExpenses, pushToServiceCosts } = serviceSlice.actions;
+export const { setServiceCategory, setServiceName, pushToServiceExpenses, pushToServiceCosts, addCategory, addService } = serviceSlice.actions;
 export default serviceSlice.reducer;

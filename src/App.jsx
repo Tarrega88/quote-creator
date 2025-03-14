@@ -36,6 +36,7 @@ import QuoteNav from "./pages/quote/QuoteNav";
 import Services from "./pages/services/Services";
 import AddService from "./pages/services/AddService";
 import ServicesList from "./pages/services/list/ServicesList";
+import ServiceCategory from "./pages/services/ServiceCategory";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
+      },
+      {
+        path: "/services/choose_category",
+        element: <ServiceCategory />,
       },
       {
         path: "/services/add",
