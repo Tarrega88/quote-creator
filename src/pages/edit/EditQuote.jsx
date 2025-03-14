@@ -27,7 +27,7 @@ function EditQuote() {
 
   function handleBackButton() {
     if (!jobType) {
-      navigate("/");
+      navigate("/quotes");
       return;
       //should add logic for when user reaches /edit through no client Edit instead of through New
     } //Maybe should bring to existing client instead?
@@ -48,7 +48,7 @@ function EditQuote() {
   }
 
   function handleNew() {
-    navigate("/create");
+    navigate("/quotes/create");
   }
 
   // function submitClient() {

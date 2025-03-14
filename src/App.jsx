@@ -50,24 +50,28 @@ const router = createBrowserRouter([
         element: <QuoteNav />,
       },
       {
+        path: "/quotes/create",
+        element: <CreateNewQuote />,
+      },
+      {
+        path: "/quotes/edit",
+        element: <EditQuote />,
+      },
+      {
+        path: "/quotes/view",
+        element: <CurrentQuote />,
+      },
+      {
         path: "/services",
         element: <Services />,
       },
       {
-        path: "/create",
-        element: <CreateNewQuote />,
-      },
-      {
-        path: "/create/existing_client",
+        path: "/quotes/create/existing_client",
         element: <ExistingClient />,
       },
       {
-        path: "/create/new_client",
+        path: "/quotes/create/new_client",
         element: <NewClient />,
-      },
-      {
-        path: "/edit",
-        element: <EditQuote />,
       },
       {
         path: "/expenses",
@@ -169,10 +173,7 @@ const router = createBrowserRouter([
         path: "/expenses/list/labor",
         element: <LaborList />,
       },
-      {
-        path: "/currentQuote",
-        element: <CurrentQuote />,
-      },
+
       {
         path: "/clients",
         element: <Clients />,

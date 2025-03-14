@@ -24,10 +24,10 @@ function NewClient() {
     }
     dispatch(createQuote(client));
     dispatch(updateClient(client));
-    navigate("/edit");
+    navigate("/quotes/edit");
   }
   return (
-    <MainFlexContainer back="/create">
+    <MainFlexContainer back="/quotes/create">
       <InstructionText text="What is the client's name?" />
       <TextInput
         onChange={(e) => setClient(e.target.value)}

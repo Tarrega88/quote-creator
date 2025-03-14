@@ -19,10 +19,10 @@ function ExistingClient() {
     if (!client.length) return;
     dispatch(createQuote(client));
     dispatch(updateClient(client));
-    navigate("/edit");
+    navigate("/quotes/edit");
   }
   return (
-    <MainFlexContainer back="/create">
+    <MainFlexContainer back="/quotes/create">
       <InstructionText text="Which client?" />
       <Dropdown
         options={["", ...clientNames]}

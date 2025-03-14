@@ -12,16 +12,16 @@ function CreateNewQuote() {
 
   {
     return (
-      <MainFlexContainer back="/">
+      <MainFlexContainer back="/quotes">
         <InstructionText text="Is this for a new or existing client?" />
         <div className="flex justify-evenly gap-16">
           <SquareButton
             text="New"
-            onClick={() => navigate("/create/new_client")}
+            onClick={() => navigate("/quotes/create/new_client")}
           />
           <SquareButton
             text="Existing"
-            onClick={() => navigate("/create/existing_client")}
+            onClick={() => navigate("/quotes/create/existing_client")}
           />
         </div>
       </MainFlexContainer>
