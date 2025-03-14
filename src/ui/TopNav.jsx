@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 
 function TopNav() {
   const links = [
-    { name: "New", link: "create" },
-    { name: "Edit", link: "edit" },
-    { name: "View", link: "currentQuote" },
+    // { name: "New", link: "create" },
+    // { name: "Edit", link: "edit" },
+    // { name: "View", link: "currentQuote" },
+    { name: "Quotes", link: "quotes" },
+    { name: "Services", link: "services" },
     { name: "Expenses", link: "expenses" },
     { name: "Clients", link: "clients" },
   ];

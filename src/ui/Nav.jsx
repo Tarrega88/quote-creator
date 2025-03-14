@@ -1,12 +1,19 @@
 import { Link } from "react-router-dom";
 
 function Nav() {
+  {
+    /*TODO 3/13/2025:
+    put new, edit, and view quote into their own page just called quote, and navigate from there
+    */
+  }
   const links = [
-    { name: "Create New Quote", link: "create" },
-    { name: "Edit Current Quote", link: "edit" },
-    { name: "View Current Quote", link: "currentQuote" },
+    // { name: "New Quote", link: "create" },
+    // { name: "Edit Quote", link: "edit" },
+    // { name: "View Quote", link: "currentQuote" },
+    { name: "Quotes", link: "quotes" },
+    { name: "Services", link: "services" },
     { name: "Expenses", link: "expenses" },
-    { name: "View Clients", link: "clients" },
+    { name: "Clients", link: "clients" },
   ];
   return (
     <div>
