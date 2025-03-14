@@ -6,7 +6,10 @@ import TextInput from "../../ui/TextInput";
 import { useDispatch, useSelector } from "react-redux";
 import FadeMessage from "../../ui/FadeMessage";
 import { useNavigate } from "react-router-dom";
-import { addCategory } from "../../store/slices/serviceSlice";
+import {
+  addCategory,
+  setServiceCategory,
+} from "../../store/slices/serviceSlice";
 
 function AddCategory() {
   const [tempName, setTempName] = useState("");
@@ -25,14 +28,19 @@ function AddCategory() {
       if (!showFade) setTimeout(() => setShowFade(false), 5000);
       return;
     } else {
+      dispatch(setServiceCategory(tempName));
       dispatch(addCategory(tempName));
+      navigate("/services/add");
     }
   }
 
   return (
     <MainFlexContainer back="/services/choose_category">
       <InstructionText text="Name the service category" />
-      <TextInput onChange={(e) => setTempName(e.target.value)} />
+      <TextInput
+        onChange={(e) => setTempName(e.target.value)}
+        onEnter={handleAcceptCategoryName}
+      />
       <FadeMessage
         text={`${tempName} is already a category.`}
         display={showFade}

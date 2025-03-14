@@ -1,50 +1,40 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import MainFlexContainer from "../../ui/MainFlexContainer";
+import InstructionText from "../../ui/InstructionText";
+import TextInput from "../../ui/TextInput";
+import FadeMessage from "../../ui/FadeMessage";
+import { useState } from "react";
+import AcceptButton from "../../ui/AcceptButton";
 
 function AddService() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [showFade, setShowFade] = useState(false);
+  const [tempName, setTempName] = useState("");
 
-  return <MainFlexContainer back="/services"></MainFlexContainer>;
-}
+  //TODO 3/14/2025: should this component be renamed?
 
-export default AddService;
+  const test = useSelector((state) => state.service);
+  console.log(test);
 
-{
-  /*
-    
-function AddExpense() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  //materials, rentals, labor
-  function handleExpenseSelection(type) {
-    dispatch(setCurrentExpenseType(type));
-    navigate(`/expenses/add/${type}`);
-  }
+  function handleAcceptServiceName() {}
 
   return (
-    <MainFlexContainer back="/expenses">
-      <Header text="Add Expense" />
-      <InstructionText text="Is this a material, labor, or rental expense?" />
-      <SquareButtonRow>
-        <SquareButton
-          text="Material"
-          onClick={() => handleExpenseSelection("materials")}
-        />
-        <SquareButton
-          text="Labor"
-          onClick={() => handleExpenseSelection("labor")}
-        />
-        <SquareButton
-          text="Rental"
-          onClick={() => handleExpenseSelection("rentals")}
-        />
-      </SquareButtonRow>
+    <MainFlexContainer back="/services/choose_category">
+      <InstructionText text="What's this service called?" />
+      <TextInput onChange={(e) => setTempName(e.target.value)} />
+      <FadeMessage
+        text={`${tempName} is already a service.`}
+        display={showFade}
+      />
+      <AcceptButton
+        text="Next"
+        onClick={handleAcceptServiceName}
+        isActive={tempName.length > 0}
+      />
     </MainFlexContainer>
   );
 }
 
-export default AddExpense;
-    */
-}
+export default AddService;
