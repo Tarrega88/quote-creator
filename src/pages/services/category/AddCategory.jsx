@@ -1,15 +1,15 @@
 import { useState } from "react";
-import AcceptButton from "../../ui/AcceptButton";
-import InstructionText from "../../ui/InstructionText";
-import MainFlexContainer from "../../ui/MainFlexContainer";
-import TextInput from "../../ui/TextInput";
+import AcceptButton from "../../../ui/AcceptButton";
+import InstructionText from "../../../ui/InstructionText";
+import MainFlexContainer from "../../../ui/MainFlexContainer";
+import TextInput from "../../../ui/TextInput";
 import { useDispatch, useSelector } from "react-redux";
-import FadeMessage from "../../ui/FadeMessage";
+import FadeMessage from "../../../ui/FadeMessage";
 import { useNavigate } from "react-router-dom";
 import {
   addCategory,
   setServiceCategory,
-} from "../../store/slices/serviceSlice";
+} from "../../../store/slices/serviceSlice";
 
 function AddCategory() {
   const [tempName, setTempName] = useState("");
@@ -30,12 +30,12 @@ function AddCategory() {
     } else {
       dispatch(setServiceCategory(tempName));
       dispatch(addCategory(tempName));
-      navigate("/services/add");
+      //TODO 3/14/2025: navigate to some kind of cost basis page
     }
   }
 
   return (
-    <MainFlexContainer back="/services/choose_category">
+    <MainFlexContainer back="/services/add/category">
       <InstructionText text="Name the service category" />
       <TextInput
         onChange={(e) => setTempName(e.target.value)}

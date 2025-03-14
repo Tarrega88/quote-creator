@@ -10,10 +10,7 @@ function Services() {
     <MainFlexContainer back="/">
       <InstructionText text="Add or View Services" />
       <SquareButtonRow>
-        <SquareButton
-          text="Add"
-          onClick={() => navigate("/services/choose_category")}
-        />
+        <SquareButton text="Add" onClick={() => navigate("/services/add")} />
         <SquareButton text="View" onClick={() => navigate("/services/list")} />
       </SquareButtonRow>
     </MainFlexContainer>

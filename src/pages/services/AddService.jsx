@@ -6,6 +6,7 @@ import TextInput from "../../ui/TextInput";
 import FadeMessage from "../../ui/FadeMessage";
 import { useState } from "react";
 import AcceptButton from "../../ui/AcceptButton";
+import { setServiceName } from "../../store/slices/serviceSlice";
 
 function AddService() {
   const navigate = useNavigate();
@@ -14,16 +15,32 @@ function AddService() {
   const [tempName, setTempName] = useState("");
 
   //TODO 3/14/2025: should this component be renamed?
-
+  //I think I'm going to start with this and THEN go to categories
   const test = useSelector((state) => state.service);
   console.log(test);
 
-  function handleAcceptServiceName() {}
+  const servicesData = useSelector((state) => state.service);
+  const serviceNames = servicesData.services.map((e) => e.serviceName);
+
+  function handleAcceptServiceName() {
+    if (!tempName) return;
+    if (serviceNames.includes(tempName)) {
+      setShowFade(true);
+      if (!showFade) setTimeout(() => setShowFade(false), 5000);
+      return;
+    } else {
+      dispatch(setServiceName(tempName));
+      navigate("/services/add/category");
+    }
+  }
 
   return (
-    <MainFlexContainer back="/services/choose_category">
+    <MainFlexContainer back="/services">
       <InstructionText text="What's this service called?" />
-      <TextInput onChange={(e) => setTempName(e.target.value)} />
+      <TextInput
+        onChange={(e) => setTempName(e.target.value)}
+        onEnter={handleAcceptServiceName}
+      />
       <FadeMessage
         text={`${tempName} is already a service.`}
         display={showFade}

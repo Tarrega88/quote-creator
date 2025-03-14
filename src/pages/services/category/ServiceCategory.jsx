@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import Dropdown from "../../ui/Dropdown";
-import InstructionText from "../../ui/InstructionText";
-import MainFlexContainer from "../../ui/MainFlexContainer";
+import Dropdown from "../../../ui/Dropdown";
+import InstructionText from "../../../ui/InstructionText";
+import MainFlexContainer from "../../../ui/MainFlexContainer";
 import { useState } from "react";
-import AcceptButton from "../../ui/AcceptButton";
+import AcceptButton from "../../../ui/AcceptButton";
 import { useNavigate } from "react-router-dom";
-import { setServiceCategory } from "../../store/slices/serviceSlice";
+import { setServiceCategory } from "../../../store/slices/serviceSlice";
 
 function ServiceCategory() {
   const [category, setCategory] = useState("");

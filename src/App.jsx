@@ -33,11 +33,13 @@ import Rentals from "./pages/expenses/rentals/Rentals";
 import RentalTime from "./pages/expenses/rentals/RentalTime";
 import RentalCost from "./pages/expenses/rentals/RentalCost";
 import QuoteNav from "./pages/quote/QuoteNav";
-import Services from "./pages/services/Services";
 import AddService from "./pages/services/AddService";
 import ServicesList from "./pages/services/list/ServicesList";
-import ServiceCategory from "./pages/services/ServiceCategory";
-import AddCategory from "./pages/services/AddCategory";
+import Services from "./pages/services/Services";
+import ServiceCategory from "./pages/services/category/ServiceCategory";
+import AddCategory from "./pages/services/category/AddCategory";
+import ChooseNewOrExistingCategory from "./pages/services/category/ChooseNewOrExistingCategory";
+import ExistingCategory from "./pages/services/category/ExistingCategory";
 
 const router = createBrowserRouter([
   {
@@ -73,11 +75,20 @@ const router = createBrowserRouter([
         path: "/services/choose_category",
         element: <ServiceCategory />,
       },
-      { path: "/services/add_category", element: <AddCategory /> },
+      {
+        path: "/services/add/category",
+        element: <ChooseNewOrExistingCategory />,
+      },
+      { path: "/services/add/category/new", element: <AddCategory /> },
+      {
+        path: "/services/add/category/existing",
+        element: <ExistingCategory />,
+      },
       {
         path: "/services/add",
         element: <AddService />,
       },
+
       {
         path: "/services/list",
         element: <ServicesList />,
