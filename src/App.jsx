@@ -34,6 +34,8 @@ import RentalTime from "./pages/expenses/rentals/RentalTime";
 import RentalCost from "./pages/expenses/rentals/RentalCost";
 import QuoteNav from "./pages/quote/QuoteNav";
 import Services from "./pages/services/Services";
+import AddService from "./pages/services/AddService";
+import ServicesList from "./pages/services/list/ServicesList";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +66,14 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
+      },
+      {
+        path: "/services/add",
+        element: <AddService />,
+      },
+      {
+        path: "/services/list",
+        element: <ServicesList />,
       },
       {
         path: "/quotes/create/existing_client",

@@ -6,6 +6,7 @@ import expenseReducer from "./slices/expenseSlice";
 import materialReducer from "./slices/materialSlice";
 import laborReducer from "./slices/laborSlice";
 import rentalReducer from "./slices/rentalSlice";
+import serviceReducer from "./slices/serviceSlice"
 
 const { ipcRenderer } = window?.electron || {}; // Prevent errors in non-Electron environments
 
@@ -23,6 +24,7 @@ const store = configureStore({
         material: materialReducer,
         labor: laborReducer,
         rental: rentalReducer,
+        service: serviceReducer,
     },
     preloadedState: persistedState,
 });
