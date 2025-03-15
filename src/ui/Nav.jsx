@@ -11,8 +11,8 @@ function Nav() {
     // { name: "Edit Quote", link: "edit" },
     // { name: "View Quote", link: "currentQuote" },
     { name: "Quotes", link: "quotes" },
-    { name: "Services", link: "services" },
     { name: "Expenses", link: "expenses" },
+    { name: "Services", link: "services" },
     { name: "Clients", link: "clients" },
   ];
   return (

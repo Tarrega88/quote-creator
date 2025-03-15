@@ -44,6 +44,7 @@ import PriceModel from "./pages/services/priceModel/PriceModel";
 import MeasurementModel from "./pages/services/priceModel/MeasurementModel";
 import TimeModel from "./pages/services/priceModel/TimeModel";
 import FlatModel from "./pages/services/priceModel/FlatModel";
+import MeasurementType from "./pages/services/priceModel/MeasurementType";
 
 const router = createBrowserRouter([
   {
@@ -99,6 +100,10 @@ const router = createBrowserRouter([
       {
         path: "/services/add/price_model/measurement",
         element: <MeasurementModel />,
+      },
+      {
+        path: "/services/add/price_model/measurement/:measurementType",
+        element: <MeasurementType />,
       },
       {
         path: "/services/add/price_model/time",
