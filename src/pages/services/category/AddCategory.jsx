@@ -37,7 +37,7 @@ function AddCategory() {
       dispatch(setServiceCategory(tempName));
       dispatch(addCategory(tempName));
       navigate("/services/add/price_model");
-      //TODO 3/14/2025: navigate to some kind of cost basis page
+      //TODO 3/14/2025: change this to navigate to a check for adding expenses to this service
     }
   }
 

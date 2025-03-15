@@ -43,7 +43,6 @@ function PriceRange({ surveyData, min, max, name, labelText }) {
 
       <InstructionText text="Add job to quote" />
       <div>
-        {/* <AddToQuoteButton text="Add" onClick={addToQuotes} /> */}
         <AcceptButton text="Add" onClick={addToQuotes} />
       </div>
     </div>

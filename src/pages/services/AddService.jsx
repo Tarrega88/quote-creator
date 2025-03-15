@@ -18,9 +18,7 @@ function AddService() {
   //I think I'm going to start with this and THEN go to categories
 
   const servicesData = useSelector((state) => state.service);
-  console.log("HERE");
   console.log(servicesData);
-  // const serviceNames = servicesData.services.map((e) => e.serviceName);
   const serviceNames = Object.values(servicesData.services).map(
     (e) => e.serviceNames,
   );

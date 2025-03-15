@@ -7,7 +7,7 @@ function LaborListRow({ data, odd }) {
   const { expenseName, expenseType, costInDollars, paidByThe } = data;
   const dispatch = useDispatch();
 
-  //TODO 3/12/2025: add ability to edit/delete
+  //TODO 3/12/2025: add ability to edit
 
   function handleDelete() {
     dispatch(

@@ -30,9 +30,6 @@ function Materials() {
       if (!showFade) setTimeout(() => setShowFade(false), 5000);
       return;
     }
-    //TODO 3/11/25: maybe add logic to make sure there's no duplicate
-    //might not be necessary though
-    //let's also navigate to measurements after this
 
     // dispatch(setCurrentExpenseName(tempName));
     dispatch(setMaterialName(tempName));
