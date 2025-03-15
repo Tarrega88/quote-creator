@@ -10,7 +10,10 @@ import MeasurementType from "../pages/services/priceModel/measurement/Measuremen
 import MeasurementUnit from "../pages/services/priceModel/measurement/MeasurementUnit";
 import PriceModel from "../pages/services/priceModel/PriceModel";
 import TimeModel from "../pages/services/priceModel/TimeModel";
+import ServiceExpenseBridge from "../pages/services/bridge/ServiceExpenseBridge";
 import Services from "../pages/services/Services";
+import ExpensesToAdd from "../pages/services/bridge/ExpensesToAdd";
+import ChooseExpense from "../pages/services/bridge/ChooseExpense";
 
 export const serviceRoutes = [
   {
@@ -29,6 +32,18 @@ export const serviceRoutes = [
   {
     path: "/services/add/category/existing",
     element: <ExistingCategory />,
+  },
+  {
+    path: "/services/add/bridge",
+    element: <ServiceExpenseBridge />,
+  },
+  {
+    path: "/services/add/bridge/expenses",
+    element: <ExpensesToAdd />,
+  },
+  {
+    path: "/services/add/bridge/expenses/:expenseType",
+    element: <ChooseExpense />,
   },
   {
     path: "/services/add",

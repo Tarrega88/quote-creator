@@ -36,7 +36,8 @@ function AddCategory() {
     } else {
       dispatch(setServiceCategory(tempName));
       dispatch(addCategory(tempName));
-      navigate("/services/add/price_model");
+      navigate("/services/add/bridge");
+      // navigate("/services/add/price_model"); This navigate will actually go into the next component
       //TODO 3/14/2025: change this to navigate to a check for adding expenses to this service
     }
   }

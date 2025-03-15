@@ -18,7 +18,8 @@ function ExistingCategory() {
   function handleClick() {
     if (!category.length) return;
     dispatch(setServiceCategory(category));
-    navigate("/services/add/price_model");
+    navigate("/services/add/bridge");
+    // navigate("/services/add/price_model");
   }
 
   return (

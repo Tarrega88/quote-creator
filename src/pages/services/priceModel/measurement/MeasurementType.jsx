@@ -15,19 +15,6 @@ function MeasurementType() {
     <MainFlexContainer back="/services/add/price_model/measurement">
       <InstructionText text={`What is the ${serviceName} measured in?`} />
       <MeasurementUnit />
-      {/* <SquareButtonRow>
-        {keys.map((e, i) => (
-          <SquareButton
-            key={i}
-            text={e}
-            onClick={() =>
-              navigate(
-                `/services/add/price_model/measurement/${measurementType}/${data[e]}`,
-              )
-            }
-          />
-        ))}
-      </SquareButtonRow> */}
     </MainFlexContainer>
   );
 }
