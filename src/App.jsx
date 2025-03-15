@@ -40,6 +40,10 @@ import ServiceCategory from "./pages/services/category/ServiceCategory";
 import AddCategory from "./pages/services/category/AddCategory";
 import ChooseNewOrExistingCategory from "./pages/services/category/ChooseNewOrExistingCategory";
 import ExistingCategory from "./pages/services/category/ExistingCategory";
+import PriceModel from "./pages/services/priceModel/PriceModel";
+import MeasurementModel from "./pages/services/priceModel/MeasurementModel";
+import TimeModel from "./pages/services/priceModel/TimeModel";
+import FlatModel from "./pages/services/priceModel/FlatModel";
 
 const router = createBrowserRouter([
   {
@@ -88,7 +92,22 @@ const router = createBrowserRouter([
         path: "/services/add",
         element: <AddService />,
       },
-
+      {
+        path: "/services/add/price_model",
+        element: <PriceModel />,
+      },
+      {
+        path: "/services/add/price_model/measurement",
+        element: <MeasurementModel />,
+      },
+      {
+        path: "/services/add/price_model/time",
+        element: <TimeModel />,
+      },
+      {
+        path: "/services/add/price_model/flat",
+        element: <FlatModel />,
+      },
       {
         path: "/services/list",
         element: <ServicesList />,

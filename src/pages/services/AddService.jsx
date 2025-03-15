@@ -16,13 +16,14 @@ function AddService() {
 
   //TODO 3/14/2025: should this component be renamed?
   //I think I'm going to start with this and THEN go to categories
-  const test = useSelector((state) => state.service);
-  console.log(test);
 
   const servicesData = useSelector((state) => state.service);
   console.log("HERE");
+  console.log(servicesData);
   // const serviceNames = servicesData.services.map((e) => e.serviceName);
-  const serviceNames = Object.values(servicesData.services);
+  const serviceNames = Object.values(servicesData.services).map(
+    (e) => e.serviceNames,
+  );
   console.log(serviceNames);
 
   function handleAcceptServiceName() {
@@ -33,7 +34,7 @@ function AddService() {
       return;
     } else {
       dispatch(setServiceName(tempName));
-      navigate("/services/add/category");
+      navigate("/services/add/category/");
     }
   }
 

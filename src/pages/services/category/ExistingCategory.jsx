@@ -1,55 +1,40 @@
+import { useDispatch, useSelector } from "react-redux";
+import AcceptButton from "../../../ui/AcceptButton";
+import Dropdown from "../../../ui/Dropdown";
 import InstructionText from "../../../ui/InstructionText";
 import MainFlexContainer from "../../../ui/MainFlexContainer";
+import { useState } from "react";
+import { setServiceCategory } from "../../../store/slices/serviceSlice";
+import { useNavigate } from "react-router-dom";
 
 function ExistingCategory() {
-  return (
-    <MainFlexContainer back="/services/add/category">
-      <InstructionText text="Which category will the service belong to?" />
-    </MainFlexContainer>
-  );
-}
-
-export default ExistingCategory;
-
-{
-  /*
-      const [category, setCategory] = useState("");
-  const navigate = useNavigate();
+  const [category, setCategory] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  //   const services = useSelector((state) => state.service.services)
-  //     .map((e) => e.serviceName)
-  //     .sort();
+  const serviceData = useSelector((state) => state.service);
+  const options = Object.keys(serviceData.services);
 
-  const categories = useSelector((state) => state.service.categories);
-  const sorted = [...categories].sort();
-
-  const options = ["", "Create New Category", ...sorted];
-
-  function handleConfirmCategory() {
-    if (!category) return;
-    if (category === "Create New Category") {
-      navigate("/services/add_category");
-    } else {
-      dispatch(setServiceCategory(category));
-      navigate("/services/add");
-      //go to the page that asks how this service is charged (time, measurement, flat rate)
-    }
+  function handleClick() {
+    if (!category.length) return;
+    dispatch(setServiceCategory(category));
+    navigate("/services/add/price_model");
   }
 
   return (
-    <MainFlexContainer back="/services">
-      <InstructionText text="Select a category or create a new one" />
+    <MainFlexContainer back="/services/add/category">
+      <InstructionText text="Which category will the service belong to?" />
       <Dropdown
-        options={options}
+        options={["", ...options]}
         onChange={(e) => setCategory(e.target.value)}
       />
       <AcceptButton
         text="Next"
         isActive={category.length > 0}
-        onClick={handleConfirmCategory}
+        onClick={handleClick}
       />
     </MainFlexContainer>
   );
-    */
 }
+
+export default ExistingCategory;

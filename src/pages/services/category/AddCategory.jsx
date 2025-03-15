@@ -36,7 +36,7 @@ function AddCategory() {
     } else {
       dispatch(setServiceCategory(tempName));
       dispatch(addCategory(tempName));
-      // dispatch(addCategory(tempName));
+      navigate("/services/add/price_model");
       //TODO 3/14/2025: navigate to some kind of cost basis page
     }
   }
