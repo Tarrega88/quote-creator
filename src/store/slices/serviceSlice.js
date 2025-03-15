@@ -6,7 +6,11 @@ const initialState = {
     current: {
         serviceCategory: "",
         serviceName: "",
-        serviceExpenses: [],
+        serviceExpenses: {
+            materials: [],
+            rentals: [],
+            labor: [],
+        },
         serviceCosts: [],
     }
 };
@@ -22,7 +26,8 @@ const serviceSlice = createSlice({
             state.current.serviceName = action.payload;
         },
         pushToServiceExpenses(state, action) {
-            state.current.serviceExpenses.push(action.payload);
+            state.current.serviceExpenses[action.payload.expenseType].push(...action.payload.expenses)
+            // state.current.serviceExpenses.push(action.payload);
         },
         pushToServiceCosts(state, action) {
             state.current.serviceCosts.push(action.payload);
