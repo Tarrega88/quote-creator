@@ -46,6 +46,8 @@ function ChooseExpense() {
         expenses: addedExpenses,
       }),
     );
+    //Maybe switch the logic from pushing to be a key instead? probably faster and easier to delete later
+    //TODO: maybe also add the service name to somewhere in expense logic in an array or object, so that if the expense is deleted, it can easily be deleted from the service logic
     //TODO: add navigate here to ask if more expenses should be added
   }
   console.log(test);
