@@ -5,8 +5,9 @@ import ExistingCategory from "../pages/services/category/ExistingCategory";
 import ServiceCategory from "../pages/services/category/ServiceCategory";
 import ServicesList from "../pages/services/list/ServicesList";
 import FlatModel from "../pages/services/priceModel/FlatModel";
-import MeasurementModel from "../pages/services/priceModel/MeasurementModel";
-import MeasurementType from "../pages/services/priceModel/MeasurementType";
+import MeasurementModel from "../pages/services/priceModel/measurement/MeasurementModel";
+import MeasurementType from "../pages/services/priceModel/measurement/MeasurementType";
+import MeasurementUnit from "../pages/services/priceModel/measurement/MeasurementUnit";
 import PriceModel from "../pages/services/priceModel/PriceModel";
 import TimeModel from "../pages/services/priceModel/TimeModel";
 import Services from "../pages/services/Services";
@@ -44,6 +45,10 @@ export const serviceRoutes = [
   {
     path: "/services/add/price_model/measurement/:measurementType",
     element: <MeasurementType />,
+  },
+  {
+    path: "/services/add/price_model/measurement/:measurementType/:measurementUnit",
+    element: <div>Test</div>,
   },
   {
     path: "/services/add/price_model/time",

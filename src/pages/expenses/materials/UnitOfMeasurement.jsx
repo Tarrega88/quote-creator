@@ -35,8 +35,6 @@ const unitsOfMeasurement = {
 };
 
 function UnitOfMeasurement({ chooseUnitOfMeasurement }) {
-  const text = "";
-
   const { measurementType } = useParams();
   const data = unitsOfMeasurement[measurementType];
   console.log(data);
@@ -45,7 +43,7 @@ function UnitOfMeasurement({ chooseUnitOfMeasurement }) {
 
   return (
     <div>
-      <InstructionText />
+      {/* <InstructionText /> */}
       {/* <div className="grid grid-cols-2"> */}
       <SquareButtonRow>
         {keys.map((e, i) => (
