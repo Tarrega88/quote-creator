@@ -40,7 +40,7 @@ function Measurements() {
         />
         <SquareButton
           text="Quantity"
-          onClick={() => confirmMeasurementType("quantity/count")}
+          onClick={() => confirmMeasurementType("quantity")}
         />
       </SquareButtonRow>
     </MainFlexContainer>
