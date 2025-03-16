@@ -75,18 +75,6 @@ function ChooseExpense() {
 
   const test = useSelector((state) => state.service);
   function handleAccept() {
-    // dispatch(
-    //   pushToServiceExpenses({
-    //     expenseType,
-    //     expenses: addedExpenses,
-    //   }),
-    dispatch(
-      addToServiceExpenses({
-        expenseType,
-        expenses: addedExpenses,
-      }),
-    );
-    // navigate("/services/add/price_model"),
     navigate("/services/add/bridge");
 
     //Maybe switch the logic from pushing to be a key instead? probably faster and easier to delete later
