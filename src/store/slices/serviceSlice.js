@@ -71,14 +71,16 @@ const serviceSlice = createSlice({
             }
         },
         removeFromServiceExpenses(state, action) {
-            delete state.services[state.current.serviceCategory][state.current.serviceName].serviceExpenses[action.payload.expenseType][action.payload.expense];
+
+            delete state.services[action.payload.serviceCategory][action.payload.serviceName].serviceExpenses[action.payload.expenseType][action.payload.expense];
         },
         addPreliminaryData(state, action) {
             state.services[action.payload.category] = { ...state.services[action.payload.category], ...action.payload.data };
         },
         addServiceCharge(state, action) {
 
-        }
+        },
+
     },
 });
 

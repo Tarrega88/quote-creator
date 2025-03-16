@@ -1,10 +1,12 @@
 import { useDispatch } from "react-redux";
 import RowDelete from "../RowDelete";
 import { deleteExpense } from "../../../../store/slices/expenseSlice";
+import { removeFromServiceExpenses } from "../../../../store/slices/serviceSlice";
 
 function MaterialListRow({ data, odd }) {
   const dispatch = useDispatch();
   const {
+    appliedTo,
     expenseName,
     expenseType,
     measurementType,
@@ -14,6 +16,17 @@ function MaterialListRow({ data, odd }) {
   } = data;
 
   function handleDelete() {
+    //TODO 3/16/2025: Add this logic to the other ListRows (after confirming it works):
+    for (const [serviceName, serviceCategory] of Object.entries(appliedTo)) {
+      dispatch(
+        removeFromServiceExpenses({
+          serviceCategory,
+          expenseType,
+          serviceName,
+          expense: expenseName,
+        }),
+      );
+    }
     dispatch(
       deleteExpense({ expenseType: expenseType, expenseName: expenseName }),
     );

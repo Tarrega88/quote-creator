@@ -4,7 +4,8 @@ const dumbyData = {
     expenses: {
         materials: {
             fabric: {
-                appliedTo: {},
+                appliedTo: { "french drain installation": "installations" },
+                costInDollars: 100,
                 expenseName: "fabric",
                 expenseType: "materials",
                 measurementType: "area",
@@ -13,6 +14,7 @@ const dumbyData = {
             },
             metal: {
                 appliedTo: {},
+                costInDollars: 200,
                 expenseName: "metal",
                 expenseType: "materials",
                 measurementType: "area",
@@ -56,11 +58,12 @@ const expenseSlice = createSlice({
             state.currentExpense.expenseName = action.payload;
         },
         deleteExpense(state, action) {
+
             delete state.expenses[action.payload.expenseType][action.payload.expenseName];
             //TODO 3/16/2025: before this happens^, delete the references to this expense in the service slice
         },
         addServiceName(state, action) {
-            state.expenses[action.payload.expenseType][action.payload.expenseName].appliedTo[action.payload.serviceName] = true;
+            state.expenses[action.payload.expenseType][action.payload.expenseName].appliedTo[action.payload.serviceName] = action.payload.serviceCategory;
         },
         removeServiceName(state, action) {
             delete state.expenses[action.payload.expenseType][action.payload.expenseName].appliedTo[action.payload.serviceName];

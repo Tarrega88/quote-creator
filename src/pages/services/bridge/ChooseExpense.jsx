@@ -70,14 +70,26 @@ function ChooseExpense() {
     dispatch(addToServiceExpenses({ expense, expenseType }));
     //Adds the serviceName to the expense:
     dispatch(
-      addServiceName({ expenseType, expenseName: expense, serviceName }),
+      addServiceName({
+        expenseType,
+        expenseName: expense,
+        serviceName,
+        serviceCategory: categoryName,
+      }),
     );
   }
 
   function removeExpense(expense) {
     console.log(expense);
     //removes
-    dispatch(removeFromServiceExpenses({ expense, expenseType }));
+    dispatch(
+      removeFromServiceExpenses({
+        expense,
+        expenseType,
+        serviceCategory: categoryName,
+        serviceName,
+      }),
+    );
     dispatch(
       removeServiceName({ expenseType, expenseName: expense, serviceName }),
     );
