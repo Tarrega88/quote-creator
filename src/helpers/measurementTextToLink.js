@@ -24,7 +24,4 @@ export const unitsOfMeasurement = {
         Pounds: "pounds",
         Tons: "tons",
     },
-    quantity: {
-        Count: "count",
-    },
 };

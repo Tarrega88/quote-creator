@@ -29,9 +29,6 @@ const unitsOfMeasurement = {
     Pounds: "pounds",
     Tons: "tons",
   },
-  quantity: {
-    Count: "count",
-  },
 };
 
 function UnitOfMeasurement({ chooseUnitOfMeasurement }) {
