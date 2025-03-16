@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import FadeMessage from "../../../ui/FadeMessage";
 import { useNavigate } from "react-router-dom";
 import {
-  addCategory,
   addPreliminaryData,
   setServiceCategory,
 } from "../../../store/slices/serviceSlice";
