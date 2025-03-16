@@ -15,6 +15,18 @@ const initialState = {
     }
 };
 
+/* services is going to look like this:
+
+services: {
+    [someUserCreatedCategory]: {
+        [someUserCreatedServiceName]:
+        {
+            allOtherData
+        }
+    }
+}
+*/
+
 const serviceSlice = createSlice({
     name: "service",
     initialState,
@@ -29,12 +41,16 @@ const serviceSlice = createSlice({
         //     state.current.serviceExpenses[action.payload.expenseType].push(...action.payload.expenses)
         // },
         addToServiceExpenses(state, action) {
-            const toAdd = Object.fromEntries(action.payload.expenses.map(e => [e, true]));
-            state.current.serviceExpenses[action.payload.expenseType] = { ...state.current.serviceExpenses[action.payload.expenseType], ...toAdd }
+            state.services[state.current.serviceCategory][state.current.serviceName].serviceExpenses[action.payload.expenseType] =
+            {
+                ...state.services[state.current.serviceCategory][state.current.serviceName].serviceExpenses[action.payload.expenseType],
+                [action.payload.expense]: true,
+            }
+
         },
-        // pushToServiceCosts(state, action) {
-        //     state.current.serviceCosts.push(action.payload);
-        // },
+        removeFromServiceExpenses(state, action) {
+            delete state.services[state.current.serviceCategory][state.current.serviceName].serviceExpenses[action.payload.expenseType][action.payload.expense];
+        },
         addCategory(state, action) {
             state.services[action.payload] = {};
         },
@@ -50,5 +66,5 @@ const serviceSlice = createSlice({
     },
 });
 
-export const { setServiceCategory, setServiceName, addCategory, addService, addToServiceExpenses, addPreliminaryData, addServiceCharge } = serviceSlice.actions;
+export const { setServiceCategory, setServiceName, addCategory, addService, addToServiceExpenses, addPreliminaryData, addServiceCharge, removeFromServiceExpenses } = serviceSlice.actions;
 export default serviceSlice.reducer;

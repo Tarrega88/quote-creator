@@ -2,9 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     expenses: {
-        materials: [],
-        rentals: [],
-        labor: [],
+        // materials: [],
+        // rentals: [],
+        // labor: [],
+        materials: {},
+        rentals: {},
+        labor: {},
     },
     currentExpense: {
         type: "",
@@ -17,7 +20,8 @@ const expenseSlice = createSlice({
     initialState,
     reducers: {
         addToExpenses(state, action) {
-            state.expenses[action.payload.expenseType].push(action.payload);
+            // state.expenses[action.payload.expenseType].push(action.payload);
+            state.expenses[action.payload.expenseType] = { ...state.expenses[action.payload.expenseType], [action.payload.expenseName]: action.payload }
         },
         setCurrentExpenseType(state, action) {
             state.currentExpense.type = action.payload;
@@ -26,8 +30,9 @@ const expenseSlice = createSlice({
             state.currentExpense.expenseName = action.payload;
         },
         deleteExpense(state, action) {
-            const indexToRemove = state.expenses[action.payload.expenseType].findIndex(e => e.expenseName === action.payload.expenseName);
-            state.expenses[action.payload.expenseType].splice(indexToRemove, 1);
+            //TODO: REWRITE THIS TO WORK WITH OBJECTS INSTEAD OF ARRAYS
+            // const indexToRemove = state.expenses[action.payload.expenseType].findIndex(e => e.expenseName === action.payload.expenseName);
+            // state.expenses[action.payload.expenseType].splice(indexToRemove, 1);
         }
     },
 });
