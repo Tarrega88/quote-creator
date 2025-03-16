@@ -1,47 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const dumbyData = {
+const initialState = {
     expenses: {
-        materials: {
-            fabric: {
-                appliedTo: { "french drain installation": "installations" },
-                costInDollars: 100,
-                expenseName: "fabric",
-                expenseType: "materials",
-                measurementType: "area",
-                measurementUnit: "square feet",
-                unitAmount: 40,
-            },
-            metal: {
-                appliedTo: {},
-                costInDollars: 200,
-                expenseName: "metal",
-                expenseType: "materials",
-                measurementType: "area",
-                measurementUnit: "square feet",
-                unitAmount: 60,
-            }
-        },
-        rentals: {},
-        labor: {},
+        materials: [],
+        rentals: [],
+        labor: [],
     },
     currentExpense: {
         type: "",
         expenseName: "",
     },
-}
-
-const initialState = {
-    ...dumbyData,
-    // expenses: {
-    //     materials: {},
-    //     rentals: {},
-    //     labor: {},
-    // },
-    // currentExpense: {
-    //     type: "",
-    //     expenseName: "",
-    // },
 };
 
 const expenseSlice = createSlice({
@@ -49,7 +17,7 @@ const expenseSlice = createSlice({
     initialState,
     reducers: {
         addToExpenses(state, action) {
-            state.expenses[action.payload.expenseType] = { ...state.expenses[action.payload.expenseType], [action.payload.expenseName]: action.payload }
+            state.expenses[action.payload.expenseType].push(action.payload);
         },
         setCurrentExpenseType(state, action) {
             state.currentExpense.type = action.payload;
@@ -58,18 +26,11 @@ const expenseSlice = createSlice({
             state.currentExpense.expenseName = action.payload;
         },
         deleteExpense(state, action) {
-
-            delete state.expenses[action.payload.expenseType][action.payload.expenseName];
-            //TODO 3/16/2025: before this happens^, delete the references to this expense in the service slice
-        },
-        addServiceName(state, action) {
-            state.expenses[action.payload.expenseType][action.payload.expenseName].appliedTo[action.payload.serviceName] = action.payload.serviceCategory;
-        },
-        removeServiceName(state, action) {
-            delete state.expenses[action.payload.expenseType][action.payload.expenseName].appliedTo[action.payload.serviceName];
+            const indexToRemove = state.expenses[action.payload.expenseType].findIndex(e => e.expenseName === action.payload.expenseName);
+            state.expenses[action.payload.expenseType].splice(indexToRemove, 1);
         }
     },
 });
 
-export const { addToExpenses, setCurrentExpenseType, setCurrentExpenseName, deleteExpense, addServiceName, removeServiceName } = expenseSlice.actions;
+export const { addToExpenses, setCurrentExpenseType, setCurrentExpenseName, deleteExpense } = expenseSlice.actions;
 export default expenseSlice.reducer;

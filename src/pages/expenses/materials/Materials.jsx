@@ -18,19 +18,13 @@ function Materials() {
   const [showFade, setShowFade] = useState(false);
   const [fadeText, setFadeText] = useState("");
 
-  // const currentMaterials = useSelector(
-  //   (state) => state.expense.expenses.materials,
-  // ).map((e) => e.expenseName);
-
-  const materialData = useSelector((state) => state.expense.expenses.materials);
-
-  const currentMaterials = Object.keys(materialData).map((e) =>
-    e.toLowerCase(),
-  );
+  const currentMaterials = useSelector(
+    (state) => state.expense.expenses.materials,
+  ).map((e) => e.expenseName);
 
   function confirmExpenseName() {
     if (tempName.length === 0) return;
-    if (currentMaterials.includes(tempName.toLowerCase())) {
+    if (currentMaterials.includes(tempName)) {
       setFadeText(tempName);
       setShowFade(true);
       if (!showFade) setTimeout(() => setShowFade(false), 5000);

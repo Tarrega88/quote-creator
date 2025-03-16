@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import FadeMessage from "../../../ui/FadeMessage";
 import { useNavigate } from "react-router-dom";
 import {
-  addPreliminaryData,
+  addCategory,
   setServiceCategory,
 } from "../../../store/slices/serviceSlice";
 
@@ -22,9 +22,6 @@ function AddCategory() {
   const serviceData = useSelector((state) => state.service);
   const keys = Object.keys(serviceData.services);
   const currentCategories = keys.map((e) => e.toLowerCase());
-
-  const serviceName = useSelector((state) => state.service.current.serviceName);
-  console.log(serviceName);
   // const currentCategories = useSelector(
   //   (state) => state.service.services,
   // ).map((e) => e.toLowerCase());
@@ -38,27 +35,8 @@ function AddCategory() {
       return;
     } else {
       dispatch(setServiceCategory(tempName));
-      // dispatch(addCategory(tempName));
-
-      dispatch(
-        addPreliminaryData({
-          category: [tempName],
-          data: {
-            [serviceName]: {
-              complete: false,
-              serviceExpenses: {
-                materials: {},
-                rentals: {},
-                labor: {},
-              },
-              serviceCharges: {},
-            },
-          },
-        }),
-      );
-
-      navigate("/services/add/bridge");
-      // navigate("/services/add/price_model"); This navigate will actually go into the next component
+      dispatch(addCategory(tempName));
+      navigate("/services/add/price_model");
       //TODO 3/14/2025: change this to navigate to a check for adding expenses to this service
     }
   }

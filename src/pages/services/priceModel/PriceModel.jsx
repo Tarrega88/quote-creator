@@ -14,7 +14,7 @@ function PriceModel() {
   const serviceName = serviceData.current.serviceName;
 
   return (
-    <MainFlexContainer back="/services/add/bridge">
+    <MainFlexContainer back="/services/add/category/existing">
       <InstructionText
         text={`How do you determine your pay for the ${serviceName} service?`}
       />

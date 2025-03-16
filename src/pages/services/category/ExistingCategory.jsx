@@ -4,23 +4,8 @@ import Dropdown from "../../../ui/Dropdown";
 import InstructionText from "../../../ui/InstructionText";
 import MainFlexContainer from "../../../ui/MainFlexContainer";
 import { useState } from "react";
-import {
-  addPreliminaryData,
-  setServiceCategory,
-} from "../../../store/slices/serviceSlice";
+import { setServiceCategory } from "../../../store/slices/serviceSlice";
 import { useNavigate } from "react-router-dom";
-
-/*
-[serviceCategory]: { [serviceName]: {
-        serviceExpenses: {
-            materials: {},
-            rentals: {},
-            labor: {},
-        },
-        serviceCharge: {},
-    }
-}
-*/
 
 function ExistingCategory() {
   const [category, setCategory] = useState("");
@@ -30,30 +15,10 @@ function ExistingCategory() {
   const serviceData = useSelector((state) => state.service);
   const options = Object.keys(serviceData.services);
 
-  const serviceName = serviceData.current.serviceName;
-
   function handleClick() {
     if (!category.length) return;
     dispatch(setServiceCategory(category));
-    // dispatch(addServiceCategory());
-    dispatch(
-      addPreliminaryData({
-        category,
-        data: {
-          [serviceName]: {
-            complete: false,
-            serviceExpenses: {
-              materials: {},
-              rentals: {},
-              labor: {},
-            },
-            serviceCharges: {},
-          },
-        },
-      }),
-    );
-    navigate("/services/add/bridge");
-    // navigate("/services/add/price_model");
+    navigate("/services/add/price_model");
   }
 
   return (

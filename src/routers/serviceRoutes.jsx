@@ -10,12 +10,7 @@ import MeasurementType from "../pages/services/priceModel/measurement/Measuremen
 import MeasurementUnit from "../pages/services/priceModel/measurement/MeasurementUnit";
 import PriceModel from "../pages/services/priceModel/PriceModel";
 import TimeModel from "../pages/services/priceModel/TimeModel";
-import ServiceExpenseBridge from "../pages/services/bridge/ServiceExpenseBridge";
 import Services from "../pages/services/Services";
-import ExpensesToAdd from "../pages/services/bridge/ExpensesToAdd";
-import ChooseExpense from "../pages/services/bridge/ChooseExpense";
-import CostByMeasurement from "../pages/services/priceModel/measurement/CostByMeasurement";
-// import MeasurementCost from "../pages/expenses/materials/MeasurementCost";
 
 export const serviceRoutes = [
   {
@@ -36,18 +31,6 @@ export const serviceRoutes = [
     element: <ExistingCategory />,
   },
   {
-    path: "/services/add/bridge",
-    element: <ServiceExpenseBridge />,
-  },
-  {
-    path: "/services/add/bridge/expenses",
-    element: <ExpensesToAdd />,
-  },
-  {
-    path: "/services/add/bridge/expenses/:expenseType",
-    element: <ChooseExpense />,
-  },
-  {
     path: "/services/add",
     element: <AddService />,
   },
@@ -65,7 +48,7 @@ export const serviceRoutes = [
   },
   {
     path: "/services/add/price_model/measurement/:measurementType/:measurementUnit",
-    element: <CostByMeasurement />,
+    element: <div>Test</div>,
   },
   {
     path: "/services/add/price_model/time",

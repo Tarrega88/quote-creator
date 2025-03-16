@@ -35,7 +35,6 @@ function MeasurementCost() {
     measurementUnit: measurementUnitSpaces,
     costInDollars: dollars,
     unitAmount,
-    appliedTo: {},
   };
 
   function handleClick() {
@@ -46,6 +45,16 @@ function MeasurementCost() {
       return;
     }
   }
+
+  // function handleOnEnter(e) {
+  //   console.log(e);
+  //   if (dollars > 0 && unitAmount > 0 && e.key === "Enter") {
+  //     dispatch(addToExpenses(materialExpense));
+  //     navigate("/expenses/added");
+  //   } else {
+  //     return;
+  //   }
+  // }
 
   return (
     <MainFlexContainer back={back}>

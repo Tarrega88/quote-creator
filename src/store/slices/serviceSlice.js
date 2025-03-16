@@ -1,57 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const dumbyData = {
-    services: {
-        installations: {
-            "french drain installation": {
-                complete: false,
-                serviceCharges: {},
-                serviceExpenses: {
-                    materials: { fabric: true },
-                    rentals: {},
-                    labor: {},
-                },
-            }
-        }
-    },
+const initialState = {
+    services: {},
+    // categories: [],
     current: {
         serviceCategory: "",
         serviceName: "",
-        serviceExpenses: {
-            materials: {},
-            rentals: {},
-            labor: {},
-        },
-        serviceCharges: {},
+        serviceExpenses: [],
+        serviceCosts: [],
     }
-}
-
-const initialState = {
-    ...dumbyData,
-    // services: {},
-    // current: {
-    //     serviceCategory: "",
-    //     serviceName: "",
-    //     serviceExpenses: {
-    //         materials: {},
-    //         rentals: {},
-    //         labor: {},
-    //     },
-    //     serviceCharges: {},
-    // }
 };
-
-/* services is going to look like this:
-
-services: {
-    [someUserCreatedCategory]: {
-        [someUserCreatedServiceName]:
-        {
-            allOtherData
-        }
-    }
-}
-*/
 
 const serviceSlice = createSlice({
     name: "service",
@@ -63,26 +21,20 @@ const serviceSlice = createSlice({
         setServiceName(state, action) {
             state.current.serviceName = action.payload;
         },
-        addToServiceExpenses(state, action) {
-            state.services[state.current.serviceCategory][state.current.serviceName].serviceExpenses[action.payload.expenseType] =
-            {
-                ...state.services[state.current.serviceCategory][state.current.serviceName].serviceExpenses[action.payload.expenseType],
-                [action.payload.expense]: true,
-            }
+        pushToServiceExpenses(state, action) {
+            state.current.serviceExpenses.push(action.payload);
         },
-        removeFromServiceExpenses(state, action) {
-
-            delete state.services[action.payload.serviceCategory][action.payload.serviceName].serviceExpenses[action.payload.expenseType][action.payload.expense];
+        pushToServiceCosts(state, action) {
+            state.current.serviceCosts.push(action.payload);
         },
-        addPreliminaryData(state, action) {
-            state.services[action.payload.category] = { ...state.services[action.payload.category], ...action.payload.data };
+        addCategory(state, action) {
+            state.services[action.payload] = [];
         },
-        addServiceCharge(state, action) {
-
-        },
-
+        addService(state, action) {
+            state.services[state.current.serviceCategory].push(action.payload);
+        }
     },
 });
 
-export const { setServiceCategory, setServiceName, addToServiceExpenses, addPreliminaryData, addServiceCharge, removeFromServiceExpenses } = serviceSlice.actions;
+export const { setServiceCategory, setServiceName, pushToServiceExpenses, pushToServiceCosts, addCategory, addService } = serviceSlice.actions;
 export default serviceSlice.reducer;

@@ -10,6 +10,9 @@ export const unitsOfMeasurement = {
         Feet: "feet",
         Yards: "yards",
     },
+    quantity: {
+        Count: "count",
+    },
     volume: {
         "Cubic Inches": "cubic_inches",
         "Cubic Feet": "cubic_feet",
