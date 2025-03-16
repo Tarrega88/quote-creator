@@ -41,6 +41,7 @@ function ExistingCategory() {
         category,
         data: {
           [serviceName]: {
+            complete: false,
             serviceExpenses: {
               materials: {},
               rentals: {},

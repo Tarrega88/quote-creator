@@ -45,6 +45,7 @@ function AddCategory() {
           category: [tempName],
           data: {
             [serviceName]: {
+              complete: false,
               serviceExpenses: {
                 materials: {},
                 rentals: {},

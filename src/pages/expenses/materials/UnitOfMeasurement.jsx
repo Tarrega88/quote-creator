@@ -2,37 +2,35 @@ import { useParams } from "react-router-dom";
 import InstructionText from "../../../ui/InstructionText";
 import SquareButton from "../../../ui/SquareButton";
 import SquareButtonRow from "../../../ui/SquareButtonRow";
+import { unitsOfMeasurement } from "../../../helpers/measurementTextToLink";
 
-const unitsOfMeasurement = {
-  area: {
-    "Square Inches": "square_inches",
-    "Square Feet": "square_feet",
-    "Square Yards": "square_yards",
-    Acres: "acres",
-  },
-  length: {
-    Inches: "inches",
-    Feet: "feet",
-    Yards: "yards",
-  },
-  quantity: {
-    Count: "count",
-  },
-  volume: {
-    "Cubic Inches": "cubic_inches",
-    "Cubic Feet": "cubic_feet",
-    "Cubic Yards": "cubic_yards",
-    Gallons: "gallons",
-  },
-  weight: {
-    Ounces: "ounces",
-    Pounds: "pounds",
-    Tons: "tons",
-  },
-  quantity: {
-    Count: "count",
-  },
-};
+// const unitsOfMeasurement = {
+//   area: {
+//     "Square Inches": "square_inches",
+//     "Square Feet": "square_feet",
+//     "Square Yards": "square_yards",
+//     Acres: "acres",
+//   },
+//   length: {
+//     Inches: "inches",
+//     Feet: "feet",
+//     Yards: "yards",
+//   },
+//   quantity: {
+//     Count: "count",
+//   },
+//   volume: {
+//     "Cubic Inches": "cubic_inches",
+//     "Cubic Feet": "cubic_feet",
+//     "Cubic Yards": "cubic_yards",
+//     Gallons: "gallons",
+//   },
+//   weight: {
+//     Ounces: "ounces",
+//     Pounds: "pounds",
+//     Tons: "tons",
+//   },
+// };
 
 function UnitOfMeasurement({ chooseUnitOfMeasurement }) {
   const { measurementType } = useParams();
