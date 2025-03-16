@@ -14,6 +14,8 @@ import ServiceExpenseBridge from "../pages/services/bridge/ServiceExpenseBridge"
 import Services from "../pages/services/Services";
 import ExpensesToAdd from "../pages/services/bridge/ExpensesToAdd";
 import ChooseExpense from "../pages/services/bridge/ChooseExpense";
+import CostByMeasurement from "../pages/services/priceModel/measurement/CostByMeasurement";
+// import MeasurementCost from "../pages/expenses/materials/MeasurementCost";
 
 export const serviceRoutes = [
   {
@@ -63,7 +65,7 @@ export const serviceRoutes = [
   },
   {
     path: "/services/add/price_model/measurement/:measurementType/:measurementUnit",
-    element: <div>Test</div>,
+    element: <CostByMeasurement />,
   },
   {
     path: "/services/add/price_model/time",

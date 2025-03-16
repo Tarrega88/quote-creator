@@ -6,10 +6,7 @@ import ServiceExpenseRow from "./ServiceExpenseRow";
 import { useState } from "react";
 import AcceptButton from "../../../ui/AcceptButton";
 import InstructionText from "../../../ui/InstructionText";
-import {
-  addToServiceExpenses,
-  pushToServiceExpenses,
-} from "../../../store/slices/serviceSlice";
+import { addToServiceExpenses } from "../../../store/slices/serviceSlice";
 
 function ChooseExpense() {
   const dispatch = useDispatch();
@@ -56,8 +53,10 @@ function ChooseExpense() {
         expenseType,
         expenses: addedExpenses,
       }),
-      navigate("/services/add/price_model"),
     );
+    // navigate("/services/add/price_model"),
+    navigate("/services/add/bridge");
+
     //Maybe switch the logic from pushing to be a key instead? probably faster and easier to delete later
     //TODO: maybe also add the service name to somewhere in expense logic in an array or object, so that if the expense is deleted, it can easily be deleted from the service logic
     //TODO: add navigate here to ask if more expenses should be added

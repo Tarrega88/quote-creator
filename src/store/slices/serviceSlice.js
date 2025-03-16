@@ -7,14 +7,11 @@ const initialState = {
         serviceCategory: "",
         serviceName: "",
         serviceExpenses: {
-            // materials: [],
-            // rentals: [],
-            // labor: [],
             materials: {},
             rentals: {},
             labor: {},
         },
-        serviceCosts: [],
+        serviceCharges: {},
     }
 };
 
@@ -28,25 +25,30 @@ const serviceSlice = createSlice({
         setServiceName(state, action) {
             state.current.serviceName = action.payload;
         },
-        pushToServiceExpenses(state, action) {
-            //might delete this one and change to object version
-            state.current.serviceExpenses[action.payload.expenseType].push(...action.payload.expenses)
-        },
+        // pushToServiceExpenses(state, action) {
+        //     state.current.serviceExpenses[action.payload.expenseType].push(...action.payload.expenses)
+        // },
         addToServiceExpenses(state, action) {
             const toAdd = Object.fromEntries(action.payload.expenses.map(e => [e, true]));
             state.current.serviceExpenses[action.payload.expenseType] = { ...state.current.serviceExpenses[action.payload.expenseType], ...toAdd }
         },
-        pushToServiceCosts(state, action) {
-            state.current.serviceCosts.push(action.payload);
-        },
+        // pushToServiceCosts(state, action) {
+        //     state.current.serviceCosts.push(action.payload);
+        // },
         addCategory(state, action) {
-            state.services[action.payload] = [];
+            state.services[action.payload] = {};
         },
         addService(state, action) {
             state.services[state.current.serviceCategory].push(action.payload);
+        },
+        addPreliminaryData(state, action) {
+            state.services[action.payload.category] = { ...state.services[action.payload.category], ...action.payload.data };
+        },
+        addServiceCharge(state, action) {
+
         }
     },
 });
 
-export const { setServiceCategory, setServiceName, pushToServiceExpenses, pushToServiceCosts, addCategory, addService, addToServiceExpenses } = serviceSlice.actions;
+export const { setServiceCategory, setServiceName, addCategory, addService, addToServiceExpenses, addPreliminaryData, addServiceCharge } = serviceSlice.actions;
 export default serviceSlice.reducer;
