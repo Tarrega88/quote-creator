@@ -2,8 +2,13 @@ import { useSelector } from "react-redux";
 import Nav from "../../ui/Nav";
 
 function Home() {
-  const test = useSelector((state) => state.expense);
-  console.log(test);
+  const services = useSelector((state) => state.service);
+  console.log("---Services---");
+  console.log(services);
+  const expenses = useSelector((state) => state.expense.expenses);
+  console.log("---expenses---");
+  console.log(expenses);
+
   return (
     <div>
       <Nav />
