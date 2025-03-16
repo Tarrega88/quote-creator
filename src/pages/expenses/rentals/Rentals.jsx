@@ -33,7 +33,7 @@ function Rentals() {
 
   function handleConfirmRentalName() {
     if (tempName.length === 0) return;
-    if (currentRentals.includes(tempName)) {
+    if (currentRentals.includes(tempName.toLowerCase())) {
       setFadeText(tempName);
       setShowFade(true);
       if (!showFade) setTimeout(() => setShowFade(false), 5000);

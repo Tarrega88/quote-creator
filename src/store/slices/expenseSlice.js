@@ -34,9 +34,12 @@ const expenseSlice = createSlice({
             //TODO: REWRITE THIS TO WORK WITH OBJECTS INSTEAD OF ARRAYS
             // const indexToRemove = state.expenses[action.payload.expenseType].findIndex(e => e.expenseName === action.payload.expenseName);
             // state.expenses[action.payload.expenseType].splice(indexToRemove, 1);
+        },
+        addServiceName(state, action) {
+            state.expenses[action.payload.expenseType][action.payload.expenseName].appliedTo.push(action.payload.serviceName);
         }
     },
 });
 
-export const { addToExpenses, setCurrentExpenseType, setCurrentExpenseName, deleteExpense } = expenseSlice.actions;
+export const { addToExpenses, setCurrentExpenseType, setCurrentExpenseName, deleteExpense, addServiceName } = expenseSlice.actions;
 export default expenseSlice.reducer;

@@ -9,6 +9,7 @@ import {
   addToServiceExpenses,
   removeFromServiceExpenses,
 } from "../../../store/slices/serviceSlice";
+import { addServiceName } from "../../../store/slices/expenseSlice";
 
 function ChooseExpense() {
   const dispatch = useDispatch();
@@ -63,7 +64,9 @@ function ChooseExpense() {
     console.log("HERE");
     console.log(expense);
     dispatch(addToServiceExpenses({ expense, expenseType }));
-
+    dispatch(
+      addServiceName({ expenseType, expenseName: expense, serviceName }),
+    );
     //TODO 3/16/2025: Add the serviceName to the expense as well
     // setAddedExpenses([...addedExpenses, expense].sort());
   }
