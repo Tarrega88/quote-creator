@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import MainFlexContainer from "../../../ui/MainFlexContainer";
 import { useDispatch, useSelector } from "react-redux";
 import ServiceExpenseList from "./ServiceExpenseList";
@@ -6,13 +6,19 @@ import ServiceExpenseRow from "./ServiceExpenseRow";
 import { useState } from "react";
 import AcceptButton from "../../../ui/AcceptButton";
 import InstructionText from "../../../ui/InstructionText";
-import { pushToServiceExpenses } from "../../../store/slices/serviceSlice";
+import {
+  addToServiceExpenses,
+  pushToServiceExpenses,
+} from "../../../store/slices/serviceSlice";
 
 function ChooseExpense() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { expenseType } = useParams();
 
-  console.log(`expenseType: ${expenseType}`);
+  // console.log(`expenseType: ${expenseType}`);
+  //TODO: I think I might make an edit version of this page, or put in some conditional logic on this one.
+  //If it's an edit, it should check the service slice instead of using an empty array
 
   const grammar =
     expenseType.at(-1) === "s" ? expenseType.slice(0, -1) : expenseType;
@@ -40,11 +46,17 @@ function ChooseExpense() {
 
   const test = useSelector((state) => state.service);
   function handleAccept() {
+    // dispatch(
+    //   pushToServiceExpenses({
+    //     expenseType,
+    //     expenses: addedExpenses,
+    //   }),
     dispatch(
-      pushToServiceExpenses({
+      addToServiceExpenses({
         expenseType,
         expenses: addedExpenses,
       }),
+      navigate("/services/add/price_model"),
     );
     //Maybe switch the logic from pushing to be a key instead? probably faster and easier to delete later
     //TODO: maybe also add the service name to somewhere in expense logic in an array or object, so that if the expense is deleted, it can easily be deleted from the service logic

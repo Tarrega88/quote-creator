@@ -46,16 +46,6 @@ function MeasurementCost() {
     }
   }
 
-  // function handleOnEnter(e) {
-  //   console.log(e);
-  //   if (dollars > 0 && unitAmount > 0 && e.key === "Enter") {
-  //     dispatch(addToExpenses(materialExpense));
-  //     navigate("/expenses/added");
-  //   } else {
-  //     return;
-  //   }
-  // }
-
   return (
     <MainFlexContainer back={back}>
       <InstructionText text="How much does it cost?" />

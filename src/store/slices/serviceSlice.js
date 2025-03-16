@@ -7,9 +7,12 @@ const initialState = {
         serviceCategory: "",
         serviceName: "",
         serviceExpenses: {
-            materials: [],
-            rentals: [],
-            labor: [],
+            // materials: [],
+            // rentals: [],
+            // labor: [],
+            materials: {},
+            rentals: {},
+            labor: {},
         },
         serviceCosts: [],
     }
@@ -26,8 +29,12 @@ const serviceSlice = createSlice({
             state.current.serviceName = action.payload;
         },
         pushToServiceExpenses(state, action) {
+            //might delete this one and change to object version
             state.current.serviceExpenses[action.payload.expenseType].push(...action.payload.expenses)
-            // state.current.serviceExpenses.push(action.payload);
+        },
+        addToServiceExpenses(state, action) {
+            const toAdd = Object.fromEntries(action.payload.expenses.map(e => [e, true]));
+            state.current.serviceExpenses[action.payload.expenseType] = { ...state.current.serviceExpenses[action.payload.expenseType], ...toAdd }
         },
         pushToServiceCosts(state, action) {
             state.current.serviceCosts.push(action.payload);
@@ -41,5 +48,5 @@ const serviceSlice = createSlice({
     },
 });
 
-export const { setServiceCategory, setServiceName, pushToServiceExpenses, pushToServiceCosts, addCategory, addService } = serviceSlice.actions;
+export const { setServiceCategory, setServiceName, pushToServiceExpenses, pushToServiceCosts, addCategory, addService, addToServiceExpenses } = serviceSlice.actions;
 export default serviceSlice.reducer;
