@@ -35,6 +35,7 @@ function MeasurementCost() {
     measurementUnit: measurementUnitSpaces,
     costInDollars: dollars,
     unitAmount,
+    appliedTo: [],
   };
 
   function handleClick() {

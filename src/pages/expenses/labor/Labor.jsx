@@ -15,9 +15,13 @@ function Labor() {
   const [showFade, setShowFade] = useState(false);
   const [fadeText, setFadeText] = useState("");
 
-  const laborNames = useSelector((state) => state.expense.expenses.labor).map(
-    (e) => e.expenseName.toLowerCase(),
-  );
+  // const laborNames = useSelector((state) => state.expense.expenses.labor).map(
+  //   (e) => e.expenseName.toLowerCase(),
+  // );
+
+  const laborData = useSelector((state) => state.expense.expenses.labor);
+
+  const laborNames = Object.keys(laborData).map((e) => e.toLowerCase());
 
   function handleConfirmLaborName() {
     if (laborName.length === 0) return;

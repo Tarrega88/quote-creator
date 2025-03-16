@@ -63,12 +63,16 @@ function ChooseExpense() {
     console.log("HERE");
     console.log(expense);
     dispatch(addToServiceExpenses({ expense, expenseType }));
+
+    //TODO 3/16/2025: Add the serviceName to the expense as well
     // setAddedExpenses([...addedExpenses, expense].sort());
   }
 
   function removeExpense(expense) {
     console.log(expense);
     dispatch(removeFromServiceExpenses({ expense, expenseType }));
+    //TODO 3/16/2025: Remove the serviceName from the expense as well
+
     // setAddedExpenses(addedExpenses.filter((e) => e !== expense));
   }
 

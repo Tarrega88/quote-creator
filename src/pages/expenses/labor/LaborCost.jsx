@@ -21,6 +21,7 @@ function LaborCost() {
     expenseName: laborName,
     costInDollars: pay,
     paidByThe,
+    appliedTo: [],
   };
 
   const text =

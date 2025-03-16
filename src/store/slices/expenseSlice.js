@@ -30,6 +30,7 @@ const expenseSlice = createSlice({
             state.currentExpense.expenseName = action.payload;
         },
         deleteExpense(state, action) {
+            delete state.expenses[action.payload.expenseType][action.payload.expenseName];
             //TODO: REWRITE THIS TO WORK WITH OBJECTS INSTEAD OF ARRAYS
             // const indexToRemove = state.expenses[action.payload.expenseType].findIndex(e => e.expenseName === action.payload.expenseName);
             // state.expenses[action.payload.expenseType].splice(indexToRemove, 1);
