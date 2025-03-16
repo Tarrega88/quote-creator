@@ -1,7 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-    services: {},
+const dumbyData = {
+    services: {
+        installations: {
+            "french drain installation": {
+                complete: false,
+                serviceCharges: {},
+                serviceExpenses: {
+                    materials: { fabric: true },
+                    rentals: {},
+                    labor: {},
+                },
+            }
+        }
+    },
     current: {
         serviceCategory: "",
         serviceName: "",
@@ -12,6 +24,21 @@ const initialState = {
         },
         serviceCharges: {},
     }
+}
+
+const initialState = {
+    ...dumbyData,
+    // services: {},
+    // current: {
+    //     serviceCategory: "",
+    //     serviceName: "",
+    //     serviceExpenses: {
+    //         materials: {},
+    //         rentals: {},
+    //         labor: {},
+    //     },
+    //     serviceCharges: {},
+    // }
 };
 
 /* services is going to look like this:

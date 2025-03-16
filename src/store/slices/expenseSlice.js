@@ -1,11 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+const dumbyData = {
     expenses: {
-        // materials: [],
-        // rentals: [],
-        // labor: [],
-        materials: {},
+        materials: {
+            fabric: {
+                appliedTo: {},
+                expenseName: "fabric",
+                expenseType: "materials",
+                measurementType: "area",
+                measurementUnit: "square feet",
+                unitAmount: 40,
+            },
+            metal: {
+                appliedTo: {},
+                expenseName: "metal",
+                expenseType: "materials",
+                measurementType: "area",
+                measurementUnit: "square feet",
+                unitAmount: 60,
+            }
+        },
         rentals: {},
         labor: {},
     },
@@ -13,6 +27,19 @@ const initialState = {
         type: "",
         expenseName: "",
     },
+}
+
+const initialState = {
+    ...dumbyData,
+    // expenses: {
+    //     materials: {},
+    //     rentals: {},
+    //     labor: {},
+    // },
+    // currentExpense: {
+    //     type: "",
+    //     expenseName: "",
+    // },
 };
 
 const expenseSlice = createSlice({
