@@ -9,7 +9,10 @@ import {
   addToServiceExpenses,
   removeFromServiceExpenses,
 } from "../../../store/slices/serviceSlice";
-import { addServiceName } from "../../../store/slices/expenseSlice";
+import {
+  addServiceName,
+  removeServiceName,
+} from "../../../store/slices/expenseSlice";
 
 function ChooseExpense() {
   const dispatch = useDispatch();
@@ -63,17 +66,21 @@ function ChooseExpense() {
   function addExpense(expense) {
     console.log("HERE");
     console.log(expense);
+    //Adds the expense to the service:
     dispatch(addToServiceExpenses({ expense, expenseType }));
+    //Adds the serviceName to the expense:
     dispatch(
       addServiceName({ expenseType, expenseName: expense, serviceName }),
     );
-    //TODO 3/16/2025: Add the serviceName to the expense as well
-    // setAddedExpenses([...addedExpenses, expense].sort());
   }
 
   function removeExpense(expense) {
     console.log(expense);
+    //removes
     dispatch(removeFromServiceExpenses({ expense, expenseType }));
+    dispatch(
+      removeServiceName({ expenseType, expenseName: expense, serviceName }),
+    );
     //TODO 3/16/2025: Remove the serviceName from the expense as well
 
     // setAddedExpenses(addedExpenses.filter((e) => e !== expense));

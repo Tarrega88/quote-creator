@@ -20,7 +20,7 @@ function RentalCost() {
     expenseName: rentalName,
     costInDollars: pay,
     paidByThe,
-    appliedTo: [],
+    appliedTo: {},
   };
 
   const text =
