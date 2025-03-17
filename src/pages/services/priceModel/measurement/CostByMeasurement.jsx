@@ -33,10 +33,10 @@ function CostByMeasurement() {
   };
 
   function handleSubmit() {
-    if (pay <= 0 || amount <= 0) return;
+    if (pay <= 0 || unitAmount <= 0) return;
     //TODO: need to add more checks and navigate somewhere else
     dispatch(addService(dataToAdd));
-    navigate("/");
+    navigate("/services/added");
   }
 
   return (
@@ -57,7 +57,10 @@ function CostByMeasurement() {
         />
         <span>{measurementUnit.replaceAll("_", " ")}</span>
       </div>
-      <AcceptButton isActive={pay > 0 && amount > 0} onClick={handleSubmit} />
+      <AcceptButton
+        isActive={pay > 0 && unitAmount > 0}
+        onClick={handleSubmit}
+      />
     </MainFlexContainer>
   );
 }

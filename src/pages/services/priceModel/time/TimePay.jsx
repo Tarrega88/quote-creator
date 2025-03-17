@@ -28,11 +28,11 @@ function TimePay() {
   };
 
   function handleSubmit() {
-    if (pay <= 0 || amount <= 0) return;
+    if (pay <= 0 || unitAmount <= 0) return;
 
     dispatch(addService(dataToAdd));
     //TODO 3/16/2025: navigate elsewhere besides home
-    navigate("/");
+    navigate("/services/added");
   }
 
   return (
@@ -40,12 +40,21 @@ function TimePay() {
       <InstructionText text={`What do you charge for ${serviceName}`} />
       <div className="flex gap-2">
         <span>I charge</span>
-        <NumberInput onChange={(e) => setPay(Number(e.target.value))} />
+        <NumberInput
+          onChange={(e) => setPay(Number(e.target.value))}
+          onEnter={handleSubmit}
+        />
         <span>dollars per</span>
-        <NumberInput onChange={(e) => setUnitAmount(Number(e.target.value))} />
+        <NumberInput
+          onChange={(e) => setUnitAmount(Number(e.target.value))}
+          onEnter={handleSubmit}
+        />
         <span>{timeUnit}s</span>
       </div>
-      <AcceptButton isActive={pay > 0 && amount > 0} onClick={handleSubmit} />
+      <AcceptButton
+        isActive={pay > 0 && unitAmount > 0}
+        onClick={handleSubmit}
+      />
     </MainFlexContainer>
   );
 }
