@@ -5,7 +5,8 @@ const initialState = {
     current: {
         serviceCategory: "",
         serviceName: "",
-    }
+    },
+    allServiceNames: {},
 };
 
 const serviceSlice = createSlice({
@@ -23,6 +24,7 @@ const serviceSlice = createSlice({
         },
         addService(state, action) {
             state.services[state.current.serviceCategory][state.current.serviceName] = action.payload;
+            state.allServiceNames[state.current.serviceName] = true;
         }
     },
 });

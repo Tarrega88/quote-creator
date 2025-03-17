@@ -14,19 +14,15 @@ function AddService() {
   const [showFade, setShowFade] = useState(false);
   const [tempName, setTempName] = useState("");
 
-  //TODO 3/14/2025: should this component be renamed?
-  //I think I'm going to start with this and THEN go to categories
-
   const servicesData = useSelector((state) => state.service);
   console.log(servicesData);
-  const serviceNames = Object.values(servicesData.services).map(
-    (e) => e.serviceNames,
-  );
-  console.log(serviceNames);
+
+  const serviceNameData = useSelector((state) => state.service.allServiceNames);
+  const serviceNames = Object.keys(serviceNameData).map((e) => e.toLowerCase());
 
   function handleAcceptServiceName() {
     if (!tempName) return;
-    if (serviceNames.includes(tempName)) {
+    if (serviceNames.includes(tempName.toLowerCase())) {
       setShowFade(true);
       if (!showFade) setTimeout(() => setShowFade(false), 5000);
       return;
