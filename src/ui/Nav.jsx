@@ -1,16 +1,11 @@
 import { Link } from "react-router-dom";
+import { navLinks } from "../helpers/navLinkText";
 
 function Nav() {
-  const links = [
-    { name: "Quotes", link: "quotes" },
-    { name: "Expenses", link: "expenses" },
-    { name: "Services", link: "services" },
-    { name: "Clients", link: "clients" },
-  ];
   return (
     <div>
       <div className="flex flex-col gap-4 pt-12 pl-12 text-2xl md:text-3xl">
-        {links.map((e, i) => (
+        {navLinks.map((e, i) => (
           <Link
             to={e.link}
             key={i}

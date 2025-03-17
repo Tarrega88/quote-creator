@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
+import { navLinks } from "../helpers/navLinkText";
 
 function TopNav() {
-  const links = [
-    // { name: "New", link: "create" },
-    // { name: "Edit", link: "edit" },
-    // { name: "View", link: "currentQuote" },
-    { name: "Quotes", link: "quotes" },
-    { name: "Expenses", link: "expenses" },
-    { name: "Services", link: "services" },
-    { name: "Clients", link: "clients" },
-  ];
+  // const links = [
+  //   { name: "Quotes", link: "quotes" },
+  //   { name: "Expenses", link: "expenses" },
+  //   { name: "Services", link: "services" },
+  //   { name: "Clients", link: "clients" },
+  // ];
   return (
     // <div>
     <div className="text-md flex justify-end gap-4 bg-slate-600 px-4 pt-4 pb-4 sm:gap-8 sm:text-lg md:text-xl">
@@ -19,7 +17,7 @@ function TopNav() {
       >
         Home
       </Link>
-      {links.map((e, i) => (
+      {navLinks.map((e, i) => (
         <Link
           to={e.link}
           key={i}

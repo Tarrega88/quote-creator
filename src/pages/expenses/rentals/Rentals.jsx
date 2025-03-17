@@ -17,13 +17,13 @@ function Rentals() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const currentRentals = useSelector(
-    (state) => state.expense.expenses.rentals,
-  ).map((e) => e.expenseName);
+  const rentalData = useSelector((state) => state.expense.expenses.rentals);
+
+  const currentRentals = Object.keys(rentalData).map((e) => e.toLowerCase());
 
   function handleConfirmRentalName() {
     if (tempName.length === 0) return;
-    if (currentRentals.includes(tempName)) {
+    if (currentRentals.includes(tempName.toLowerCase())) {
       setFadeText(tempName);
       setShowFade(true);
       if (!showFade) setTimeout(() => setShowFade(false), 5000);
