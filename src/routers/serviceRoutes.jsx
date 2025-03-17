@@ -8,9 +8,9 @@ import FlatModel from "../pages/services/priceModel/FlatModel";
 import CostByMeasurement from "../pages/services/priceModel/measurement/CostByMeasurement";
 import MeasurementModel from "../pages/services/priceModel/measurement/MeasurementModel";
 import MeasurementType from "../pages/services/priceModel/measurement/MeasurementType";
-import MeasurementUnit from "../pages/services/priceModel/measurement/MeasurementUnit";
 import PriceModel from "../pages/services/priceModel/PriceModel";
-import TimeModel from "../pages/services/priceModel/TimeModel";
+import TimeModel from "../pages/services/priceModel/time/TimeModel";
+import TimePay from "../pages/services/priceModel/time/TimePay";
 import Services from "../pages/services/Services";
 
 export const serviceRoutes = [
@@ -54,6 +54,10 @@ export const serviceRoutes = [
   {
     path: "/services/add/price_model/time",
     element: <TimeModel />,
+  },
+  {
+    path: "/services/add/price_model/time/:timeUnit",
+    element: <TimePay />,
   },
   {
     path: "/services/add/price_model/flat",
