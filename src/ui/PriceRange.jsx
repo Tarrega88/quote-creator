@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setTotal, addJob } from "../store/slices/quoteSlice";
+import { setTotal } from "../store/slices/quoteSlice";
 import InstructionText from "./InstructionText";
 import AcceptButton from "./AcceptButton";
 import { useNavigate } from "react-router-dom";
@@ -15,13 +15,13 @@ function PriceRange({ surveyData, min, max, name, labelText }) {
   //        onChange={(e) => dispatch(setJobType(e.target.value))}
   function addToQuotes() {
     dispatch(setTotal(value));
-    dispatch(
-      addJob({
-        jobType: jobType,
-        type: surveyData.type,
-        cost: value,
-      }),
-    );
+    // dispatch(
+    //   addJob({
+    //     jobType: jobType,
+    //     type: surveyData.type,
+    //     cost: value,
+    //   }),
+    // );
     navigate("/added");
   }
 

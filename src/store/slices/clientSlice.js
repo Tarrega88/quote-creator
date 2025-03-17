@@ -5,6 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     clients: {},
+    activeClient: false,
     // clients: dumbyData,
 };
 
@@ -16,8 +17,10 @@ const clientSlice = createSlice({
         updateClient(state, action) {
             const client = action.payload;
             if (state.clients[client]) {
+                state.activeClient = client;
                 state.clients[client].push({ client, dateCreated: Date.now(), quoteNumber: state.clients[client].length + 1, total: 0, quote: [], });
             } else {
+                state.activeClient = client;
                 state.clients[client] = [{
                     client: client,
                     dateCreated: Date.now(),
@@ -26,7 +29,7 @@ const clientSlice = createSlice({
                     quote: [],
                 },]
             }
-        }
+        },
     },
 });
 

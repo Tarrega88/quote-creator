@@ -6,7 +6,7 @@ import MainFlexContainer from "../../ui/MainFlexContainer";
 import TextInput from "../../ui/TextInput";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { createQuote } from "../../store/slices/quoteSlice";
+// import { createQuote } from "../../store/slices/quoteSlice";
 import { updateClient } from "../../store/slices/clientSlice";
 
 function NewClient() {
@@ -36,7 +36,7 @@ function NewClient() {
       if (!showFade) setTimeout(() => setShowFade(false), 5000);
       return;
     }
-    dispatch(createQuote(client));
+    // dispatch(createQuote(client));
     dispatch(updateClient(client));
     navigate("/quotes/edit");
   }
