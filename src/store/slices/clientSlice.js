@@ -13,7 +13,6 @@ const clientSlice = createSlice({
     name: "client",
     initialState,
     reducers: {
-
         updateClient(state, action) {
             const client = action.payload;
             if (state.clients[client]) {
