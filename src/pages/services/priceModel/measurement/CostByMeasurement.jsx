@@ -5,19 +5,38 @@ import { useDispatch, useSelector } from "react-redux";
 import NumberInput from "../../../../ui/NumberInput";
 import InstructionText from "../../../../ui/InstructionText";
 import AcceptButton from "../../../../ui/AcceptButton";
+import { addService } from "../../../../store/slices/serviceSlice";
 
 function CostByMeasurement() {
   const { measurementType, measurementUnit } = useParams();
   //TODO 3/16/2025: Check to make sure this still works
-  const serviceName = useSelector((state) => state.service.current.serviceName);
+
+  const { serviceName, serviceCategory } = useSelector(
+    (state) => state.service.current,
+  );
   console.log(serviceName);
   const [pay, setPay] = useState(0);
   const [amount, setAmount] = useState(0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  //name, pay, amount, price model, measurement type, measurement unit
+
+  const dataToAdd = {
+    serviceCategory,
+    serviceName,
+    paymentModel: "measurement",
+    charge: pay,
+    per: amount,
+    measurementType,
+    measurementUnit,
+  };
+
   function handleSubmit() {
     if (pay <= 0 || amount <= 0) return;
+    //TODO: need to add more checks and navigate somewhere else
+    dispatch(addService(dataToAdd));
+    navigate("/");
   }
 
   return (
