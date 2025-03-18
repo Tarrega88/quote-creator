@@ -19,6 +19,9 @@ const clientSlice = createSlice({
             state.activeClient = client;
             state.clients[client] = {
                 clientName: client,
+                clientAddress: "",
+                clientPhone: "",
+                clientEmail: "",
                 quotes: {
                     1: {
                         dateCreated: Date.now(),

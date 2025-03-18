@@ -10,8 +10,6 @@ function HybridList() {
   const [displayMode, setDisplayMode] = useState("main");
   const [searchText, setSearchText] = useState("");
 
-  console.log("Client Data");
-  console.log(clientData);
   const clientNames =
     displayMode === "searchClients"
       ? Object.keys(clientData)
@@ -20,8 +18,6 @@ function HybridList() {
           )
           .sort()
       : Object.keys(clientData).sort();
-  console.log("Client Names");
-  console.log(clientNames);
 
   return (
     <MainFlexContainer back="/">
