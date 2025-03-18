@@ -16,6 +16,7 @@ function ClientRow({ client, odd }) {
 
   return (
     <div
+      onClick={() => navigate(clientURL)}
       className={`grid h-10 cursor-pointer grid-cols-3 items-center px-4 transition-all duration-200 ${colors}`}
     >
       <div>{clientName}</div>
