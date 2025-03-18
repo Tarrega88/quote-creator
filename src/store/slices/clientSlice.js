@@ -5,7 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const dummyData = {
     clients: {
-        "billy bob": {
+        "billy_bob": {
             clientName: "Billy Bob",
             clientAddress: "333 Windcrest Ln",
             clientCity: "Denver",
@@ -20,7 +20,7 @@ const dummyData = {
             }
         }
     },
-    activeClient: "Billy Bob",
+    activeClient: "billy_bob",
 }
 
 const initialState = {
@@ -36,11 +36,14 @@ const clientSlice = createSlice({
     reducers: {
         createClient(state, action) {
             const client = action.payload;
-            const lowerCaseClient = action.payload.toLowerCase();
-            state.activeClient = lowerCaseClient;
-            state.clients[lowerCaseClient] = {
+            const clientURL = action.payload.toLowerCase().replaceAll(" ", "_")
+            state.activeClient = clientURL;
+            state.clients[clientURL] = {
                 clientName: client,
                 clientAddress: "",
+                clientCity: "",
+                clientState: "",
+                clientZip: "",
                 clientPhone: "",
                 clientEmail: "",
                 quotes: {
