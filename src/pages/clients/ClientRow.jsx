@@ -1,21 +1,14 @@
-import { Link } from "react-router-dom";
+function ClientRow({ client, odd }) {
+  const colors = odd ? "bg-slate-500" : "bg-slate-600";
 
-function ClientRow({ clientName, colorIndex = 0 }) {
-  const color = {
-    0: "bg-slate-700 hover:bg-slate-600",
-    1: "bg-slate-500 hover:bg-slate-400",
-  };
+  console.log(client);
 
-  const clientUrl = clientName.replace(/\s/g, "_");
-  //   console.log(clientUrl);
+  const { clientName } = client;
 
   return (
-    <Link
-      to={`/clients/${clientUrl}`}
-      className={`${color[colorIndex]} flex h-8 items-center px-4 transition-all duration-300`}
-    >
-      {clientName}
-    </Link>
+    <div className={`flex h-10 items-center px-4 ${colors}`}>
+      <div>{clientName}</div>
+    </div>
   );
 }
 

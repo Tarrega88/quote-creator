@@ -1,23 +1,25 @@
 import { useSelector } from "react-redux";
 import MainFlexContainer from "../../ui/MainFlexContainer";
-import HybridListRow from "./HybridListRow";
 import CreateClientRow from "./CreateClientRow";
 import HybridListOptions from "./HybridListOptions";
+import ClientRow from "./ClientRow";
 
 function HybridList() {
-  const clientData = useSelector((state) => state.client);
+  const clientSelector = useSelector((state) => state.client);
+  const clientData = clientSelector.clients;
+  console.log("Client Data");
   console.log(clientData);
-  const clientNames = Object.keys(clientData.clients);
+  const clientNames = Object.keys(clientData).sort();
+  console.log("Client Names");
   console.log(clientNames);
 
   return (
     <MainFlexContainer back="/">
       <div>Hybrid List</div>
       <div className="h-full w-dvw">
-        {/* <HybridListOptions /> */}
         <CreateClientRow clientNames={clientNames} />
         {clientNames.map((clientName, i) => (
-          <HybridListRow data={clientData[clientName]} key={i} />
+          <ClientRow client={clientData[clientName]} key={i} odd={i % 2} />
         ))}
       </div>
     </MainFlexContainer>

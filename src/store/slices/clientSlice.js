@@ -18,6 +18,7 @@ const clientSlice = createSlice({
             const client = action.payload;
             state.activeClient = client;
             state.clients[client] = {
+                clientName: client,
                 quotes: {
                     1: {
                         dateCreated: Date.now(),
