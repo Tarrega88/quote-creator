@@ -15,7 +15,7 @@ function HybridList() {
       <div>Hybrid List</div>
       <div className="h-full w-dvw">
         {/* <HybridListOptions /> */}
-        <CreateClientRow />
+        <CreateClientRow clientNames={clientNames} />
         {clientNames.map((clientName, i) => (
           <HybridListRow data={clientData[clientName]} key={i} />
         ))}
