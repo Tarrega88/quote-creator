@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import MainFlexContainer from "../../../../../ui/MainFlexContainer";
 import { useSelector } from "react-redux";
-import LeftColumn from "./LeftColumn";
+import LeftColumn from "./leftColumn/LeftColumn";
 import InstructionText from "../../../../../ui/InstructionText";
 
 function QuoteEditView() {
