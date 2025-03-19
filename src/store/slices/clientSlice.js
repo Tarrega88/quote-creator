@@ -14,9 +14,13 @@ const dummyData = {
             clientZip: "80014",
             clientPhone: "907-123-4567",
             clientEmail: "billyBob@example.com",
+            activeQuote: 1,
             quotes: {
                 1: {
                     dateCreated: 1742300944160,
+                    //TODO: should quote expenses and services be arrays or objects?
+                    expenses: [],
+                    services: [],
                 },
             }
         }
@@ -48,9 +52,12 @@ const clientSlice = createSlice({
                 clientZip: "",
                 clientPhone: "",
                 clientEmail: "",
+                activeQuote: 1,
                 quotes: {
                     1: {
                         dateCreated: Date.now(),
+                        expenses: [],
+                        services: [],
                         //incomplete - will add other data here soon
                     },
                 },
