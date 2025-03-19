@@ -53,9 +53,12 @@ const clientSlice = createSlice({
                     },
                 },
             }
+        },
+        editClientData(state, action) {
+            state.clients[action.payload.clientURL][action.payload.dataType] = action.payload.dataEdit;
         }
     },
 });
 
-export const { createClient } = clientSlice.actions;
+export const { createClient, editClientData } = clientSlice.actions;
 export default clientSlice.reducer;
