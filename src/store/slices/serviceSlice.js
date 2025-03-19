@@ -1,12 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-    services: {},
+const dummyData = {
+    services: {
+        installation: {
+            "French drain installation": {
+                measurementType: "area",
+                measurementUnit: "square_feet",
+                pay: 500,
+                paymentModel: "measurement",
+                serviceCategory: "installation",
+                serviceName: "French drain installation",
+                unitAmount: 2
+            }
+        }
+    },
     current: {
         serviceCategory: "",
         serviceName: "",
     },
-    allServiceNames: {},
+    allServiceNames: {
+        "French drain installation": true,
+    },
+};
+
+const initialState = {
+    ...dummyData
+    // services: {},
+    // current: {
+    //     serviceCategory: "",
+    //     serviceName: "",
+    // },
+    // allServiceNames: {},
 };
 
 const serviceSlice = createSlice({

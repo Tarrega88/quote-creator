@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import jobReducer from "./slices/jobSlice";
 import quoteReducer from "./slices/quoteSlice";
 import clientReducer from "./slices/clientSlice";
 import expenseReducer from "./slices/expenseSlice";
@@ -17,7 +16,6 @@ if (ipcRenderer) {
 
 const store = configureStore({
     reducer: {
-        job: jobReducer,
         quote: quoteReducer,
         client: clientReducer,
         expense: expenseReducer,

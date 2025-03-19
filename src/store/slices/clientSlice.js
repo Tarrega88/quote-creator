@@ -1,8 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-//still debating whether to use times in the quotes- might be helpful
-
 const dummyData = {
     clients: {
         "billy_bob": {
@@ -19,8 +16,15 @@ const dummyData = {
                 1: {
                     dateCreated: 1742300944160,
                     //TODO: should quote expenses and services be arrays or objects?
-                    expenses: [],
-                    services: [],
+                    expenses: {
+                        materials: [],
+                        labor: [],
+                        rental: [],
+                    },
+                    services: {
+                        //category, like installs gets added when a service is added to quote
+                        //installs: [],
+                    },
                 },
             }
         }
@@ -56,9 +60,15 @@ const clientSlice = createSlice({
                 quotes: {
                     1: {
                         dateCreated: Date.now(),
-                        expenses: [],
-                        services: [],
-                        //incomplete - will add other data here soon
+                        expenses: {
+                            materials: [],
+                            labor: [],
+                            rental: [],
+                        },
+                        services: {
+                            //category, like installs gets added when a service is added to quote
+                            //installs: [],
+                        },
                     },
                 },
             }
