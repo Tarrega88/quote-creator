@@ -3,13 +3,13 @@ import ClientQuoteListTitleRow from "./ClientQuoteListTitleRow";
 
 function ClientQuoteList({ clientData }) {
   const { quotes } = clientData;
-  const quotesReversed = quotes.reverse();
+  const keys = Object.keys(quotes);
 
   return (
     <div className="px-4">
       <ClientQuoteListTitleRow />
-      {quotesReversed.map((e, i) => (
-        <ClientQuoteListRow key={i} data={e} odd={i % 2} />
+      {keys.map((e, i) => (
+        <ClientQuoteListRow key={i} data={quotes[e]} odd={i % 2} />
       ))}
     </div>
   );

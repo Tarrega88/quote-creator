@@ -1,7 +1,12 @@
+import { useNavigate, useParams } from "react-router-dom";
+
 function ClientQuoteListRow({ data, odd }) {
+  const navigate = useNavigate();
   console.log("Here");
   console.log(data);
   const { dateCreated } = data;
+
+  const { clientURL } = useParams();
 
   const date = new Date(dateCreated);
   const legibleDate = date.toLocaleDateString("en-US");
@@ -13,11 +18,14 @@ function ClientQuoteListRow({ data, odd }) {
 
   return (
     <div
-      className={`${colors} grid h-10 w-full grid-cols-2 items-center justify-center pl-4`}
+      className={`${colors} grid h-10 w-full grid-cols-2 items-center justify-center px-4`}
     >
       <div>{legibleDate}</div>
-      <div className="flex justify-around">
-        <button className="w-18 cursor-pointer bg-emerald-700 transition-all duration-200 hover:bg-emerald-600">
+      <div className="flex justify-end gap-4">
+        <button
+          onClick={() => navigate(`/clients/${clientURL}/${dateCreated}`)}
+          className="w-18 cursor-pointer bg-emerald-700 transition-all duration-200 hover:bg-emerald-600"
+        >
           Edit
         </button>
         <button className="w-18 cursor-pointer bg-sky-600 transition-all duration-200 hover:bg-sky-500">

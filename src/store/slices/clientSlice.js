@@ -13,8 +13,8 @@ const dummyData = {
             clientZip: "80014",
             clientPhone: "907-123-4567",
             clientEmail: "billyBob@example.com",
-            quotes: [
-                {
+            quotes: {
+                1742300944160: {
                     dateCreated: 1742300944160,
                     //TODO: should quote expenses and services be arrays or objects?
                     expenses: {
@@ -27,7 +27,7 @@ const dummyData = {
                         //installs: [],
                     },
                 },
-            ]
+            }
         }
     },
     activeClient: "billy_bob",
@@ -45,6 +45,7 @@ const clientSlice = createSlice({
     initialState,
     reducers: {
         createClient(state, action) {
+            const timeCreated = Date.now();
             const client = action.payload;
             const clientURL = client.toLowerCase().replaceAll(" ", "_")
             state.activeClient = clientURL;
@@ -57,9 +58,9 @@ const clientSlice = createSlice({
                 clientZip: "",
                 clientPhone: "",
                 clientEmail: "",
-                quotes: [
-                    {
-                        dateCreated: Date.now(),
+                quotes: {
+                    [timeCreated]: {
+                        dateCreated: timeCreated,
                         expenses: {
                             materials: [],
                             labor: [],
@@ -70,7 +71,7 @@ const clientSlice = createSlice({
                             //installs: [],
                         },
                     },
-                ],
+                },
             }
         },
         editClientData(state, action) {
