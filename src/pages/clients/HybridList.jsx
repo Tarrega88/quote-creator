@@ -37,7 +37,9 @@ function HybridList() {
           <div>Email</div>
           <div>Phone</div>
         </div>
-        <ClientRow client={clientData[activeClient]} odd={true} />
+        {displayMode !== "searchClients" && (
+          <ClientRow client={clientData[activeClient]} odd={true} />
+        )}
         {clientNames
           .filter((e) => e !== activeClient)
           .map((clientName, i) => (

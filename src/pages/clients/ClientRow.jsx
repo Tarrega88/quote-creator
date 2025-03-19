@@ -5,10 +5,14 @@ import { IoIosCheckmarkCircle } from "react-icons/io";
 
 import { useState } from "react";
 import { copyToClipboard } from "../../helpers/copyToClipboard";
+import { useDispatch } from "react-redux";
+import { setActiveClient } from "../../store/slices/clientSlice";
 
 function ClientRow({ client, odd }) {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { clientName, clientEmail, clientAddress, clientPhone } = client;
+  const { clientName, clientEmail, clientAddress, clientPhone, client_ } =
+    client;
   const [copied, setCopied] = useState(false);
   const colors = odd ? "bg-slate-500" : "bg-slate-700";
 
@@ -24,6 +28,12 @@ function ClientRow({ client, odd }) {
   }
 
   const clientURL = `/clients/${clientName.toLowerCase().replaceAll(" ", "_")}`;
+
+  function handleClickMore() {
+    // dispatch(setActiveClient());
+    dispatch(setActiveClient(client_));
+    navigate(clientURL);
+  }
 
   return (
     <div
@@ -42,7 +52,7 @@ function ClientRow({ client, odd }) {
       </div>
       <div>{clientPhone}</div>
       <div className="flex items-center justify-end gap-4">
-        <ClientListButton text="More" onClick={() => navigate(clientURL)} />
+        <ClientListButton text="More" onClick={handleClickMore} />
       </div>
     </div>
   );

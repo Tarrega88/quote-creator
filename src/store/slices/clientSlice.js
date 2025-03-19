@@ -7,6 +7,7 @@ const dummyData = {
     clients: {
         "billy_bob": {
             clientName: "Billy Bob",
+            client_: "billy_bob",
             clientAddress: "333 Windcrest Ln",
             clientCity: "Denver",
             clientState: "Colorado",
@@ -36,10 +37,11 @@ const clientSlice = createSlice({
     reducers: {
         createClient(state, action) {
             const client = action.payload;
-            const clientURL = action.payload.toLowerCase().replaceAll(" ", "_")
+            const clientURL = client.toLowerCase().replaceAll(" ", "_")
             state.activeClient = clientURL;
             state.clients[clientURL] = {
                 clientName: client,
+                client_: clientURL,
                 clientAddress: "",
                 clientCity: "",
                 clientState: "",
@@ -56,9 +58,12 @@ const clientSlice = createSlice({
         },
         editClientData(state, action) {
             state.clients[action.payload.clientURL][action.payload.dataType] = action.payload.dataEdit;
+        },
+        setActiveClient(state, action) {
+            state.activeClient = action.payload;
         }
     },
 });
 
-export const { createClient, editClientData } = clientSlice.actions;
+export const { createClient, editClientData, setActiveClient } = clientSlice.actions;
 export default clientSlice.reducer;
