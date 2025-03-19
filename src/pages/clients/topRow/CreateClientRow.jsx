@@ -22,7 +22,10 @@ function CreateClientRow({
 
   const lowerCaseClients = clientNames.map((e) => e.toLowerCase());
 
+  console.log(lowerCaseClients);
+
   const regex = /^[a-zA-Z0-9 ]+$/;
+  const spaceRegex = /^(?!.*\s{2,})/; // Checks if there are consecutive spaces
 
   /*
   ^[a-zA-Z0-9 ]+$
@@ -37,6 +40,12 @@ function CreateClientRow({
       if (!showFade) setTimeout(() => setShowFade(false), 5000);
       return;
     }
+    // if (!spaceRegex.test(tempNewClient)) {
+    //   setFadeText("Please use one space per word");
+    //   setShowFade(true);
+    //   if (!showFade) setTimeout(() => setShowFade(false), 5000);
+    //   return;
+    // }
     if (lowerCaseClients.includes(tempNewClient.toLowerCase().trim())) {
       setFadeText(`${tempNewClient} is already a client.`);
       setShowFade(true);
