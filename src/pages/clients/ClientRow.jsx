@@ -23,8 +23,6 @@ function ClientRow({ client, odd }) {
     }
   }
 
-  console.log(client);
-
   const clientURL = `/clients/${clientName.toLowerCase().replaceAll(" ", "_")}`;
 
   return (

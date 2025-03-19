@@ -13,9 +13,6 @@ function HybridList() {
 
   const { activeClient } = clientSelector;
 
-  console.log("TEST 1");
-  console.log(Object.keys(clientData));
-
   const clientNames =
     displayMode === "searchClients"
       ? Object.keys(clientData)
@@ -23,15 +20,7 @@ function HybridList() {
             e.toLowerCase().includes(searchText.trim().toLowerCase()),
           )
           .sort()
-      : Object.keys(clientData)
-          .filter((e) => e !== activeClient)
-          .sort();
-
-  console.log("CLIENT NAMES");
-  console.log(clientNames);
-
-  console.log("CLIENT Selector");
-  console.log(clientSelector);
+      : Object.keys(clientData).sort();
 
   return (
     <MainFlexContainer back="/">
@@ -49,9 +38,11 @@ function HybridList() {
           <div>Phone</div>
         </div>
         <ClientRow client={clientData[activeClient]} odd={true} />
-        {clientNames.map((clientName, i) => (
-          <ClientRow client={clientData[clientName]} key={i} odd={i % 2} />
-        ))}
+        {clientNames
+          .filter((e) => e !== activeClient)
+          .map((clientName, i) => (
+            <ClientRow client={clientData[clientName]} key={i} odd={i % 2} />
+          ))}
       </div>
     </MainFlexContainer>
   );

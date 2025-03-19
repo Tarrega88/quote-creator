@@ -8,7 +8,6 @@ import SquareButtonRow from "../../../ui/SquareButtonRow";
 function ExpensesList() {
   const navigate = useNavigate();
   const listOfExpenses = useSelector((state) => state.expense);
-  console.log(listOfExpenses);
 
   return (
     <MainFlexContainer back="/expenses">

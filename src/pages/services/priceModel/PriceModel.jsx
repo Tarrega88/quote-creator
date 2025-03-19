@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 function PriceModel() {
   const navigate = useNavigate();
   const serviceData = useSelector((state) => state.service);
-  console.log(serviceData);
 
   const serviceName = serviceData.current.serviceName;
 

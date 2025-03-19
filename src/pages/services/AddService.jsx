@@ -14,8 +14,7 @@ function AddService() {
   const [showFade, setShowFade] = useState(false);
   const [tempName, setTempName] = useState("");
 
-  const servicesData = useSelector((state) => state.service);
-  console.log(servicesData);
+  // const servicesData = useSelector((state) => state.service);
 
   const serviceNameData = useSelector((state) => state.service.allServiceNames);
   const serviceNames = Object.keys(serviceNameData).map((e) => e.toLowerCase());

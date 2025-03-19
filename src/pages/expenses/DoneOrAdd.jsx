@@ -8,7 +8,6 @@ import SquareButtonRow from "../../ui/SquareButtonRow";
 
 function DoneOrAdd() {
   const expenseTest = useSelector((state) => state.expense.expenses);
-  console.log(expenseTest);
 
   const navigate = useNavigate();
   return (

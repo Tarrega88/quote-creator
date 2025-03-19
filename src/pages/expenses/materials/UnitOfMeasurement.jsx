@@ -34,7 +34,6 @@ const unitsOfMeasurement = {
 function UnitOfMeasurement({ chooseUnitOfMeasurement }) {
   const { measurementType } = useParams();
   const data = unitsOfMeasurement[measurementType];
-  console.log(data);
 
   const keys = Object.keys(data);
 

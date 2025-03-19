@@ -12,7 +12,6 @@ function LaborCost() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [pay, setPay] = useState(0);
-  console.log(paidByThe);
 
   const laborName = useSelector((state) => state.labor.expenseName);
 

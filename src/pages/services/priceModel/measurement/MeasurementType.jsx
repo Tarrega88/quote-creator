@@ -9,7 +9,7 @@ import MeasurementUnit from "./MeasurementUnit";
 
 function MeasurementType() {
   const serviceName = useSelector((state) => state.service.current.serviceName);
-  console.log(serviceName);
+  // console.log(serviceName);
 
   return (
     <MainFlexContainer back="/services/add/price_model/measurement">

@@ -6,13 +6,13 @@ import SquareButton from "../../../../ui/SquareButton";
 function MeasurementUnit() {
   const navigate = useNavigate();
 
-  const { measurementUnit } = useParams();
+  // const { measurementUnit } = useParams();
   const { measurementType } = useParams();
 
   const data = unitsOfMeasurement[measurementType];
   const keys = Object.keys(data);
 
-  console.log(measurementUnit);
+  // console.log(measurementUnit);
 
   return (
     <div>

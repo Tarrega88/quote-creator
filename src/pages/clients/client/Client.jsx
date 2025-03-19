@@ -6,13 +6,8 @@ import { editClientData } from "../../../store/slices/clientSlice";
 
 function Client() {
   const { clientURL } = useParams();
-  console.log(clientURL);
-
   const allClientData = useSelector((state) => state.client);
-  console.log(allClientData);
-
   const clientData = allClientData.clients[clientURL];
-  console.log(clientData);
 
   const {
     clientAddress,
