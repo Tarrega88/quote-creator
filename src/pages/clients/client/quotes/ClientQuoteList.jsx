@@ -1,18 +1,15 @@
 import ClientQuoteListRow from "./ClientQuoteListRow";
+import ClientQuoteListTitleRow from "./ClientQuoteListTitleRow";
 
 function ClientQuoteList({ clientData }) {
-  console.log("clientData");
-  console.log(clientData);
-
   const { quotes } = clientData;
   const quotesReversed = quotes.reverse();
-  console.log("Quotes");
-  console.log(quotes);
 
   return (
-    <div className="px-4 pt-4">
+    <div className="px-4">
+      <ClientQuoteListTitleRow />
       {quotesReversed.map((e, i) => (
-        <ClientQuoteListRow key={i} data={e} />
+        <ClientQuoteListRow key={i} data={e} odd={i % 2} />
       ))}
     </div>
   );

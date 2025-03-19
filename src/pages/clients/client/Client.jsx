@@ -21,9 +21,9 @@ function Client() {
 
   return (
     <MainFlexContainer back="/clients">
-      <div className="grid h-dvh w-dvw grid-cols-[2fr_3fr]">
+      <div className="grid w-dvw grid-cols-2">
         <div className="flex flex-col gap-4 pt-4">
-          {/* <div className="text-center text-2xl">Client Information</div> */}
+          <div className="text-center text-2xl">Client Information</div>
           <div className="flex flex-col gap-1 bg-slate-700 py-2 pl-4">
             <ClientDataRow
               section="Name"
@@ -64,7 +64,9 @@ function Client() {
             />
           </div>
         </div>
-        <div className="">
+        <div className="flex flex-col gap-4 pt-4">
+          <div className="text-center text-2xl">Client Quotes</div>
+
           <ClientQuoteList clientData={clientData} />
         </div>
       </div>
