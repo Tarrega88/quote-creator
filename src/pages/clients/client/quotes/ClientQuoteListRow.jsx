@@ -11,7 +11,7 @@ function ClientQuoteListRow({ data, odd }) {
   const date = new Date(dateCreated);
   const legibleDate = date.toLocaleDateString("en-US");
 
-  const colors = odd ? "bg-slate-600" : "bg-slate-700";
+  const colors = odd ? "bg-slate-700" : "bg-slate-600";
 
   //TODO 3/19/2025: Work/Edit button for working on quote
   //View button for viewing PDF version of quote

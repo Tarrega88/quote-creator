@@ -16,7 +16,6 @@ const dummyData = {
             quotes: {
                 1742300944160: {
                     dateCreated: 1742300944160,
-                    //TODO: should quote expenses and services be arrays or objects?
                     expenses: {
                         materials: [],
                         labor: [],
@@ -25,6 +24,16 @@ const dummyData = {
                     services: {
                         //category, like installs gets added when a service is added to quote
                         //installs: [],
+                    },
+                },
+                1742410954170: {
+                    dateCreated: 1742410954170,
+                    expenses: {
+                        materials: [],
+                        labor: [],
+                        rental: [],
+                    },
+                    services: {
                     },
                 },
             }
