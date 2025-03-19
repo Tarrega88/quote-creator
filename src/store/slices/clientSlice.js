@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+//TODO 3/19/2025: Add more dummy data to relevant slices
+//Add action to add another quote to same client
 
 const dummyData = {
     clients: {
@@ -11,9 +13,8 @@ const dummyData = {
             clientZip: "80014",
             clientPhone: "907-123-4567",
             clientEmail: "billyBob@example.com",
-            activeQuote: 1,
-            quotes: {
-                1: {
+            quotes: [
+                {
                     dateCreated: 1742300944160,
                     //TODO: should quote expenses and services be arrays or objects?
                     expenses: {
@@ -26,7 +27,7 @@ const dummyData = {
                         //installs: [],
                     },
                 },
-            }
+            ]
         }
     },
     activeClient: "billy_bob",
@@ -56,9 +57,8 @@ const clientSlice = createSlice({
                 clientZip: "",
                 clientPhone: "",
                 clientEmail: "",
-                activeQuote: 1,
-                quotes: {
-                    1: {
+                quotes: [
+                    {
                         dateCreated: Date.now(),
                         expenses: {
                             materials: [],
@@ -70,7 +70,7 @@ const clientSlice = createSlice({
                             //installs: [],
                         },
                     },
-                },
+                ],
             }
         },
         editClientData(state, action) {
