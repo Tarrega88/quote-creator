@@ -6,9 +6,9 @@ function LeftColumnExpenses({ data }) {
 
   const { labor, materials, rentals } = data;
 
-  const laborKeys = Object.keys(labor);
-  const materialKeys = Object.keys(materials);
-  const rentalKeys = Object.keys(rentals);
+  // const laborKeys = Object.keys(labor);
+  // const materialKeys = Object.keys(materials);
+  // const rentalKeys = Object.keys(rentals);
 
   return (
     <div className="flex flex-col gap-8 pt-12">
