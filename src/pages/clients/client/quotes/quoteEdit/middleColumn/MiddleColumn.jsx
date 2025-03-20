@@ -6,8 +6,8 @@ import MiddleColService from "./services/MiddleColService";
 
 function MiddleColumn() {
   const selector = useSelector((state) => state.column);
-  console.log("SELECTOR");
-  console.log(selector);
+  //   console.log("SELECTOR");
+  //   console.log(selector);
 
   const { mainCategory, subCategory, selection } = selector;
 

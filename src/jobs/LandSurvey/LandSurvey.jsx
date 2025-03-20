@@ -1,6 +1,6 @@
 import { useState } from "react";
 import InstructionText from "../../ui/InstructionText";
-import PriceRange from "../../ui/PriceRange";
+// import PriceRange from "../../ui/PriceRange";
 import SlideView from "../../ui/SlideView";
 
 function LandSurvey() {
@@ -43,14 +43,14 @@ function LandSurvey() {
                 {surveyType} surveys cost between ${surveyData.minCost}.00 & $
                 {surveyData.maxCost}.00
               </div>
-              <PriceRange
+              {/* <PriceRange
                 surveyData={surveyData}
                 min={surveyData.minCost}
                 max={surveyData.maxCost}
                 name={surveyData.type}
                 key={surveyData.type}
                 labelText="Change price:"
-              />
+              /> */}
             </div>
           </SlideView>
         }
