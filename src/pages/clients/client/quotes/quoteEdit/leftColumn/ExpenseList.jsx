@@ -4,8 +4,6 @@ import { FaCaretDown } from "react-icons/fa";
 import { FaCaretUp } from "react-icons/fa";
 
 function ExpenseList({ title, data }) {
-  console.log("DATA");
-  console.log(data);
   const keys = Object.keys(data);
 
   const [visible, setVisible] = useState(true);
@@ -23,7 +21,13 @@ function ExpenseList({ title, data }) {
       </button>
       <ul>
         {keys.map((e, i) => (
-          <ExpenseRow data={e} key={i} odd={i % 2} visible={visible} />
+          <ExpenseRow
+            data={e}
+            key={i}
+            odd={i % 2}
+            visible={visible}
+            subCategory={title.toLowerCase()}
+          />
         ))}
       </ul>
     </div>

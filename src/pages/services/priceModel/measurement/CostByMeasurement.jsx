@@ -14,7 +14,6 @@ function CostByMeasurement() {
   const { serviceName, serviceCategory } = useSelector(
     (state) => state.service.current,
   );
-  // console.log(serviceName);
   const [pay, setPay] = useState(0);
   const [unitAmount, setUnitAmount] = useState(0);
   const dispatch = useDispatch();

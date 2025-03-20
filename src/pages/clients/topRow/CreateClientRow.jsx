@@ -22,9 +22,6 @@ function CreateClientRow({
 
   const lowerCaseClients = clientNames.map((e) => e.toLowerCase());
 
-  console.log(`lowerCaseClients`);
-  console.log(lowerCaseClients);
-
   const regex = /^[a-zA-Z0-9 ]+$/;
   const spaceRegex = /^(?!.*\s{2,})/; // Checks if there are consecutive spaces
 

@@ -1,9 +1,6 @@
 import ExpenseList from "./ExpenseList";
 
 function LeftColumnExpenses({ data }) {
-  console.log("DATA");
-  console.log(data);
-
   const { labor, materials, rentals } = data;
 
   // const laborKeys = Object.keys(labor);

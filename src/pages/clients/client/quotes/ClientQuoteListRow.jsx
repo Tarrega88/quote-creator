@@ -2,8 +2,6 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function ClientQuoteListRow({ data, odd }) {
   const navigate = useNavigate();
-  console.log("Here");
-  console.log(data);
   const { dateCreated } = data;
 
   const { clientURL } = useParams();
