@@ -1,19 +1,29 @@
+import { useState } from "react";
 import ExpenseRow from "./ExpenseRow";
+import { FaCaretDown } from "react-icons/fa";
+import { FaCaretUp } from "react-icons/fa";
 
 function ExpenseList({ title, data }) {
   console.log("DATA");
   console.log(data);
   const keys = Object.keys(data);
 
-  //TODO 3/19/2025: make it so Materials, Rentals, and Labor
-  //are clickable to expand/collapse their lists
+  const [visible, setVisible] = useState(true);
 
   return (
-    <div className="flex flex-col">
-      <div className="py-4 text-center text-xl tracking-wide">{title}</div>
-      <ul className="flex flex-col">
+    <div className="border-y border-slate-200">
+      <button
+        className="flex w-full cursor-pointer items-center justify-center rounded-t-md bg-slate-700 py-4 text-xl tracking-wide transition-all duration-200 hover:bg-slate-500 active:bg-slate-400"
+        onClick={() => setVisible(!visible)}
+      >
+        <span className="flex items-center gap-1">
+          <span>{title}</span>
+          <span>{visible ? <FaCaretUp /> : <FaCaretDown />}</span>
+        </span>
+      </button>
+      <ul>
         {keys.map((e, i) => (
-          <ExpenseRow data={e} key={i} odd={i % 2} />
+          <ExpenseRow data={e} key={i} odd={i % 2} visible={visible} />
         ))}
       </ul>
     </div>

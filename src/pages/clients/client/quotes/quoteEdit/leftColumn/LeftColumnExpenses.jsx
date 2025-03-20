@@ -11,8 +11,11 @@ function LeftColumnExpenses({ data }) {
   const rentalKeys = Object.keys(rentals);
 
   return (
-    <div className="">
+    <div className="flex flex-col gap-8 pt-12">
       <ExpenseList title="Materials" data={materials} />
+      <ExpenseList title="Labor" data={labor} />
+      <ExpenseList title="Rentals" data={rentals} />
+
       {/* {materialKeys.map((e, i) => (
         <div key={i}>{e}</div>
       ))} */}
