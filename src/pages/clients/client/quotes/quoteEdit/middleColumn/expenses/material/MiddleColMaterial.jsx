@@ -4,6 +4,7 @@ import MiddleColTitle from "../../MiddleColTitle";
 import PriceRange from "../../PriceRange";
 import MiddleColNumInput from "../../MiddleColNumInput";
 import MaterialEditList from "./MaterialEditList";
+import MidColNumSelect from "../../MidColNumSelect";
 
 function MiddleColMaterial({ data }) {
   console.log("Material Data");
@@ -28,6 +29,8 @@ function MiddleColMaterial({ data }) {
   const min = Math.floor(costInDollars * 0.8);
   const max = Math.ceil(costInDollars * 1.2);
 
+  const [numToAdd, setNumToAdd] = useState(unitAmount);
+
   //Cost: costInDollars per unitAmount measurementUnit
 
   return (
@@ -38,14 +41,23 @@ function MiddleColMaterial({ data }) {
           {expenseName} costs {formatUSD(currentCost)} per {unitAmount}{" "}
           {measurementUnit}
         </span>
-        <MaterialEditList
+        <span>
+          How many {measurementUnit} of {expenseName} will be needed?
+        </span>
+        <MidColNumSelect
+          minAmount={unitAmount}
+          currentNum={numToAdd}
+          setCurrentNum={setNumToAdd}
+        />
+
+        {/* <MaterialEditList
           currentCost={currentCost}
           setCurrentCost={setCurrentCost}
           currentExpenseName={currentExpenseName}
           setCurrentExpenseName={setCurrentExpenseName}
           currentUnitAmount={currentUnitAmount}
           setCurrentUnitAmount={setCurrentUnitAmount}
-        />
+        /> */}
         {/* <span className="text-center">{expenseName} costs</span> */}
         {/* <MiddleColNumInput
           currentNum={currentCost}
