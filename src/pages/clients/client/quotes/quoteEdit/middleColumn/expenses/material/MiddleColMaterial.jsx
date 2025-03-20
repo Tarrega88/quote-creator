@@ -31,48 +31,37 @@ function MiddleColMaterial({ data }) {
 
   const [numToAdd, setNumToAdd] = useState(unitAmount);
 
-  //Cost: costInDollars per unitAmount measurementUnit
+  //TODO 3/20/2025: put an edit button that expands the top line of text down into a series of inputs to change the values.
 
   return (
     <div className="flex h-dvh flex-col bg-slate-800 pt-10">
       <MiddleColTitle text="Material Expense" />
-      <div className="flex flex-col px-3 pt-6">
-        <span className="pb-4">
+      <div className="flex flex-col px-3 pt-16">
+        <div className="bg-slate-900 px-2 py-4">
           {expenseName} costs {formatUSD(currentCost)} per {unitAmount}{" "}
           {measurementUnit}
-        </span>
-        <span>
-          How many {measurementUnit} of {expenseName} will be needed?
-        </span>
-        <MidColNumSelect
-          minAmount={unitAmount}
-          currentNum={numToAdd}
-          setCurrentNum={setNumToAdd}
-        />
-
-        {/* <MaterialEditList
-          currentCost={currentCost}
-          setCurrentCost={setCurrentCost}
-          currentExpenseName={currentExpenseName}
-          setCurrentExpenseName={setCurrentExpenseName}
-          currentUnitAmount={currentUnitAmount}
-          setCurrentUnitAmount={setCurrentUnitAmount}
-        /> */}
-        {/* <span className="text-center">{expenseName} costs</span> */}
-        {/* <MiddleColNumInput
-          currentNum={currentCost}
-          setCurrentNum={setCurrentCost}
-        /> */}
-        {/* <div className="flex gap-2">
-          <span>Material: </span>
-          <span>{expenseName}</span>
         </div>
-        <div>
-          <span>Cost: </span>
-          <span>
-            ${costInDollars} per {unitAmount} {measurementUnit}
-          </span>
-        </div> */}
+        <div className="flex flex-col gap-5 bg-slate-700 py-4">
+          <div className="px-2">
+            How many {measurementUnit} of {expenseName} will be needed?
+          </div>
+          <MidColNumSelect
+            minAmount={unitAmount}
+            currentNum={numToAdd}
+            setCurrentNum={setNumToAdd}
+          />
+          <div className="flex items-center justify-between px-2">
+            <div className="flex gap-2">
+              <div>Cost:</div>
+              <div>{formatUSD((numToAdd / unitAmount) * currentCost)}</div>
+            </div>
+            <div className="pr-2">
+              <button className="h-8 w-12 cursor-pointer bg-emerald-700 transition-all duration-200 hover:bg-emerald-600 active:bg-emerald-500">
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

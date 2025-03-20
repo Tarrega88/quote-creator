@@ -3,12 +3,12 @@ const dummyData = {
     expenses: {
         materials: {
             fabric: {
-                costInDollars: 50,
+                costInDollars: 22.7,
                 expenseName: "fabric",
                 expenseType: "materials",
-                measurementType: "area",
-                measurementUnit: "square feet",
-                unitAmount: 50,
+                measurementType: "length",
+                measurementUnit: "feet",
+                unitAmount: 10,
             },
             "sheet metal": {
                 costInDollars: 40,
