@@ -5,7 +5,6 @@ const initialState = {
     subCategory: "",
     selection: "",
     tempData: {},
-    // currentMultiple: 1,
 };
 
 const columnSlice = createSlice({
@@ -24,9 +23,6 @@ const columnSlice = createSlice({
         setTempData(state, action) {
             state.tempData = action.payload;
         },
-        // setCurrentMultiple(state, action) {
-        //     state.currentMultiple = action.payload;
-        // }
     },
 });
 

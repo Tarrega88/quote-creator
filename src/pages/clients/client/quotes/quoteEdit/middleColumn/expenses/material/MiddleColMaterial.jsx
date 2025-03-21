@@ -10,33 +10,17 @@ function MiddleColMaterial() {
   const tempData = useSelector((state) => state.column.tempData);
   const dispatch = useDispatch();
 
-  const {
-    costInDollars,
-    expenseName,
-    expenseType,
-    measurementType,
-    measurementUnit,
-    unitAmount,
-    multiple,
-  } = tempData;
+  const { costInDollars, expenseName, measurementUnit, unitAmount, multiple } =
+    tempData;
 
-  // console.log("TEST");
-  const params = useParams();
   const { clientURL, quoteID } = useParams();
-  console.log(clientURL, quoteID);
-  console.log(expenseType);
-
   const totalCost = multiple * costInDollars;
 
   const quoteUpdate = {
     clientURL,
     quoteID,
     tempData,
-    category: "expenses",
-    totalCost,
   };
-
-  // const destination = {clientURL, quoteID};
 
   return (
     <div className="flex h-dvh flex-col bg-slate-800 pt-10">

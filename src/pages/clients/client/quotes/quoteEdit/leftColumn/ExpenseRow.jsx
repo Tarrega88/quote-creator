@@ -14,10 +14,18 @@ function ExpenseRow({ data, odd, visible, subCategory }) {
   const expenses = useSelector((state) => state.expense.expenses);
   const expenseData = expenses[subCategory][data];
 
+  // console.log("HERE");
+  // console.log(subCategory);
   function handleClick() {
     dispatch(setSubCategory(subCategory));
     dispatch(setSelection(data));
-    dispatch(setTempData({ ...expenseData, multiple: 1 }));
+    dispatch(
+      setTempData({
+        ...expenseData,
+        multiple: 1,
+        category: "expenses",
+      }),
+    );
   }
 
   return (

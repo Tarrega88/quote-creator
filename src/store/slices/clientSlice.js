@@ -19,7 +19,7 @@ const dummyData = {
                     expenses: {
                         materials: [],
                         labor: [],
-                        rental: [],
+                        rentals: [],
                     },
                     services: {
                         //category, like installs gets added when a service is added to quote
@@ -31,7 +31,7 @@ const dummyData = {
                     expenses: {
                         materials: [],
                         labor: [],
-                        rental: [],
+                        rentals: [],
                     },
                     services: {
                     },
@@ -73,7 +73,7 @@ const clientSlice = createSlice({
                         expenses: {
                             materials: [],
                             labor: [],
-                            rental: [],
+                            rentals: [],
                         },
                         services: {
                             //category, like installs gets added when a service is added to quote
@@ -90,8 +90,8 @@ const clientSlice = createSlice({
             state.activeClient = action.payload;
         },
         updateClientQuote(state, action) {
-            const { clientURL, quoteID, tempData, category, totalCost } = action.payload;
-            state.clients[clientURL].quotes[quoteID][category][tempData.expenseType].push({ ...tempData, totalCost })
+            const { clientURL, quoteID, tempData } = action.payload;
+            state.clients[clientURL].quotes[quoteID][tempData.category][tempData.expenseType].push({ ...tempData })
         }
     },
 });
