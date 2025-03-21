@@ -88,9 +88,13 @@ const clientSlice = createSlice({
         },
         setActiveClient(state, action) {
             state.activeClient = action.payload;
+        },
+        updateClientQuote(state, action) {
+            const { clientURL, quoteID, tempData, category, totalCost } = action.payload;
+            state.clients[clientURL].quotes[quoteID][category][tempData.expenseType].push({ ...tempData, totalCost })
         }
     },
 });
 
-export const { createClient, editClientData, setActiveClient } = clientSlice.actions;
+export const { createClient, editClientData, setActiveClient, updateClientQuote } = clientSlice.actions;
 export default clientSlice.reducer;

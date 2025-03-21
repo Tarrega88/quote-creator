@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
-  // setCurrentMultiple,
   setSelection,
   setSubCategory,
   setTempData,
@@ -15,18 +14,10 @@ function ExpenseRow({ data, odd, visible, subCategory }) {
   const expenses = useSelector((state) => state.expense.expenses);
   const expenseData = expenses[subCategory][data];
 
-  // console.log("HERE");
-  // console.log(expenseData);
-
   function handleClick() {
     dispatch(setSubCategory(subCategory));
     dispatch(setSelection(data));
-    // dispatch()
-
-    // console.log("Clicking");
-    // console.log(expenseData);
     dispatch(setTempData({ ...expenseData, multiple: 1 }));
-    // dispatch(setCurrentMultiple(1));
   }
 
   return (
@@ -40,19 +31,3 @@ function ExpenseRow({ data, odd, visible, subCategory }) {
 }
 
 export default ExpenseRow;
-
-// import { useState } from "react";
-
-// function ExpenseRow({ data, odd }) {
-//   const colors = odd ? "bg-slate-500" : "bg-slate-400";
-
-//   const [visible, setVisible] = useState(false);
-
-//   return (
-//     <li className={`flex gap-1 pl-2 ${colors} h-8 items-center`}>
-//       <div>{data}</div>
-//     </li>
-//   );
-// }
-
-// export default ExpenseRow;

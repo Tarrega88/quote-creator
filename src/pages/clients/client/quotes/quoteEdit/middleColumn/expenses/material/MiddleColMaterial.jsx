@@ -1,22 +1,14 @@
-import { useState } from "react";
 import { formatUSD } from "../../../../../../../../helpers/formatUSD";
 import MiddleColTitle from "../../MiddleColTitle";
-import MiddleColNumInput from "../../MiddleColNumInput";
 import MidColNumSelect from "../../MidColNumSelect";
-import { FaEdit } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { setTempData } from "../../../../../../../../store/slices/columnSlice";
 import { useParams } from "react-router-dom";
 import MiddleColMaterialEdit from "./MiddleColMaterialEdit";
+import { updateClientQuote } from "../../../../../../../../store/slices/clientSlice";
 
 function MiddleColMaterial() {
-  // console.log("Material Data");
-  // console.log(data);
-
-  const columnSelector = useSelector((state) => state.column);
-  const tempData = columnSelector.tempData;
-  // console.log("tempData");
-  // console.log(tempData);
+  const tempData = useSelector((state) => state.column.tempData);
+  const dispatch = useDispatch();
 
   const {
     costInDollars,
@@ -29,11 +21,22 @@ function MiddleColMaterial() {
   } = tempData;
 
   // console.log("TEST");
+  const params = useParams();
   const { clientURL, quoteID } = useParams();
-  // console.log(clientURL, quoteID);
-  // console.log(expenseType);
+  console.log(clientURL, quoteID);
+  console.log(expenseType);
 
   const totalCost = multiple * costInDollars;
+
+  const quoteUpdate = {
+    clientURL,
+    quoteID,
+    tempData,
+    category: "expenses",
+    totalCost,
+  };
+
+  // const destination = {clientURL, quoteID};
 
   return (
     <div className="flex h-dvh flex-col bg-slate-800 pt-10">
@@ -60,7 +63,10 @@ function MiddleColMaterial() {
               <div>{formatUSD(totalCost)}</div>
             </div>
             <div className="pr-2">
-              <button className="h-8 w-12 cursor-pointer bg-emerald-700 transition-all duration-200 hover:bg-emerald-600 active:bg-emerald-500">
+              <button
+                onClick={() => dispatch(updateClientQuote(quoteUpdate))}
+                className="h-8 w-12 cursor-pointer bg-emerald-700 transition-all duration-200 hover:bg-emerald-600 active:bg-emerald-500"
+              >
                 Add
               </button>
             </div>
