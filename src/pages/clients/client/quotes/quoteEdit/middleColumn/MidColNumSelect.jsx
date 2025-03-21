@@ -1,6 +1,10 @@
-function MidColNumSelect({ minAmount, multiple, updateTempData }) {
+import { useUpdateTempData } from "../../../../../../hooks/useUpdateTempData";
+
+function MidColNumSelect({ minAmount, multiple, tempData }) {
+  const updateTempData = useUpdateTempData();
+
   function handleClick(value) {
-    updateTempData("multiple", multiple + value);
+    updateTempData("multiple", multiple + value, tempData);
   }
 
   return (
