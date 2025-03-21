@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { formatUSD } from "../../../../../../../../helpers/formatUSD";
 import MiddleColTitle from "../../MiddleColTitle";
-import PriceRange from "../../PriceRange";
 import MiddleColNumInput from "../../MiddleColNumInput";
 import MaterialEditList from "./MaterialEditList";
 import MidColNumSelect from "../../MidColNumSelect";
@@ -16,8 +15,8 @@ function MiddleColMaterial({ data }) {
 
   const [editMode, setEditMode] = useState(false);
   const tempData = useSelector((state) => state.column.tempData);
-  console.log("tempData");
-  console.log(tempData);
+  // console.log("tempData");
+  // console.log(tempData);
 
   const {
     costInDollars,
@@ -31,16 +30,6 @@ function MiddleColMaterial({ data }) {
   const displayStructure = {
     Material: expenseName,
   };
-
-  //TODO 3/21/2025: move the useStates into a slice - the issue right now is they won't change
-  //without something like useEffect or some other trigger - so global state will probably be easier to
-  //make them update
-
-  //So, the slice should be its own thing... current everything updated to defaults upon selection
-  //then updated again upon edits
-
-  // const [currentExpenseName, setCurrentExpenseName] = useState(expenseName);
-  // const [currentUnitAmount, setCurrentUnitAmount] = useState(unitAmount);
 
   //TODO 3/21/2025: this useState needs to go away - need to look ahead and see how I'm storing updates to the data
   const [numToAdd, setNumToAdd] = useState(unitAmount);
@@ -79,11 +68,19 @@ function MiddleColMaterial({ data }) {
                   onChange={(e) =>
                     updateTempData("costInDollars", Number(e.target.value))
                   }
-                  // onChange={(e) => setCurrentCost(Number(e.target.value))}
                   onKeyDown={(e) => e.key === "Enter" && setEditMode(false)}
                 ></input>
               }{" "}
-              per {unitAmount} {measurementUnit}
+              per
+              <input
+                className="w-16 bg-slate-500 px-1"
+                value={unitAmount}
+                type="number"
+                onChange={(e) =>
+                  updateTempData("unitAmount", Number(e.target.value))
+                }
+              ></input>{" "}
+              {measurementUnit}
             </div>
             <FaEdit
               onClick={() => setEditMode(false)}
