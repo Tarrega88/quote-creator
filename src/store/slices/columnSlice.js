@@ -5,7 +5,7 @@ const initialState = {
     subCategory: "",
     selection: "",
     tempData: {},
-
+    currentMultiple: 1,
 };
 
 const columnSlice = createSlice({
@@ -23,9 +23,12 @@ const columnSlice = createSlice({
         },
         setTempData(state, action) {
             state.tempData = action.payload;
+        },
+        setCurrentMultiple(state, action) {
+            state.currentMultiple = action.payload;
         }
     },
 });
 
-export const { setMainCategory, setSubCategory, setSelection, setTempData } = columnSlice.actions;
+export const { setMainCategory, setSubCategory, setSelection, setTempData, setCurrentMultiple } = columnSlice.actions;
 export default columnSlice.reducer;

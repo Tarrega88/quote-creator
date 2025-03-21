@@ -14,7 +14,8 @@ function MiddleColMaterial({ data }) {
   // console.log(data);
 
   const [editMode, setEditMode] = useState(false);
-  const tempData = useSelector((state) => state.column.tempData);
+  const columnSelector = useSelector((state) => state.column);
+  const tempData = columnSelector.tempData;
   // console.log("tempData");
   // console.log(tempData);
 
@@ -27,18 +28,19 @@ function MiddleColMaterial({ data }) {
     unitAmount,
   } = tempData;
 
+  const { currentMultiple } = columnSelector;
+
   const displayStructure = {
     Material: expenseName,
   };
 
   //TODO 3/21/2025: this useState needs to go away - need to look ahead and see how I'm storing updates to the data
-  const [numToAdd, setNumToAdd] = useState(unitAmount);
+
+  const totalCost = currentMultiple * costInDollars;
 
   function updateTempData(type, update) {
     dispatch(setTempData({ ...tempData, [type]: update }));
   }
-
-  //TODO 3/20/2025: put an edit button that expands the top line of text down into a series of inputs to change the values.
 
   return (
     <div className="flex h-dvh flex-col bg-slate-800 pt-10">
@@ -92,15 +94,11 @@ function MiddleColMaterial({ data }) {
           <div className="px-2">
             How many {measurementUnit} of {expenseName} will be needed?
           </div>
-          <MidColNumSelect
-            minAmount={unitAmount}
-            currentNum={numToAdd}
-            setCurrentNum={setNumToAdd}
-          />
+          <MidColNumSelect minAmount={unitAmount} multiple={currentMultiple} />
           <div className="flex items-center justify-between px-2">
             <div className="flex gap-2">
               <div>Cost:</div>
-              <div>{formatUSD((numToAdd / unitAmount) * costInDollars)}</div>
+              <div>{formatUSD(totalCost)}</div>
             </div>
             <div className="pr-2">
               <button className="h-8 w-12 cursor-pointer bg-emerald-700 transition-all duration-200 hover:bg-emerald-600 active:bg-emerald-500">
