@@ -6,11 +6,13 @@ import MiddleColNumInput from "../../MiddleColNumInput";
 import MaterialEditList from "./MaterialEditList";
 import MidColNumSelect from "../../MidColNumSelect";
 import { FaEdit } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setTempData } from "../../../../../../../../store/slices/columnSlice";
 
 function MiddleColMaterial({ data }) {
-  console.log("Material Data");
-  console.log(data);
+  const dispatch = useDispatch();
+  // console.log("Material Data");
+  // console.log(data);
 
   const [editMode, setEditMode] = useState(false);
   const tempData = useSelector((state) => state.column.tempData);
@@ -40,7 +42,12 @@ function MiddleColMaterial({ data }) {
   // const [currentExpenseName, setCurrentExpenseName] = useState(expenseName);
   // const [currentUnitAmount, setCurrentUnitAmount] = useState(unitAmount);
 
+  //TODO 3/21/2025: this useState needs to go away - need to look ahead and see how I'm storing updates to the data
   const [numToAdd, setNumToAdd] = useState(unitAmount);
+
+  function updateTempData(type, update) {
+    dispatch(setTempData({ ...tempData, [type]: update }));
+  }
 
   //TODO 3/20/2025: put an edit button that expands the top line of text down into a series of inputs to change the values.
 
@@ -69,6 +76,9 @@ function MiddleColMaterial({ data }) {
                   className="w-16 bg-slate-500 px-1"
                   type="number"
                   value={costInDollars}
+                  onChange={(e) =>
+                    updateTempData("costInDollars", Number(e.target.value))
+                  }
                   // onChange={(e) => setCurrentCost(Number(e.target.value))}
                   onKeyDown={(e) => e.key === "Enter" && setEditMode(false)}
                 ></input>
