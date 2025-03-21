@@ -1,11 +1,6 @@
-import { useDispatch } from "react-redux";
-import { setCurrentMultiple } from "../../../../../../store/slices/columnSlice";
-
-function MidColNumSelect({ minAmount, multiple }) {
-  const dispatch = useDispatch();
-
+function MidColNumSelect({ minAmount, multiple, updateTempData }) {
   function handleClick(value) {
-    dispatch(setCurrentMultiple(multiple + value));
+    updateTempData("multiple", multiple + value);
   }
 
   return (

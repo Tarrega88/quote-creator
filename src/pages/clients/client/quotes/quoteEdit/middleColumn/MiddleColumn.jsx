@@ -37,7 +37,7 @@ function MiddleColumn() {
 
   const displayOptions = {
     expenses: {
-      materials: <MiddleColMaterial data={data} />,
+      materials: <MiddleColMaterial />,
       rentals: <MiddleColRental data={data} />,
       labor: <MiddleColLabor data={data} />,
     },

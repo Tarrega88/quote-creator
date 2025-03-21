@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setCurrentMultiple,
+  // setCurrentMultiple,
   setSelection,
   setSubCategory,
   setTempData,
@@ -25,8 +25,8 @@ function ExpenseRow({ data, odd, visible, subCategory }) {
 
     // console.log("Clicking");
     // console.log(expenseData);
-    dispatch(setTempData(expenseData));
-    dispatch(setCurrentMultiple(1));
+    dispatch(setTempData({ ...expenseData, multiple: 1 }));
+    // dispatch(setCurrentMultiple(1));
   }
 
   return (

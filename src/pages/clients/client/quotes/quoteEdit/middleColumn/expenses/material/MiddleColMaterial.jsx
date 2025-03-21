@@ -7,8 +7,9 @@ import MidColNumSelect from "../../MidColNumSelect";
 import { FaEdit } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { setTempData } from "../../../../../../../../store/slices/columnSlice";
+import { useParams } from "react-router-dom";
 
-function MiddleColMaterial({ data }) {
+function MiddleColMaterial() {
   const dispatch = useDispatch();
   // console.log("Material Data");
   // console.log(data);
@@ -26,9 +27,15 @@ function MiddleColMaterial({ data }) {
     measurementType,
     measurementUnit,
     unitAmount,
+    multiple,
   } = tempData;
 
-  const { currentMultiple } = columnSelector;
+  console.log("TEST");
+  const { clientURL, quoteID } = useParams();
+  console.log(clientURL, quoteID);
+  console.log(expenseType);
+
+  // const { currentMultiple } = columnSelector;
 
   const displayStructure = {
     Material: expenseName,
@@ -36,7 +43,7 @@ function MiddleColMaterial({ data }) {
 
   //TODO 3/21/2025: this useState needs to go away - need to look ahead and see how I'm storing updates to the data
 
-  const totalCost = currentMultiple * costInDollars;
+  const totalCost = multiple * costInDollars;
 
   function updateTempData(type, update) {
     dispatch(setTempData({ ...tempData, [type]: update }));
@@ -94,7 +101,11 @@ function MiddleColMaterial({ data }) {
           <div className="px-2">
             How many {measurementUnit} of {expenseName} will be needed?
           </div>
-          <MidColNumSelect minAmount={unitAmount} multiple={currentMultiple} />
+          <MidColNumSelect
+            minAmount={unitAmount}
+            multiple={multiple}
+            updateTempData={updateTempData}
+          />
           <div className="flex items-center justify-between px-2">
             <div className="flex gap-2">
               <div>Cost:</div>
