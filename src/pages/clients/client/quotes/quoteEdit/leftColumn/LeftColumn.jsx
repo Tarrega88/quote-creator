@@ -9,8 +9,6 @@ import {
 } from "../../../../../../store/slices/columnSlice";
 
 function LeftColumn({ serviceList, expenseList }) {
-  //TODO 3/19/2025: Make it so there's a services/expenses mode that changes the left column (and maybe middle)
-
   const dispatch = useDispatch();
   const { mainCategory } = useSelector((state) => state.column);
   const title = mainCategory === "services" ? "Services" : "Expenses";

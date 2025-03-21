@@ -5,6 +5,7 @@ import PriceRange from "../../PriceRange";
 import MiddleColNumInput from "../../MiddleColNumInput";
 import MaterialEditList from "./MaterialEditList";
 import MidColNumSelect from "../../MidColNumSelect";
+import { FaEdit } from "react-icons/fa";
 
 function MiddleColMaterial({ data }) {
   console.log("Material Data");
@@ -22,12 +23,15 @@ function MiddleColMaterial({ data }) {
     Material: expenseName,
   };
 
+  const [editMode, setEditMode] = useState(false);
+
+  //TODO 3/21/2025: move the useStates into a slice - the issue right now is they won't change
+  //without something like useEffect or some other trigger - so global state will probably be easier to
+  //make them update
+
   const [currentCost, setCurrentCost] = useState(costInDollars);
   const [currentExpenseName, setCurrentExpenseName] = useState(expenseName);
   const [currentUnitAmount, setCurrentUnitAmount] = useState(unitAmount);
-
-  const min = Math.floor(costInDollars * 0.8);
-  const max = Math.ceil(costInDollars * 1.2);
 
   const [numToAdd, setNumToAdd] = useState(unitAmount);
 
@@ -37,10 +41,39 @@ function MiddleColMaterial({ data }) {
     <div className="flex h-dvh flex-col bg-slate-800 pt-10">
       <MiddleColTitle text="Material Expense" />
       <div className="flex flex-col px-3 pt-16">
-        <div className="bg-slate-900 px-2 py-4">
-          {expenseName} costs {formatUSD(currentCost)} per {unitAmount}{" "}
-          {measurementUnit}
-        </div>
+        {!editMode && (
+          <div className="flex items-center justify-between bg-slate-900 px-4 py-4">
+            <div className="pr-2">
+              {expenseName} costs {formatUSD(currentCost)} per {unitAmount}{" "}
+              {measurementUnit}
+            </div>
+            <FaEdit
+              onClick={() => setEditMode(true)}
+              className="cursor-pointer text-lg text-slate-300 transition-all duration-200 hover:text-yellow-50 active:text-yellow-200"
+            />
+          </div>
+        )}
+        {editMode && (
+          <div className="flex items-center justify-between bg-slate-900 px-4 py-4">
+            <div className="pr-2">
+              {expenseName} costs{" "}
+              {
+                <input
+                  className="w-16 bg-slate-500 px-1"
+                  type="number"
+                  value={currentCost}
+                  onChange={(e) => setCurrentCost(Number(e.target.value))}
+                  onKeyDown={(e) => e.key === "Enter" && setEditMode(false)}
+                ></input>
+              }{" "}
+              per {unitAmount} {measurementUnit}
+            </div>
+            <FaEdit
+              onClick={() => setEditMode(false)}
+              className="cursor-pointer text-lg text-slate-300 transition-all duration-200 hover:text-yellow-50 active:text-yellow-200"
+            />
+          </div>
+        )}
         <div className="flex flex-col gap-5 bg-slate-700 py-4">
           <div className="px-2">
             How many {measurementUnit} of {expenseName} will be needed?
