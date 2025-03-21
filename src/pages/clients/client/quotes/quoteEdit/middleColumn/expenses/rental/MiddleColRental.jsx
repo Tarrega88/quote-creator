@@ -29,7 +29,9 @@ function MiddleColRental() {
         />
         <div className="flex flex-col gap-5 bg-slate-700 py-4">
           {paidByThe !== "flat" && (
-            <div className="px-2">How many {expenseName}s will be rented?</div>
+            <div className="px-2">
+              How many {paidByThe}s will {expenseName} will be rented?
+            </div>
           )}
           {paidByThe !== "flat" && (
             <MidColNumSelect
