@@ -1,7 +1,8 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   setSelection,
   setSubCategory,
+  setTempData,
 } from "../../../../../../store/slices/columnSlice";
 
 function ExpenseRow({ data, odd, visible, subCategory }) {
@@ -10,9 +11,20 @@ function ExpenseRow({ data, odd, visible, subCategory }) {
     ? "bg-slate-700 hover:bg-slate-600"
     : "bg-slate-900 hover:bg-slate-800";
 
+  const expenses = useSelector((state) => state.expense.expenses);
+  const expenseData = expenses[subCategory][data];
+
+  // console.log("HERE");
+  // console.log(expenseData);
+
   function handleClick() {
     dispatch(setSubCategory(subCategory));
     dispatch(setSelection(data));
+    // dispatch()
+
+    // console.log("Clicking");
+    // console.log(expenseData);
+    dispatch(setTempData(expenseData));
   }
 
   return (

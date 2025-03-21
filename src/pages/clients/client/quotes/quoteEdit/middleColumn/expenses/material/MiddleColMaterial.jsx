@@ -6,10 +6,17 @@ import MiddleColNumInput from "../../MiddleColNumInput";
 import MaterialEditList from "./MaterialEditList";
 import MidColNumSelect from "../../MidColNumSelect";
 import { FaEdit } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 function MiddleColMaterial({ data }) {
   console.log("Material Data");
   console.log(data);
+
+  const [editMode, setEditMode] = useState(false);
+  const tempData = useSelector((state) => state.column.tempData);
+  console.log("tempData");
+  console.log(tempData);
+
   const {
     costInDollars,
     expenseName,
@@ -17,21 +24,21 @@ function MiddleColMaterial({ data }) {
     measurementType,
     measurementUnit,
     unitAmount,
-  } = data;
+  } = tempData;
 
   const displayStructure = {
     Material: expenseName,
   };
 
-  const [editMode, setEditMode] = useState(false);
-
   //TODO 3/21/2025: move the useStates into a slice - the issue right now is they won't change
   //without something like useEffect or some other trigger - so global state will probably be easier to
   //make them update
 
-  const [currentCost, setCurrentCost] = useState(costInDollars);
-  const [currentExpenseName, setCurrentExpenseName] = useState(expenseName);
-  const [currentUnitAmount, setCurrentUnitAmount] = useState(unitAmount);
+  //So, the slice should be its own thing... current everything updated to defaults upon selection
+  //then updated again upon edits
+
+  // const [currentExpenseName, setCurrentExpenseName] = useState(expenseName);
+  // const [currentUnitAmount, setCurrentUnitAmount] = useState(unitAmount);
 
   const [numToAdd, setNumToAdd] = useState(unitAmount);
 
@@ -44,7 +51,7 @@ function MiddleColMaterial({ data }) {
         {!editMode && (
           <div className="flex items-center justify-between bg-slate-900 px-4 py-4">
             <div className="pr-2">
-              {expenseName} costs {formatUSD(currentCost)} per {unitAmount}{" "}
+              {expenseName} costs {formatUSD(costInDollars)} per {unitAmount}{" "}
               {measurementUnit}
             </div>
             <FaEdit
@@ -61,8 +68,8 @@ function MiddleColMaterial({ data }) {
                 <input
                   className="w-16 bg-slate-500 px-1"
                   type="number"
-                  value={currentCost}
-                  onChange={(e) => setCurrentCost(Number(e.target.value))}
+                  value={costInDollars}
+                  // onChange={(e) => setCurrentCost(Number(e.target.value))}
                   onKeyDown={(e) => e.key === "Enter" && setEditMode(false)}
                 ></input>
               }{" "}
@@ -86,7 +93,7 @@ function MiddleColMaterial({ data }) {
           <div className="flex items-center justify-between px-2">
             <div className="flex gap-2">
               <div>Cost:</div>
-              <div>{formatUSD((numToAdd / unitAmount) * currentCost)}</div>
+              <div>{formatUSD((numToAdd / unitAmount) * costInDollars)}</div>
             </div>
             <div className="pr-2">
               <button className="h-8 w-12 cursor-pointer bg-emerald-700 transition-all duration-200 hover:bg-emerald-600 active:bg-emerald-500">

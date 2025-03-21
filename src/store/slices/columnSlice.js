@@ -4,6 +4,8 @@ const initialState = {
     mainCategory: "expenses",
     subCategory: "",
     selection: "",
+    tempData: {},
+
 };
 
 const columnSlice = createSlice({
@@ -18,9 +20,12 @@ const columnSlice = createSlice({
         },
         setSelection(state, action) {
             state.selection = action.payload;
+        },
+        setTempData(state, action) {
+            state.tempData = action.payload;
         }
     },
 });
 
-export const { setMainCategory, setSubCategory, setSelection } = columnSlice.actions;
+export const { setMainCategory, setSubCategory, setSelection, setTempData } = columnSlice.actions;
 export default columnSlice.reducer;
