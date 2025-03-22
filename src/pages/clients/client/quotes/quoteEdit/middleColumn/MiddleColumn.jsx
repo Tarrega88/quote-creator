@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import MiddleColRental from "./expenses/rental/MiddleColRental";
 import MiddleColLabor from "./expenses/labor/MiddleColLabor";
 import MiddleColService from "./services/MiddleColService";
+import PDFRender from "../../../../../../pdfview/PDFRender";
 
 function MiddleColumn() {
   const selector = useSelector((state) => state.column);

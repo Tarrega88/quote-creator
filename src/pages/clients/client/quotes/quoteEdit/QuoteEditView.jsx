@@ -5,6 +5,7 @@ import LeftColumn from "./leftColumn/LeftColumn";
 import MiddleColumn from "./middleColumn/MiddleColumn";
 import { useState } from "react";
 import RightColumn from "./rightColumn/RightColumn";
+import PDFRender from "../../../../../pdfview/PDFRender";
 
 function QuoteEditView() {
   const { clientURL, quoteID } = useParams();
@@ -28,7 +29,9 @@ function QuoteEditView() {
         <LeftColumn serviceList={serviceList} expenseList={expenseList} />
         <MiddleColumn />
         <RightColumn />
-        <div className="bg-sky-700"></div>
+        <div className="col-span-3">
+          <PDFRender />
+        </div>
       </div>
     </MainFlexContainer>
   );
