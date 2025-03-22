@@ -5,15 +5,16 @@ import MiddleColServiceEdit from "./MiddleColServiceEdit";
 import MidColNumSelect from "../MidColNumSelect";
 import { formatUSD } from "../../../../../../../helpers/formatUSD";
 import { updateClientQuoteService } from "../../../../../../../store/slices/clientSlice";
+import {
+  setSelection,
+  setSubCategory,
+} from "../../../../../../../store/slices/columnSlice";
 
 function MiddleColService() {
   const tempData = useSelector((state) => state.column.tempData);
   const dispatch = useDispatch();
 
   const { clientURL, quoteID } = useParams();
-
-  // console.log("tempData");
-  // console.log(tempData);
 
   //TODO 3/22/2025 - if I can get payment model to determine some data here,
   //then I can probably replace the expense versions of this component with just 1 as well
@@ -54,6 +55,12 @@ function MiddleColService() {
     time: `How many ${timeUnit}s will this service take?`,
   };
 
+  function handleClick() {
+    dispatch(updateClientQuoteService(quoteUpdate));
+    dispatch(setSubCategory(""));
+    dispatch(setSelection(""));
+  }
+
   return (
     <div className="flex h-dvh flex-col bg-slate-800 pt-10">
       <MiddleColTitle text={serviceName} />
@@ -75,7 +82,7 @@ function MiddleColService() {
             </div>
             <div className="pr-2">
               <button
-                onClick={() => dispatch(updateClientQuoteService(quoteUpdate))}
+                onClick={handleClick}
                 className="h-8 w-12 cursor-pointer bg-emerald-700 transition-all duration-200 hover:bg-emerald-600 active:bg-emerald-500"
               >
                 Add

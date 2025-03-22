@@ -5,6 +5,10 @@ import MiddleColRentalEdit from "./MiddleColRentalEdit";
 import MidColNumSelect from "../../MidColNumSelect";
 import { formatUSD } from "../../../../../../../../helpers/formatUSD";
 import { updateClientQuote } from "../../../../../../../../store/slices/clientSlice";
+import {
+  setSelection,
+  setSubCategory,
+} from "../../../../../../../../store/slices/columnSlice";
 
 function MiddleColRental() {
   const tempData = useSelector((state) => state.column.tempData);
@@ -17,6 +21,12 @@ function MiddleColRental() {
   const totalCost = multiple * costInDollars;
 
   const quoteUpdate = { clientURL, quoteID, tempData };
+
+  function handleClick() {
+    dispatch(updateClientQuote(quoteUpdate));
+    dispatch(setSubCategory(""));
+    dispatch(setSelection(""));
+  }
 
   return (
     <div className="flex h-dvh flex-col bg-slate-800 pt-10">
@@ -47,7 +57,7 @@ function MiddleColRental() {
             </div>
             <div className="pr-2">
               <button
-                onClick={() => dispatch(updateClientQuote(quoteUpdate))}
+                onClick={handleClick}
                 className="h-8 w-12 cursor-pointer bg-emerald-700 transition-all duration-200 hover:bg-emerald-600 active:bg-emerald-500"
               >
                 Add

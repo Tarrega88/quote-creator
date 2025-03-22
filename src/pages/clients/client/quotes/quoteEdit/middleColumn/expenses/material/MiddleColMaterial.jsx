@@ -5,6 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import MiddleColMaterialEdit from "./MiddleColMaterialEdit";
 import { updateClientQuote } from "../../../../../../../../store/slices/clientSlice";
+import {
+  setSelection,
+  setSubCategory,
+} from "../../../../../../../../store/slices/columnSlice";
 
 function MiddleColMaterial() {
   const tempData = useSelector((state) => state.column.tempData);
@@ -21,6 +25,12 @@ function MiddleColMaterial() {
     quoteID,
     tempData,
   };
+
+  function handleClick() {
+    dispatch(updateClientQuote(quoteUpdate));
+    dispatch(setSubCategory(""));
+    dispatch(setSelection(""));
+  }
 
   return (
     <div className="flex h-dvh flex-col bg-slate-800 pt-10">
@@ -48,7 +58,7 @@ function MiddleColMaterial() {
             </div>
             <div className="pr-2">
               <button
-                onClick={() => dispatch(updateClientQuote(quoteUpdate))}
+                onClick={handleClick}
                 className="h-8 w-12 cursor-pointer bg-emerald-700 transition-all duration-200 hover:bg-emerald-600 active:bg-emerald-500"
               >
                 Add

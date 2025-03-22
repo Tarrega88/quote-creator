@@ -8,11 +8,8 @@ function RightColumn() {
   const clientSelector = useSelector((state) => state.client.clients);
 
   const { clientURL, quoteID } = useParams();
-  console.log(clientSelector);
 
   const quoteData = clientSelector[clientURL].quotes[quoteID];
-  console.log("HERE");
-  console.log(quoteData);
 
   const serviceKeys = Object.keys(quoteData.services);
   const hasExpense =
@@ -52,26 +49,3 @@ function RightColumn() {
 }
 
 export default RightColumn;
-
-{
-  /*
-        <button
-          className="h-12 w-5/6 cursor-pointer rounded-md border-x-slate-400 bg-slate-700 text-xl tracking-wide transition-all duration-200 hover:bg-slate-500 active:bg-slate-400"
-          onClick={handleClick}
-        >
-          {title}
-        </button>
-      </div>
-      {mainCategory === "expenses" ? (
-        <LeftColumnExpenses data={data} />
-      ) : (
-        <LeftColumnServices data={data} />
-      )}
-    </div>
-  );
-}
-
-export default LeftColumn;
-
-    */
-}

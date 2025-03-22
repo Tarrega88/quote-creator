@@ -6,9 +6,6 @@ function RightColExpenseList({ title, data }) {
   const keys = Object.keys(data);
   const [visible, setVisible] = useState(true);
 
-  console.log("test");
-  console.log(data);
-
   return (
     <div className="border-y border-slate-200">
       <button

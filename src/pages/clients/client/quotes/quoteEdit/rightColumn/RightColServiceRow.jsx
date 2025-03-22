@@ -11,16 +11,10 @@ function RightColServiceRow({ data, odd, visible }) {
 
   const { clientURL, quoteID } = useParams();
 
-  //   console.log("here");
-  //   console.log(data);
-
-  //
   function handleClick() {
-    //   const { clientURL, quoteID, tempData } = action.payload;
     dispatch(
       removeClientQuoteServiceData({ clientURL, quoteID, tempData: data }),
     );
-    //this will delete that data from the quote
   }
 
   const pay = formatUSD(data.pay * data.multiple);

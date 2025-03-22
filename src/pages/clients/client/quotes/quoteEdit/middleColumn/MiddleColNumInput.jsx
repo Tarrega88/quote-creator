@@ -20,12 +20,7 @@ function MiddleColNumInput({ currentNum, setCurrentNum, minAmount }) {
         -
       </button>
       <div className="w-12 bg-slate-600 text-center">{currentNum}</div>
-      {/* <input
-        type="number"
-        className="w-16 bg-slate-200 px-1 text-center text-slate-950"
-        value={currentNum}
-        onChange={(e) => handleOnChange(Number(e.target.value))}
-      ></input> */}
+
       <button
         className="w-8 cursor-pointer bg-slate-500 hover:bg-slate-400"
         onClick={() => setCurrentNum(currentNum + minAmount)}
