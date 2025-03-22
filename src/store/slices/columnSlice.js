@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    mainCategory: "expenses",
+    mainCategory: "services",
     subCategory: "",
     selection: "",
     tempData: {},

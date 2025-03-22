@@ -12,12 +12,6 @@ function LeftColumnExpenses({ data }) {
       <ExpenseList title="Materials" data={materials} />
       <ExpenseList title="Labor" data={labor} />
       <ExpenseList title="Rentals" data={rentals} />
-
-      {/* {materialKeys.map((e, i) => (
-        <div key={i}>{e}</div>
-      ))} */}
-      {/* <div>Labor</div>
-      <div>Rentals</div> */}
     </div>
   );
 }

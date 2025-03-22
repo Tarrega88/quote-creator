@@ -11,6 +11,26 @@ const dummyData = {
                 serviceCategory: "installation",
                 serviceName: "French drain installation",
                 unitAmount: 2
+            },
+            "English drain installation": {
+                measurementType: "area",
+                measurementUnit: "square_feet",
+                pay: 450,
+                paymentModel: "measurement",
+                serviceCategory: "installation",
+                serviceName: "English drain installation",
+                unitAmount: 2
+            }
+        },
+        landscaping: {
+            "grading": {
+                measurementType: "area",
+                measurementUnit: "square_feet",
+                pay: 250,
+                paymentModel: "measurement",
+                serviceCategory: "installation",
+                serviceName: "grading",
+                unitAmount: 40
             }
         }
     },
@@ -20,6 +40,8 @@ const dummyData = {
     },
     allServiceNames: {
         "French drain installation": true,
+        "English drain installation": true,
+        "grading": true,
     },
 };
 

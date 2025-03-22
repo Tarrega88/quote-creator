@@ -43,7 +43,7 @@ function LeftColumn({ serviceList, expenseList }) {
       {mainCategory === "expenses" ? (
         <LeftColumnExpenses data={data} />
       ) : (
-        <LeftColumnServices />
+        <LeftColumnServices data={data} />
       )}
     </div>
   );

@@ -5,24 +5,20 @@ import {
   setTempData,
 } from "../../../../../../store/slices/columnSlice";
 
-function ExpenseRow({ data, odd, visible, subCategory }) {
+function ServiceRow({ data, odd, visible, subCategory }) {
   const dispatch = useDispatch();
   const colors = odd
     ? "bg-slate-700 hover:bg-slate-600"
     : "bg-slate-900 hover:bg-slate-800";
 
-  const expenses = useSelector((state) => state.expense.expenses);
-  const expenseData = expenses[subCategory][data];
+  const services = useSelector((state) => state.service.services);
+  const serviceData = services[subCategory][data];
 
   function handleClick() {
     dispatch(setSubCategory(subCategory));
     dispatch(setSelection(data));
     dispatch(
-      setTempData({
-        ...expenseData,
-        multiple: 1,
-        category: "expenses",
-      }),
+      setTempData({ ...serviceData, multiple: 1, category: "services" }),
     );
   }
 
@@ -36,4 +32,4 @@ function ExpenseRow({ data, odd, visible, subCategory }) {
   );
 }
 
-export default ExpenseRow;
+export default ServiceRow;
