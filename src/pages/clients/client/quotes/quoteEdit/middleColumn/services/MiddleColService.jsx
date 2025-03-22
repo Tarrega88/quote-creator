@@ -2,6 +2,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import MiddleColTitle from "../MiddleColTitle";
 import MiddleColServiceEdit from "./MiddleColServiceEdit";
+import MidColNumSelect from "../MidColNumSelect";
+import { formatUSD } from "../../../../../../../helpers/formatUSD";
+import { updateClientQuote } from "../../../../../../../store/slices/clientSlice";
 
 function MiddleColService() {
   const tempData = useSelector((state) => state.column.tempData);
@@ -46,45 +49,29 @@ function MiddleColService() {
     tempData,
   };
 
+  const midColNumText = {
+    measurement: `How many ${measurementUnit?.replaceAll("_", " ")}?`,
+    flat: "",
+    time: `How many ${timeUnit}s will this service take?`,
+  };
+
   return (
     <div className="flex h-dvh flex-col bg-slate-800 pt-10">
       <MiddleColTitle text="Service" />
       <div className="flex flex-col px-3 pt-16">
         <MiddleColServiceEdit tempData={tempData} />
-      </div>
-    </div>
-  );
-}
-
-export default MiddleColService;
-
-{
-  /*
-function MiddleColMaterial() {
-
-
-  return (
-    <div className="flex h-dvh flex-col bg-slate-800 pt-10">
-      <MiddleColTitle text="Material Expense" />
-      <div className="flex flex-col px-3 pt-16">
-        <MiddleColMaterialEdit
-          expenseName={expenseName}
-          costInDollars={costInDollars}
-          measurementUnit={measurementUnit}
-          unitAmount={unitAmount}
-        />
         <div className="flex flex-col gap-5 bg-slate-700 py-4">
-          <div className="px-2">
-            How many {measurementUnit} of {expenseName} will be needed?
-          </div>
-          <MidColNumSelect
-            minAmount={unitAmount}
-            multiple={multiple}
-            tempData={tempData}
-          />
+          <div className="px-2">{midColNumText[paymentModel]}</div>
+          {paymentModel !== "flat" && (
+            <MidColNumSelect
+              minAmount={unitAmount}
+              multiple={multiple}
+              tempData={tempData}
+            />
+          )}
           <div className="flex items-center justify-between px-2">
             <div className="flex gap-2">
-              <div>Cost:</div>
+              <div>Cost: </div>
               <div>{formatUSD(totalCost)}</div>
             </div>
             <div className="pr-2">
@@ -102,7 +89,4 @@ function MiddleColMaterial() {
   );
 }
 
-export default MiddleColMaterial;
-
-  */
-}
+export default MiddleColService;
