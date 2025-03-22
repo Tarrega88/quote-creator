@@ -21,11 +21,9 @@ function RightColServiceList({ title, data }) {
         {keys.map((e, i) => (
           <RightColServiceRow
             data={data[e]}
-            dataName={data[e].serviceName}
             key={i}
             odd={i % 2}
             visible={visible}
-            subCategory={title.toLowerCase()}
           />
         ))}
       </ul>

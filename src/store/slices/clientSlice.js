@@ -114,9 +114,18 @@ const clientSlice = createSlice({
             delete quote[category][serviceCategory][uuid];
             if (!Object.keys(quote[category][serviceCategory]).length) delete quote[category][serviceCategory];
 
+        },
+        removeClientQuoteExpenseData(state, action) {
+            const { clientURL, quoteID, tempData } = action.payload;
+            const { category, expenseType, uuid } = tempData;
+
+            const quote = state.clients[clientURL].quotes[quoteID];
+            delete quote[category][expenseType][uuid];
+            // if (!Object.keys(quote[category][expenseType]).length) delete quote[category][serviceCategory];
+
         }
     },
 });
 
-export const { createClient, editClientData, setActiveClient, updateClientQuote, updateClientQuoteService, removeClientQuoteServiceData } = clientSlice.actions;
+export const { createClient, editClientData, setActiveClient, updateClientQuote, updateClientQuoteService, removeClientQuoteServiceData, removeClientQuoteExpenseData } = clientSlice.actions;
 export default clientSlice.reducer;
