@@ -104,12 +104,19 @@ const clientSlice = createSlice({
             // Ensure category and expenseType objects exist
             // quote[category] ??= {};
             quote[category][serviceCategory] ??= {};
-
-            // Assign the new expense
             quote[category][serviceCategory][uuid] = { ...tempData, uuid };
         },
+        removeClientQuoteServiceData(state, action) {
+            const { clientURL, quoteID, tempData } = action.payload;
+            const { category, serviceCategory, uuid } = tempData;
+
+            const quote = state.clients[clientURL].quotes[quoteID];
+            delete quote[category][serviceCategory][uuid];
+            if (!Object.keys(quote[category][serviceCategory]).length) delete quote[category][serviceCategory];
+
+        }
     },
 });
 
-export const { createClient, editClientData, setActiveClient, updateClientQuote, updateClientQuoteService } = clientSlice.actions;
+export const { createClient, editClientData, setActiveClient, updateClientQuote, updateClientQuoteService, removeClientQuoteServiceData } = clientSlice.actions;
 export default clientSlice.reducer;

@@ -50,10 +50,8 @@ function MiddleColumn() {
   ) : (
     <div className="flex h-dvh flex-col bg-slate-800 py-8">
       <div className="flex h-12 w-full items-center justify-center">
-        <div className="flex h-12 w-5/6 items-center justify-center rounded-md text-center text-xl tracking-wide">
-          {mainCategory === "services"
-            ? "Choose a service"
-            : "Choose an expense"}
+        <div className="h-12 w-5/6 items-center text-center text-lg">
+          Choose a service or expense from the left column
         </div>
       </div>
     </div>

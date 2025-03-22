@@ -56,7 +56,7 @@ function MiddleColService() {
 
   return (
     <div className="flex h-dvh flex-col bg-slate-800 pt-10">
-      <MiddleColTitle text={`${serviceCategory} Service`} />
+      <MiddleColTitle text={serviceName} />
       <div className="flex flex-col px-3 pt-16">
         <MiddleColServiceEdit tempData={tempData} />
         <div className="flex flex-col gap-5 bg-slate-700 py-4">
