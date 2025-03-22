@@ -38,17 +38,25 @@ function MiddleColumn() {
   const displayOptions = {
     expenses: {
       materials: <MiddleColMaterial />,
-      rentals: <MiddleColRental data={data} />,
-      labor: <MiddleColLabor data={data} />,
+      rentals: <MiddleColRental />,
+      labor: <MiddleColLabor />,
     },
     services: {
-      [subCategory]: <MiddleColService data={data} />,
+      [subCategory]: <MiddleColService />,
     },
   };
   return subCategory && selection ? (
     displayOptions[mainCategory][subCategory]
   ) : (
-    <div>Some Waiting Element</div>
+    <div className="flex h-dvh flex-col bg-slate-800 py-8">
+      <div className="flex h-12 w-full items-center justify-center">
+        <div className="flex h-12 w-5/6 items-center justify-center rounded-md text-center text-xl tracking-wide">
+          {mainCategory === "services"
+            ? "Choose a service"
+            : "Choose an expense"}
+        </div>
+      </div>
+    </div>
   );
 }
 

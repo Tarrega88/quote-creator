@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import LeftColumn from "./leftColumn/LeftColumn";
 import MiddleColumn from "./middleColumn/MiddleColumn";
 import { useState } from "react";
+import RightColumn from "./rightColumn/RightColumn";
 
 function QuoteEditView() {
   const { clientURL, quoteID } = useParams();
@@ -23,12 +24,10 @@ function QuoteEditView() {
 
   return (
     <MainFlexContainer back={`/clients/${clientURL}`}>
-      <div className="grid w-dvw grid-cols-[2fr_3fr_2fr]">
-        {/* <div>A</div>
-        <div>B</div>
-        <div>C</div> */}
+      <div className="grid w-dvw grid-cols-[3fr_4fr_3fr]">
         <LeftColumn serviceList={serviceList} expenseList={expenseList} />
         <MiddleColumn />
+        <RightColumn />
         <div className="bg-sky-700"></div>
       </div>
     </MainFlexContainer>

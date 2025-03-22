@@ -17,9 +17,9 @@ const dummyData = {
                 1742300944160: {
                     dateCreated: 1742300944160,
                     expenses: {
-                        materials: [],
-                        labor: [],
-                        rentals: [],
+                        materials: {},
+                        labor: {},
+                        rentals: {},
                     },
                     services: {
                         //category, like installs gets added when a service is added to quote
@@ -29,9 +29,9 @@ const dummyData = {
                 1742410954170: {
                     dateCreated: 1742410954170,
                     expenses: {
-                        materials: [],
-                        labor: [],
-                        rentals: [],
+                        materials: {},
+                        labor: {},
+                        rentals: {},
                     },
                     services: {
                     },
@@ -71,13 +71,13 @@ const clientSlice = createSlice({
                     [timeCreated]: {
                         dateCreated: timeCreated,
                         expenses: {
-                            materials: [],
-                            labor: [],
-                            rentals: [],
+                            materials: {},
+                            labor: {},
+                            rentals: {},
                         },
                         services: {
                             //category, like installs gets added when a service is added to quote
-                            //installs: [],
+                            //installs: {},
                         },
                     },
                 },
@@ -91,10 +91,25 @@ const clientSlice = createSlice({
         },
         updateClientQuote(state, action) {
             const { clientURL, quoteID, tempData } = action.payload;
-            state.clients[clientURL].quotes[quoteID][tempData.category][tempData.expenseType].push({ ...tempData })
-        }
+            const uuid = crypto.randomUUID();
+            state.clients[clientURL].quotes[quoteID][tempData.category][tempData.expenseType][uuid] = { ...tempData, uuid };
+        },
+        updateClientQuoteService(state, action) {
+            const { clientURL, quoteID, tempData } = action.payload;
+            const { category, serviceCategory } = tempData;
+            const uuid = crypto.randomUUID();
+
+            const quote = state.clients[clientURL].quotes[quoteID];
+
+            // Ensure category and expenseType objects exist
+            // quote[category] ??= {};
+            quote[category][serviceCategory] ??= {};
+
+            // Assign the new expense
+            quote[category][serviceCategory][uuid] = { ...tempData, uuid };
+        },
     },
 });
 
-export const { createClient, editClientData, setActiveClient, updateClientQuote } = clientSlice.actions;
+export const { createClient, editClientData, setActiveClient, updateClientQuote, updateClientQuoteService } = clientSlice.actions;
 export default clientSlice.reducer;

@@ -28,7 +28,7 @@ const dummyData = {
                 measurementUnit: "square_feet",
                 pay: 250,
                 paymentModel: "measurement",
-                serviceCategory: "installation",
+                serviceCategory: "landscaping",
                 serviceName: "grading",
                 unitAmount: 40
             }
