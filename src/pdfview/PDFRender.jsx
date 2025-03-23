@@ -9,6 +9,7 @@ import {
 } from "@react-pdf/renderer";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import "../registerFonts";
 
 function PDFRender() {
   const { clientURL, quoteID } = useParams();
@@ -16,14 +17,9 @@ function PDFRender() {
 
   const quoteData = clientSelector[clientURL].quotes[quoteID];
 
-  Font.register({
-    family: "Montserrat",
-    src: "/fonts/Montserrat-Regular.ttf",
-  });
-
   const styles = StyleSheet.create({
     document: {
-      fontFamily: "Helvetica",
+      fontFamily: "Inter",
       height: "100vh",
     },
     page: {

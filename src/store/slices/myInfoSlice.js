@@ -1,13 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-    myName: "",
-    myCompany: "",
-    myAddress: "",
+
+const dummyData = {
+    myName: "James Bond",
+    myCompany: "MI6",
+    myAddress: "007 Secret Agent Ln",
     myCity: "",
     myState: "",
     myPhone: "",
     myEmail: "",
+}
+
+const initialState = {
+    ...dummyData,
+    // myName: "",
+    // myCompany: "",
+    // myAddress: "",
+    // myCity: "",
+    // myState: "",
+    // myPhone: "",
+    // myEmail: "",
 };
 
 const myInfoSlice = createSlice({
