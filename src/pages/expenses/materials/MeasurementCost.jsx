@@ -24,6 +24,7 @@ function MeasurementCost() {
   const { measurementUnit } = useParams();
   const measurementUnitSpaces = measurementUnit.replaceAll("_", " ");
 
+  //TODO 3/23/2025: Add paymentModel ?
   const materialExpense = {
     expenseType: "materials",
     expenseName: materialName,
@@ -31,6 +32,7 @@ function MeasurementCost() {
     measurementUnit: measurementUnitSpaces,
     costInDollars: dollars,
     unitAmount,
+    paymentModel: "measurement",
   };
 
   function handleClick() {

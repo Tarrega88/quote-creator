@@ -5,10 +5,10 @@ const dummyData = {
     myName: "James Bond",
     myCompany: "MI6",
     myAddress: "007 Secret Agent Ln",
-    myCity: "",
-    myState: "",
-    myPhone: "",
-    myEmail: "",
+    myCity: "Anchorage",
+    myState: "AK",
+    myPhone: "907-007-0007",
+    myEmail: "bondJamesBond@mi6.com",
 }
 
 const initialState = {
@@ -28,7 +28,8 @@ const myInfoSlice = createSlice({
     reducers: {
         setMyInfo(state, action) {
             state[action.payload.type] = action.payload.text;
-        }
+        },
+
     },
 });
 

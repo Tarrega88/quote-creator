@@ -8,6 +8,7 @@ const dummyData = {
                 expenseType: "materials",
                 measurementType: "length",
                 measurementUnit: "feet",
+                paymentModel: "measurement",
                 unitAmount: 10,
             },
             "sheet metal": {
@@ -16,6 +17,7 @@ const dummyData = {
                 expenseType: "materials",
                 measurementType: "area",
                 measurementUnit: "square feet",
+                paymentModel: "measurement",
                 unitAmount: 50,
             }
         },
@@ -24,6 +26,7 @@ const dummyData = {
                 costInDollars: 25,
                 expenseName: "Uhaul",
                 expenseType: "rentals",
+                paymentModel: "time",
                 paidByThe: "day",
             }
         },
@@ -32,6 +35,7 @@ const dummyData = {
                 costInDollars: 450,
                 expenseName: "general labor",
                 expenseType: "labor",
+                paymentModel: "time",
                 paidByThe: "day",
             }
         },

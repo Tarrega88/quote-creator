@@ -15,11 +15,14 @@ function RentalCost() {
 
   const rentalName = useSelector((state) => state.rental.expenseName);
 
+  const paymentModel = paidByThe === "flat" ? "flat" : "time";
+
   const expenseToAdd = {
     expenseType: "rentals",
     expenseName: rentalName,
     costInDollars: pay,
     paidByThe,
+    paymentModel,
   };
 
   const text =

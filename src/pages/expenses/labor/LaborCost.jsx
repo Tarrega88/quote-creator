@@ -15,11 +15,14 @@ function LaborCost() {
 
   const laborName = useSelector((state) => state.labor.expenseName);
 
+  const paymentModel = paidByThe === "flat" ? "flat" : "time";
+
   const expenseToAdd = {
     expenseType: "labor",
     expenseName: laborName,
     costInDollars: pay,
     paidByThe,
+    paymentModel,
   };
 
   const text =
