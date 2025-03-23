@@ -66,7 +66,6 @@ function Client() {
         </div>
         <div className="flex flex-col gap-4 pt-4">
           <div className="text-center text-2xl">Client Quotes</div>
-
           <ClientQuoteList clientData={clientData} />
         </div>
       </div>

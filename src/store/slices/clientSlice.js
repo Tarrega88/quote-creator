@@ -123,9 +123,22 @@ const clientSlice = createSlice({
             delete quote[category][expenseType][uuid];
             // if (!Object.keys(quote[category][expenseType]).length) delete quote[category][serviceCategory];
 
+        },
+        createNewQuote(state, action) {
+            const timeCreated = Date.now();
+
+            state.clients[action.payload].quotes[timeCreated] = {
+                dateCreated: timeCreated,
+                expenses: {
+                    materials: {},
+                    labor: {},
+                    rentals: {},
+                },
+                services: {},
+            }
         }
     },
 });
 
-export const { createClient, editClientData, setActiveClient, updateClientQuote, updateClientQuoteService, removeClientQuoteServiceData, removeClientQuoteExpenseData } = clientSlice.actions;
+export const { createClient, editClientData, setActiveClient, updateClientQuote, updateClientQuoteService, removeClientQuoteServiceData, removeClientQuoteExpenseData, createNewQuote } = clientSlice.actions;
 export default clientSlice.reducer;
