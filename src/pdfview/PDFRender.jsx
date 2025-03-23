@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import "../registerFonts";
 import MainBody from "./MainBody";
-import { useEffect, useState } from "react";
 import Expenses from "./expenses/Expenses";
 
 const styles = StyleSheet.create({
@@ -78,17 +77,16 @@ function PDFRender() {
   // console.log(random);
 
   // console.log(random);
-
   const { clientURL, quoteID } = useParams();
   const clientSelector = useSelector((state) => state.client.clients);
 
   const quoteData = clientSelector[clientURL].quotes[quoteID];
 
-  console.log("quoteData");
-  console.log(quoteData);
+  // console.log("quoteData");
+  // console.log(quoteData);
 
   const dateText = new Date(Date.now()).toLocaleDateString("en-US");
-  console.log(dateText);
+  // console.log(dateText);
 
   const { myName, myAddress, myPhone, myEmail, myCity, myState, myCompany } =
     useSelector((state) => state.myInfo);
