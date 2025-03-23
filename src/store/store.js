@@ -7,6 +7,7 @@ import laborReducer from "./slices/laborSlice";
 import rentalReducer from "./slices/rentalSlice";
 import serviceReducer from "./slices/serviceSlice";
 import columnReducer from "./slices/columnSlice";
+import myInfoReducer from "./slices/myInfoSlice";
 
 const { ipcRenderer } = window?.electron || {}; // Prevent errors in non-Electron environments
 
@@ -25,6 +26,7 @@ const store = configureStore({
         rental: rentalReducer,
         service: serviceReducer,
         column: columnReducer,
+        myInfo: myInfoReducer,
     },
     preloadedState: persistedState,
 });

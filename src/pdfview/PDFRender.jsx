@@ -38,6 +38,9 @@ function PDFRender() {
       padding: 10,
       flexGrow: 1,
     },
+    lightText: {
+      color: "#F5F5F5",
+    },
     viewer: {
       width: "100%",
       height: "100vh",
@@ -53,6 +56,12 @@ function PDFRender() {
       backgroundColor: "#003366",
       width: "100vw",
       height: "16vh",
+      flexDirection: "row",
+      justifyContent: "space-between",
+      paddingLeft: "12",
+      paddingRight: "12",
+      paddingTop: "8",
+      fontSize: "16",
     },
     subBanner: {
       backgroundColor: "#4A555F",
@@ -77,6 +86,10 @@ function PDFRender() {
   const dateText = new Date(Date.now()).toLocaleDateString("en-US");
   console.log(dateText);
 
+  const { myName, myAddress, myPhone, myEmail, myCity, myState } = useSelector(
+    (state) => state.myInfo,
+  );
+
   const hasLaborExpense = Object.keys(quoteData.expenses.labor).length > 0;
   const hasMaterialExpense =
     Object.keys(quoteData.expenses.materials).length > 0;
@@ -88,7 +101,19 @@ function PDFRender() {
     <PDFViewer style={styles.viewer}>
       <Document style={styles.document}>
         <Page size="A4" style={styles.page}>
-          <View style={styles.banner}></View>
+          <View style={styles.banner}>
+            <View>
+              <Text>A</Text>
+            </View>
+            <View style={{ ...styles.lightText, alignItems: "flex-end" }}>
+              <Text>{myName}</Text>
+              <Text>{myPhone}</Text>
+              <Text>{myEmail}</Text>
+              <Text>{myAddress}</Text>
+              <Text>{myCity}</Text>
+              <Text>{myState}</Text>
+            </View>
+          </View>
           <View style={{ ...styles.subBanner, ...styles.row }}>
             <Text style={styles.subBannerText}>{dateText}</Text>
           </View>
@@ -99,10 +124,3 @@ function PDFRender() {
 }
 
 export default PDFRender;
-{
-  /* {hasExpense ? (
-            <View style={styles.listBox}>
-              <Text>Test</Text>
-            </View>
-          ) : null} */
-}

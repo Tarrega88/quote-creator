@@ -14,6 +14,9 @@ function Nav() {
             {e.name}
           </Link>
         ))}
+        {/* <Link className="w-fit transition-all duration-200 hover:text-slate-400">
+          My Info
+        </Link> */}
       </div>
     </div>
   );
