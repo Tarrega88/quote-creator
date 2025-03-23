@@ -1,13 +1,10 @@
 import { Text, View } from "@react-pdf/renderer";
 import { capitalizeFirst } from "../../helpers/capitalize";
 
-function ExpenseCategory({ title, data }) {
-  console.log(title);
-  if (!data) return null;
-  if (!title) return null;
+function ExpenseCategory({ title }) {
   return (
     <View>
-      <Text>{title}</Text>
+      <Text>{capitalizeFirst(title)}</Text>
     </View>
   );
 }

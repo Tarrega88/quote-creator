@@ -81,9 +81,29 @@ function PDFRender() {
   const clientSelector = useSelector((state) => state.client.clients);
 
   const quoteData = clientSelector[clientURL].quotes[quoteID];
-
+  const { expenses } = quoteData;
+  console.log(expenses);
+  const expenseKeys = Object.keys(expenses);
+  console.log(expenseKeys);
+  const filteredExpenseKeys = expenseKeys.filter(
+    (e) => Object.values(expenses[e]).length > 0,
+  );
   // console.log("quoteData");
   // console.log(quoteData);
+
+  console.log(filteredExpenseKeys);
+
+  function dynamic() {
+    return expenseKeys.map((e, i) => {
+      return filteredExpenseKeys.includes(e) ? (
+        <View key={e}>
+          <Text>{e}</Text>
+        </View>
+      ) : (
+        <View key={e}></View>
+      );
+    });
+  }
 
   const dateText = new Date(Date.now()).toLocaleDateString("en-US");
   // console.log(dateText);
@@ -99,7 +119,7 @@ function PDFRender() {
   const hasExpense = hasLaborExpense || hasMaterialExpense || hasRentalExpense;
 
   return (
-    <PDFViewer style={styles.viewer}>
+    <PDFViewer style={styles.viewer} key={crypto.randomUUID()}>
       <Document style={styles.document}>
         <Page size="A4" style={styles.page}>
           <View style={styles.banner}>
