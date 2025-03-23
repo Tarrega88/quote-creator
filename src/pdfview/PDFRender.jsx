@@ -73,37 +73,10 @@ const styles = StyleSheet.create({
 });
 
 function PDFRender() {
-  // const { random } = useSelector((state) => state.myInfo);
-  // console.log(random);
-
-  // console.log(random);
   const { clientURL, quoteID } = useParams();
   const clientSelector = useSelector((state) => state.client.clients);
 
   const quoteData = clientSelector[clientURL].quotes[quoteID];
-  const { expenses } = quoteData;
-  console.log(expenses);
-  const expenseKeys = Object.keys(expenses);
-  console.log(expenseKeys);
-  const filteredExpenseKeys = expenseKeys.filter(
-    (e) => Object.values(expenses[e]).length > 0,
-  );
-  // console.log("quoteData");
-  // console.log(quoteData);
-
-  console.log(filteredExpenseKeys);
-
-  function dynamic() {
-    return expenseKeys.map((e, i) => {
-      return filteredExpenseKeys.includes(e) ? (
-        <View key={e}>
-          <Text>{e}</Text>
-        </View>
-      ) : (
-        <View key={e}></View>
-      );
-    });
-  }
 
   const dateText = new Date(Date.now()).toLocaleDateString("en-US");
   // console.log(dateText);

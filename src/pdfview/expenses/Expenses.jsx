@@ -9,13 +9,15 @@ function Expenses({ expenses }) {
   );
 
   const styles = StyleSheet.create({
-    box: {
-      border: "1",
+    box: {},
+    titleFont: {
+      fontWeight: "bold",
+      fontSize: "16",
     },
   });
   return (
-    <View style={styles.box}>
-      <Text>Expenses</Text>
+    <View>
+      <Text style={styles.titleFont}>Expenses</Text>
       {keysThatHaveData.map((e, i) => (
         <ExpenseCategory key={e} title={e} data={expenses[e]} />
       ))}
