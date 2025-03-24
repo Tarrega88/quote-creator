@@ -1,5 +1,14 @@
 import { Link } from "react-router-dom";
 import { navLinks } from "../helpers/navLinkText";
+import { IoPeopleSharp } from "react-icons/io5";
+import { FaTools } from "react-icons/fa";
+import { GiWoodBeam } from "react-icons/gi";
+
+const displayOptions = {
+  clients: <IoPeopleSharp />,
+  services: <FaTools />,
+  expenses: <GiWoodBeam />,
+};
 
 function Nav() {
   return (
@@ -9,9 +18,10 @@ function Nav() {
           <Link
             to={e.link}
             key={i}
-            className="w-fit transition-all duration-200 hover:text-slate-400"
+            className="flex w-fit items-center gap-6 transition-all duration-200 hover:text-slate-400"
           >
-            {e.name}
+            <div>{displayOptions[e.link]}</div>
+            <div>{e.name}</div>
           </Link>
         ))}
       </div>

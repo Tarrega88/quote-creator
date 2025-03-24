@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import Nav from "../../ui/Nav";
 import { Link } from "react-router-dom";
+import { IoPersonSharp } from "react-icons/io5";
 
 function Home() {
   const services = useSelector((state) => state.service);
@@ -20,9 +21,10 @@ function Home() {
         <div className="flex flex-col gap-4 pt-12 pr-12 text-xl md:text-2xl">
           <Link
             to="/myInfo"
-            className="w-fit transition-all duration-200 hover:text-slate-400"
+            className="flex w-fit items-center gap-2 transition-all duration-200 hover:text-slate-400"
           >
-            My Info
+            <IoPersonSharp />
+            <div>User Info</div>
           </Link>
         </div>
       </div>
