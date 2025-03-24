@@ -3,9 +3,7 @@ import MainFlexContainer from "../../../../../ui/MainFlexContainer";
 import { useSelector } from "react-redux";
 import LeftColumn from "./leftColumn/LeftColumn";
 import MiddleColumn from "./middleColumn/MiddleColumn";
-import { useState } from "react";
 import RightColumn from "./rightColumn/RightColumn";
-import PDFRender from "../../../../../pdfview/PDFRender";
 
 function QuoteEditView() {
   const { clientURL, quoteID } = useParams();
@@ -21,8 +19,6 @@ function QuoteEditView() {
   const serviceList = useSelector((state) => state.service.services);
 
   const quoteData = clientsList[clientURL].quotes[quoteID];
-
-  // const [midMain, setMidMain] = useState("expenses");
 
   return (
     <MainFlexContainer back={`/clients/${clientURL}`}>

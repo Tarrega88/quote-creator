@@ -257,9 +257,13 @@ const clientSlice = createSlice({
                 },
                 services: {},
             }
+        },
+        setQuoteTitle(state, action) {
+            const { clientURL, quoteID, title } = action.payload;
+            state.clients[clientURL].quotes[quoteID].quoteTitle = title;
         }
     },
 });
 
-export const { createClient, editClientData, setActiveClient, updateClientQuote, updateClientQuoteService, removeClientQuoteServiceData, removeClientQuoteExpenseData, createNewQuote } = clientSlice.actions;
+export const { createClient, editClientData, setActiveClient, updateClientQuote, updateClientQuoteService, removeClientQuoteServiceData, removeClientQuoteExpenseData, createNewQuote, setQuoteTitle } = clientSlice.actions;
 export default clientSlice.reducer;

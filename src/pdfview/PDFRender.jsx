@@ -18,6 +18,7 @@ import Total from "./Total";
 import FromToBox from "./FromToBox";
 import From from "./From";
 import To from "./To";
+import { capitalizeFirst } from "../helpers/capitalize";
 
 const styles = StyleSheet.create({
   document: {
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
     paddingRight: 16,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "flex-end",
+    justifyContent: "space-between",
   },
   subBannerText: {
     fontSize: "14",
@@ -105,6 +106,7 @@ function PDFRender() {
             key={crypto.randomUUID()}
           />
           <View style={{ ...styles.subBanner, ...styles.row }}>
+            <Text>{capitalizeFirst(quoteData.quoteTitle)}</Text>
             <Text style={styles.subBannerText}>{dateText}</Text>
           </View>
           <View style={{ ...styles.row, justifyContent: "center" }}>
