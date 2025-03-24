@@ -79,8 +79,11 @@ const expenseSlice = createSlice({
         setCurrentExpenseName(state, action) {
             state.currentExpense.expenseName = action.payload;
         },
+        deleteExpense(state, action) {
+            delete state.expenses[action.payload.expenseType][action.payload.expenseName];
+        }
     },
 });
 
-export const { addToExpenses, setCurrentExpenseType, setCurrentExpenseName } = expenseSlice.actions;
+export const { addToExpenses, setCurrentExpenseType, setCurrentExpenseName, deleteExpense } = expenseSlice.actions;
 export default expenseSlice.reducer;

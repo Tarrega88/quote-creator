@@ -7,6 +7,7 @@ import { expenseRoutes } from "./routers/expensesRoutes";
 import { quoteRoutes } from "./routers/quoteRoutes";
 import { clientRoutes } from "./routers/clientRoutes";
 import MyInfo from "./pages/home/MyInfo";
+import AppInfo from "./pages/home/AppInfo";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       ...serviceRoutes,
       ...expenseRoutes,
       { path: "/myInfo", element: <MyInfo /> },
+      { path: "/appInfo", element: <AppInfo /> },
     ],
   },
 ]);

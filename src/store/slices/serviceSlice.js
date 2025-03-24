@@ -71,9 +71,12 @@ const serviceSlice = createSlice({
         addService(state, action) {
             state.services[state.current.serviceCategory][state.current.serviceName] = action.payload;
             state.allServiceNames[state.current.serviceName] = true;
+        },
+        deleteService(state, action) {
+            delete state.services[action.payload.serviceCategory][action.payload.serviceName];
         }
     },
 });
 
-export const { setServiceCategory, setServiceName, addCategory, addService } = serviceSlice.actions;
+export const { setServiceCategory, setServiceName, addCategory, addService, deleteService } = serviceSlice.actions;
 export default serviceSlice.reducer;

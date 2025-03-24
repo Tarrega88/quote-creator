@@ -3,7 +3,7 @@ import TopNav from "./TopNav";
 
 function AppLayout() {
   return (
-    <div className="h-dvh w-dvw bg-slate-800 text-slate-50">
+    <div className="flex h-dvh w-dvw flex-col bg-slate-800 text-slate-50">
       <TopNav />
       <Outlet />
     </div>
