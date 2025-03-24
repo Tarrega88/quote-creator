@@ -18,7 +18,6 @@ function MaterialListRow({ data, odd, handleDelete }) {
       <span>
         {measurementType} in {measurementUnit}
       </span>
-      {/* <span>{measurementUnit}</span> */}
       <span>${costInDollars}</span>
       <span>
         {unitAmount} {measurementUnit}

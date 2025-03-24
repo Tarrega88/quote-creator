@@ -16,6 +16,7 @@ const dummyData = {
             quotes: {
                 1742300944160: {
                     dateCreated: 1742300944160,
+                    quoteTitle: "",
                     "expenses": {
                         "materials": {
                             "e74bb82a-df6e-4680-af2d-fb65ad15e554": {
@@ -145,6 +146,7 @@ const dummyData = {
                 },
                 1742410954170: {
                     dateCreated: 1742410954170,
+                    quoteTitle: "",
                     expenses: {
                         materials: {},
                         labor: {},
@@ -187,6 +189,7 @@ const clientSlice = createSlice({
                 quotes: {
                     [timeCreated]: {
                         dateCreated: timeCreated,
+                        quoteTitle: "",
                         expenses: {
                             materials: {},
                             labor: {},
@@ -246,6 +249,7 @@ const clientSlice = createSlice({
 
             state.clients[action.payload].quotes[timeCreated] = {
                 dateCreated: timeCreated,
+                quoteTitle: "",
                 expenses: {
                     materials: {},
                     labor: {},
