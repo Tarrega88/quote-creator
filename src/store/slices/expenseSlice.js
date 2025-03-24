@@ -37,6 +37,13 @@ const dummyData = {
                 expenseType: "labor",
                 paymentModel: "time",
                 paidByThe: "day",
+            },
+            "flat labor": {
+                costInDollars: 600,
+                expenseName: "flat labor",
+                expenseType: "labor",
+                paymentModel: "flat",
+                paidByThe: "flat",
             }
         },
     },

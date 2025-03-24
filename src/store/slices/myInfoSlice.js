@@ -2,13 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const dummyData = {
-    myName: "James Bond",
-    myCompany: "MI6",
-    myAddress: "007 Secret Agent Ln",
-    myCity: "Anchorage",
-    myState: "AK",
-    myPhone: "907-007-0007",
-    myEmail: "bondJamesBond@mi6.com",
+    myName: "Homer Simpson",
+    myCompany: "Springfield Nuclear Power Plant",
+    myAddress: "742 Evergreen Terrace",
+    myCity: "Springfield",
+    myState: "OR",
+    myPhone: "907-555-7334",
+    myEmail: "chunkylover53@aol.com",
 }
 
 const initialState = {

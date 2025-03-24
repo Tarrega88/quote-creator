@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 import "../registerFonts";
 import MainBody from "./MainBody";
 import Expenses from "./expenses/Expenses";
+import Banner from "./Banner";
 
 const styles = StyleSheet.create({
   document: {
@@ -50,18 +51,18 @@ const styles = StyleSheet.create({
     height: "16vh",
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingLeft: "12",
-    paddingRight: "12",
-    paddingTop: "8",
-    fontSize: "14",
+    paddingLeft: "16",
+    paddingRight: "16",
+    paddingTop: 12,
+    fontSize: 10,
   },
   subBanner: {
     backgroundColor: "#4A555F",
     width: "100vw",
     height: "4vh",
     color: "#F5F5F5",
-    paddingLeft: "8",
-    paddingRight: "12",
+    paddingLeft: 16,
+    paddingRight: 16,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-end",
@@ -75,14 +76,10 @@ const styles = StyleSheet.create({
 function PDFRender() {
   const { clientURL, quoteID } = useParams();
   const clientSelector = useSelector((state) => state.client.clients);
-
   const quoteData = clientSelector[clientURL].quotes[quoteID];
 
   const dateText = new Date(Date.now()).toLocaleDateString("en-US");
-  // console.log(dateText);
-
-  const { myName, myAddress, myPhone, myEmail, myCity, myState, myCompany } =
-    useSelector((state) => state.myInfo);
+  const myInfo = useSelector((state) => state.myInfo);
 
   const hasLaborExpense = Object.keys(quoteData.expenses.labor).length > 0;
   const hasMaterialExpense =
@@ -95,25 +92,7 @@ function PDFRender() {
     <PDFViewer style={styles.viewer} key={crypto.randomUUID()}>
       <Document style={styles.document}>
         <Page size="A4" style={styles.page}>
-          <View style={styles.banner}>
-            <View>
-              <Text>A</Text>
-            </View>
-            <View style={{ ...styles.lightText, alignItems: "flex-end" }}>
-              <Text>{myName}</Text>
-              <Text>{myCompany}</Text>
-              <Text>{myPhone}</Text>
-              <Text>{myEmail}</Text>
-              <Text>{myAddress}</Text>
-              <View style={{ ...styles.row }}>
-                <Text>
-                  {myCity}
-                  {myState ? ", " : ""}
-                </Text>
-                <Text>{myState}</Text>
-              </View>
-            </View>
-          </View>
+          <Banner data={myInfo} />
           <View style={{ ...styles.subBanner, ...styles.row }}>
             <Text style={styles.subBannerText}>{dateText}</Text>
           </View>
