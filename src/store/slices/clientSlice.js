@@ -1,7 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-//TODO 3/19/2025: Add more dummy data to relevant slices
-//Add action to add another quote to same client
-
 const dummyData = {
     clients: {
         "billy_bob": {
@@ -162,9 +159,9 @@ const dummyData = {
 }
 
 const initialState = {
-    ...dummyData,
-    // clients: {},
-    // activeClient: false,
+    // ...dummyData,
+    clients: {},
+    activeClient: false,
 };
 
 

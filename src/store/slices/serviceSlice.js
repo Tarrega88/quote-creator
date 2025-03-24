@@ -46,13 +46,13 @@ const dummyData = {
 };
 
 const initialState = {
-    ...dummyData
-    // services: {},
-    // current: {
-    //     serviceCategory: "",
-    //     serviceName: "",
-    // },
-    // allServiceNames: {},
+    // ...dummyData
+    services: {},
+    current: {
+        serviceCategory: "",
+        serviceName: "",
+    },
+    allServiceNames: {},
 };
 
 const serviceSlice = createSlice({
@@ -74,6 +74,7 @@ const serviceSlice = createSlice({
         },
         deleteService(state, action) {
             delete state.services[action.payload.serviceCategory][action.payload.serviceName];
+            delete state.allServiceNames[action.payload.serviceName];
         }
     },
 });

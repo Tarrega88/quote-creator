@@ -54,16 +54,16 @@ const dummyData = {
 }
 
 const initialState = {
-    ...dummyData
-    // expenses: {
-    //     materials: {},
-    //     rentals: {},
-    //     labor: {},
-    // },
-    // currentExpense: {
-    //     type: "",
-    //     expenseName: "",
-    // },
+    // ...dummyData
+    expenses: {
+        materials: {},
+        rentals: {},
+        labor: {},
+    },
+    currentExpense: {
+        type: "",
+        expenseName: "",
+    },
 };
 
 const expenseSlice = createSlice({

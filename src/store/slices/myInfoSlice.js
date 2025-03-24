@@ -14,16 +14,16 @@ const dummyData = {
 }
 
 const initialState = {
-    ...dummyData,
-    // myName: "",
-    // myCompany: "",
-    // myAddress: "",
-    // myCity: "",
-    // myState: "",
-    // myZip: "",
-    // myPhone: "",
-    // myEmail: "",
-    // myImage: null,
+    // ...dummyData,
+    myName: "",
+    myCompany: "",
+    myAddress: "",
+    myCity: "",
+    myState: "",
+    myZip: "",
+    myPhone: "",
+    myEmail: "",
+    myImage: null,
 };
 
 const myInfoSlice = createSlice({
