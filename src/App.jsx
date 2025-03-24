@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       ...expenseRoutes,
       { path: "/myInfo", element: <MyInfo /> },
       { path: "/appInfo", element: <AppInfo /> },
-      { path: "/clients/:clientURL/view/:quoteID", element: <ViewPDF /> },
+      { path: "/clients/:clientURL/:quoteID/view", element: <ViewPDF /> },
     ],
   },
 ]);

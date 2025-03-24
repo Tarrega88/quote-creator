@@ -27,7 +27,7 @@ function ClientQuoteListRow({ data, odd }) {
           Edit
         </button>
         <button
-          onClick={() => navigate(`/clients/${clientURL}/view/${dateCreated}`)}
+          onClick={() => navigate(`/clients/${clientURL}/${dateCreated}/view`)}
           className="w-18 cursor-pointer bg-sky-600 transition-all duration-200 hover:bg-sky-500"
         >
           View

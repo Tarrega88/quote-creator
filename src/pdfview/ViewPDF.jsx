@@ -5,13 +5,15 @@ import BackButton from "../ui/BackButton";
 
 function ViewPDF() {
   //"/clients/:clientURL/view/:quoteID"
-  const { clientURL } = useParams();
+  const { clientURL, quoteID } = useParams();
   const navigate = useNavigate();
   return (
     // <MainFlexContainer back={`/clients/${clientURL}`}>
     <div>
       <div className="pb-8">
-        <BackButton onClick={() => navigate(`/clients/${clientURL}`)} />
+        <BackButton
+          onClick={() => navigate(`/clients/${clientURL}/${quoteID}`)}
+        />
       </div>
       <PDFRender />
     </div>

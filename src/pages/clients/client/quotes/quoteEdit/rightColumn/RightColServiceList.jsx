@@ -4,7 +4,7 @@ import RightColServiceRow from "./RightColServiceRow";
 
 function RightColServiceList({ title, data }) {
   const keys = Object.keys(data);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   return (
     <div className="border-y border-slate-200">
