@@ -92,7 +92,11 @@ function PDFRender() {
     <PDFViewer style={styles.viewer} key={crypto.randomUUID()}>
       <Document style={styles.document}>
         <Page size="A4" style={styles.page}>
-          <Banner data={myInfo} />
+          <Banner
+            data={myInfo}
+            imgSrc={myInfo.myImage}
+            key={crypto.randomUUID()}
+          />
           <View style={{ ...styles.subBanner, ...styles.row }}>
             <Text style={styles.subBannerText}>{dateText}</Text>
           </View>

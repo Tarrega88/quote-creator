@@ -1,15 +1,23 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import MyInfoRow from "./MyInfoRow";
 import { setMyInfo } from "../../store/slices/myInfoSlice";
 import InstructionText from "../../ui/InstructionText";
 import MainFlexContainer from "../../ui/MainFlexContainer";
 import Subtitle from "../../ui/Subtitle";
+import ImageDropZone from "./ImageDropZone";
 
 function MyInfo() {
   const dispatch = useDispatch();
-  const { myName, myAddress, myCity, myState, myPhone, myEmail, myCompany } =
-    useSelector((state) => state.myInfo);
+  const {
+    myName,
+    myAddress,
+    myCity,
+    myState,
+    myPhone,
+    myEmail,
+    myCompany,
+    myImage,
+  } = useSelector((state) => state.myInfo);
 
   const myData = {
     Name: myName,
@@ -41,6 +49,14 @@ function MyInfo() {
           />
         ))}
       </ul>
+      <ImageDropZone />
+      {myImage && (
+        <img
+          src={myImage}
+          alt="Uploaded"
+          className="mt-4 h-32 border object-contain"
+        />
+      )}
     </MainFlexContainer>
   );
 }

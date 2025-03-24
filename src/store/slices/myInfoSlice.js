@@ -9,6 +9,7 @@ const dummyData = {
     myState: "OR",
     myPhone: "907-555-7334",
     myEmail: "chunkylover53@aol.com",
+    myImage: null,
 }
 
 const initialState = {
@@ -20,6 +21,7 @@ const initialState = {
     // myState: "",
     // myPhone: "",
     // myEmail: "",
+    // myImage: null,
 };
 
 const myInfoSlice = createSlice({
@@ -29,9 +31,11 @@ const myInfoSlice = createSlice({
         setMyInfo(state, action) {
             state[action.payload.type] = action.payload.text;
         },
-
+        setMyImage(state, action) {
+            state.myImage = action.payload;
+        },
     },
 });
 
-export const { setMyInfo } = myInfoSlice.actions;
+export const { setMyInfo, setMyImage } = myInfoSlice.actions;
 export default myInfoSlice.reducer;
