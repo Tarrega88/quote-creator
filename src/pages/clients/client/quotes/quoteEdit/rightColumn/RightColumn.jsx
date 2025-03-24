@@ -14,10 +14,7 @@ function RightColumn() {
 
   const quoteData = clientSelector[clientURL].quotes[quoteID];
 
-  const quoteHasName = quoteData.quoteTitle.length > 0;
   const quoteTitle = quoteData.quoteTitle;
-
-  console.log(quoteHasName);
 
   const serviceKeys = Object.keys(quoteData.services);
   const hasExpense =

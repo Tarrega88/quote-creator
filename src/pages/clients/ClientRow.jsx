@@ -12,7 +12,7 @@ function ClientRow({ client, odd }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { clientName, clientEmail, clientAddress, clientPhone, client_ } =
-    client;
+    client || {};
   const [copied, setCopied] = useState(false);
   const colors = odd ? "bg-slate-500" : "bg-slate-700";
 
@@ -27,7 +27,7 @@ function ClientRow({ client, odd }) {
     }
   }
 
-  const clientURL = `/clients/${clientName.toLowerCase().replaceAll(" ", "_")}`;
+  const clientURL = `/clients/${clientName?.toLowerCase().replaceAll(" ", "_")}`;
 
   function handleClickMore() {
     // dispatch(setActiveClient());
@@ -43,7 +43,7 @@ function ClientRow({ client, odd }) {
       <div>{clientName}</div>
       <div className="relative flex items-center gap-2">
         <div>{clientEmail}</div>
-        {clientEmail.length > 0 &&
+        {clientEmail?.length > 0 &&
           (copied ? (
             <IoIosCheckmarkCircle className="text-lg text-green-600" />
           ) : (

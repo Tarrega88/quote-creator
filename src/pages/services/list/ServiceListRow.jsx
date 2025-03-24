@@ -1,7 +1,6 @@
 import RowDelete from "../../expenses/list/RowDelete";
 
 function ServiceListRow({ data, odd, handleDelete }) {
-  console.log(data);
   const { serviceCategory, serviceName } = data;
 
   const bgColor = odd ? "bg-slate-600" : "bg-slate-700";

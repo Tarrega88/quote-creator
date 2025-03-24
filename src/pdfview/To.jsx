@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
 });
 
 function To({ clientData }) {
-  console.log(clientData);
   const { clientName, clientCity, clientAddress, clientState, clientZip } =
     clientData;
 

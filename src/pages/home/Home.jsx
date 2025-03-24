@@ -5,15 +5,15 @@ import { IoPersonSharp } from "react-icons/io5";
 import { IoInformationCircle } from "react-icons/io5";
 
 function Home() {
-  const services = useSelector((state) => state.service);
-  console.log("---Services---");
-  console.log(services);
-  const expenses = useSelector((state) => state.expense.expenses);
-  console.log("---expenses---");
-  console.log(expenses);
-  const clients = useSelector((state) => state.client.clients);
-  console.log("===clients===");
-  console.log(clients);
+  // const services = useSelector((state) => state.service);
+  // console.log("---Services---");
+  // console.log(services);
+  // const expenses = useSelector((state) => state.expense.expenses);
+  // console.log("---expenses---");
+  // console.log(expenses);
+  // const clients = useSelector((state) => state.client.clients);
+  // console.log("===clients===");
+  // console.log(clients);
 
   return (
     <div className="h-full">

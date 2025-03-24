@@ -1,12 +1,8 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
-// import { fileURLToPath } from 'url';
 import ElectronStore from 'electron-store';
-
-// ✅ Use `process.cwd()` instead of `fileURLToPath(import.meta.url)`
 const __dirname = process.cwd();
 
-// Create ElectronStore instance
 const store = new ElectronStore({
     cwd: path.join(app.getPath('userData'), 'store')
 });
@@ -14,10 +10,12 @@ const store = new ElectronStore({
 
 let mainWindow;
 
+const isDev = !app.isPackaged;
+
 function createWindow() {
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1024,
+        height: 768,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             contextIsolation: true,
@@ -26,7 +24,12 @@ function createWindow() {
 
     });
 
-    mainWindow.loadURL('http://localhost:5173');
+    if (isDev) {
+        mainWindow.loadURL('http://localhost:5173');
+    } else {
+        mainWindow.loadFile(path.join(__dirname, 'dist', 'index.html'));
+
+    }
 
     mainWindow.on('closed', () => {
         mainWindow = null;
@@ -41,13 +44,11 @@ app.whenReady().then(() => {
     });
 });
 
-// ✅ Debug: Confirm Redux state updates are being received
 ipcMain.on('save-state', (event, state) => {
     store.set('appState', state);
 });
 
 
-// ✅ Debug: Confirm state is being loaded on app start
 ipcMain.on('load-state', (event) => {
     event.returnValue = store.get('appState', {}); // Return saved state
 });
