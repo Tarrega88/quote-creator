@@ -28,7 +28,7 @@ function Expenses({ expenses }) {
     },
   });
   return (
-    <View>
+    <View style={{ paddingTop: 24 }} wrap={false}>
       <Text style={styles.titleFont}>Expenses</Text>
       {keysThatHaveData.map((e, i) => (
         <ExpenseCategory key={i} title={e} data={expenses[e]} />

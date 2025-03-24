@@ -8,6 +8,7 @@ import { quoteRoutes } from "./routers/quoteRoutes";
 import { clientRoutes } from "./routers/clientRoutes";
 import MyInfo from "./pages/home/MyInfo";
 import AppInfo from "./pages/home/AppInfo";
+import ViewPDF from "./pdfview/ViewPDF";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       ...expenseRoutes,
       { path: "/myInfo", element: <MyInfo /> },
       { path: "/appInfo", element: <AppInfo /> },
+      { path: "/clients/:clientURL/view/:quoteID", element: <ViewPDF /> },
     ],
   },
 ]);

@@ -13,6 +13,7 @@ function MyInfo() {
     myAddress,
     myCity,
     myState,
+    myZip,
     myPhone,
     myEmail,
     myCompany,
@@ -25,6 +26,7 @@ function MyInfo() {
     Address: myAddress,
     City: myCity,
     State: myState,
+    Zip: myZip,
     Phone: myPhone,
     Email: myEmail,
   };

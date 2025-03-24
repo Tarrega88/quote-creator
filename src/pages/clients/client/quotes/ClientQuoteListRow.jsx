@@ -26,7 +26,10 @@ function ClientQuoteListRow({ data, odd }) {
         >
           Edit
         </button>
-        <button className="w-18 cursor-pointer bg-sky-600 transition-all duration-200 hover:bg-sky-500">
+        <button
+          onClick={() => navigate(`/clients/${clientURL}/view/${dateCreated}`)}
+          className="w-18 cursor-pointer bg-sky-600 transition-all duration-200 hover:bg-sky-500"
+        >
           View
         </button>
       </div>

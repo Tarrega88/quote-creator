@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
 
 function ServiceRow({ odd, data }) {
   const styleChoice = odd ? styles.odd : styles.even;
-  console.log(data);
+  // console.log(data);
   //cost in dollars => pay
   //expenseName => serviceName
   //expenseType => serviceCategory

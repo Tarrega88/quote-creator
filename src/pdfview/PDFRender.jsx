@@ -15,6 +15,9 @@ import Expenses from "./expenses/Expenses";
 import Banner from "./Banner";
 import Services from "./services/Services";
 import Total from "./Total";
+import FromToBox from "./FromToBox";
+import From from "./From";
+import To from "./To";
 
 const styles = StyleSheet.create({
   document: {
@@ -78,6 +81,7 @@ const styles = StyleSheet.create({
 function PDFRender() {
   const { clientURL, quoteID } = useParams();
   const clientSelector = useSelector((state) => state.client.clients);
+  const clientData = useSelector((state) => state.client.clients)[clientURL];
   const quoteData = clientSelector[clientURL].quotes[quoteID];
 
   const dateText = new Date(Date.now()).toLocaleDateString("en-US");
@@ -101,6 +105,14 @@ function PDFRender() {
           />
           <View style={{ ...styles.subBanner, ...styles.row }}>
             <Text style={styles.subBannerText}>{dateText}</Text>
+          </View>
+          <View style={{ ...styles.row, justifyContent: "center" }}>
+            <FromToBox>
+              <From quoteData={quoteData} myInfo={myInfo} />
+            </FromToBox>
+            <FromToBox>
+              <To clientData={clientData} />
+            </FromToBox>
           </View>
           <MainBody>
             <Services services={quoteData.services} />

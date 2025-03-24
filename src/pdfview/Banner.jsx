@@ -30,19 +30,17 @@ function Banner({ data, imgSrc }) {
   return (
     <View style={styles.banner} key={crypto.randomUUID()}>
       <View>{imgSrc ? <Image src={imgSrc} /> : null}</View>
-      <View style={{ ...styles.lightText, alignItems: "flex-end" }}>
-        <Text>{myName}</Text>
+      <View
+        style={{
+          ...styles.lightText,
+          alignItems: "flex-end",
+          paddingTop: 8,
+          rowGap: 2,
+        }}
+      >
         <Text>{myCompany}</Text>
-        <Text>{myPhone}</Text>
         <Text>{myEmail}</Text>
-        <Text>{myAddress}</Text>
-        <View style={{ ...styles.row }}>
-          <Text>
-            {myCity}
-            {myState ? ", " : ""}
-          </Text>
-          <Text>{myState}</Text>
-        </View>
+        <Text>{myPhone}</Text>
       </View>
     </View>
   );
