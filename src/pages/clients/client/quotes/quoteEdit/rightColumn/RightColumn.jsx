@@ -18,7 +18,7 @@ function RightColumn() {
     Object.keys(quoteData.expenses.materials).length;
 
   return (
-    <div className="flex h-dvh flex-col bg-slate-600 py-8">
+    <div className="flex h-dvh flex-col overflow-auto bg-slate-600 py-8">
       <div className="flex h-12 w-full items-center justify-center bg-slate-600">
         <div className="flex h-12 w-5/6 items-center justify-center rounded-md text-center text-xl tracking-wide">
           Quote
