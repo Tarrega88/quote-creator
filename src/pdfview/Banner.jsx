@@ -17,9 +17,10 @@ const styles = StyleSheet.create({
     height: "16vh",
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     paddingLeft: "16",
     paddingRight: "16",
-    paddingTop: 12,
+    // paddingTop: 12,
     fontSize: 10,
   },
 });

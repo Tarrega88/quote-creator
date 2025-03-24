@@ -93,6 +93,7 @@ function PDFRender() {
   const hasRentalExpense = Object.keys(quoteData.expenses.rentals).length > 0;
 
   const hasExpense = hasLaborExpense || hasMaterialExpense || hasRentalExpense;
+  const hasService = Object.keys(quoteData.services).length > 0;
 
   return (
     <PDFViewer style={styles.viewer} key={crypto.randomUUID()}>
@@ -115,8 +116,8 @@ function PDFRender() {
             </FromToBox>
           </View>
           <MainBody>
-            <Services services={quoteData.services} />
-            <Expenses expenses={quoteData.expenses} />
+            {hasService && <Services services={quoteData.services} />}
+            {hasExpense && <Expenses expenses={quoteData.expenses} />}
             <Total quoteData={quoteData} />
           </MainBody>
         </Page>

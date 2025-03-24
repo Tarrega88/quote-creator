@@ -25,13 +25,7 @@ function To({ clientData }) {
       <Text style={styles.preparedFor}>Prepared For:</Text>
       <Text>{clientName}</Text>
       <Text>{clientAddress}</Text>
-      <Text>
-        {clientCity && clientState
-          ? `${clientCity}, ${clientState} ${clientZip}`
-          : clientCity
-            ? clientCity
-            : null}
-      </Text>
+      <Text>{`${clientCity}${clientCity && clientState && ", "}${clientState} ${clientZip}`}</Text>
     </View>
   );
 }

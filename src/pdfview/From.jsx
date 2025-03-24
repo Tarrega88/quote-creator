@@ -32,14 +32,7 @@ function From({ myInfo }) {
       <Text>{myName}</Text>
       <Text>{myCompany}</Text>
       <Text>{myAddress}</Text>
-      {/* <View style={{ flexDirection: "row" }}> */}
-      <Text>
-        {myCity && myState
-          ? `${myCity}, ${myState} ${myZip}`
-          : myCity
-            ? myCity
-            : null}
-      </Text>
+      <Text>{`${myCity}${myCity && myState && ", "}${myState} ${myZip}`}</Text>
     </View>
   );
 }
