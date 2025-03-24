@@ -1,5 +1,8 @@
-function MaterialListRow({ data, odd }) {
+import RowDelete from "../RowDelete";
+
+function MaterialListRow({ data, odd, handleDelete }) {
   const {
+    expenseType,
     expenseName,
     measurementType,
     measurementUnit,
@@ -10,7 +13,7 @@ function MaterialListRow({ data, odd }) {
   const bgColor = odd ? "bg-slate-600" : "bg-slate-700";
 
   return (
-    <div className={`grid grid-cols-4 ${bgColor} py-1 pl-4`}>
+    <div className={`grid grid-cols-5 ${bgColor} py-1 pl-4`}>
       <span>{expenseName}</span>
       <span>
         {measurementType} in {measurementUnit}
@@ -20,6 +23,7 @@ function MaterialListRow({ data, odd }) {
       <span>
         {unitAmount} {measurementUnit}
       </span>
+      <RowDelete onClick={() => handleDelete(expenseType, expenseName)} />
     </div>
   );
 }

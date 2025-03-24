@@ -4,9 +4,9 @@ function RowDelete({ text = "Delete", onClick }) {
   return (
     <button
       onClick={onClick}
-      className="w-16 cursor-pointer bg-red-600 transition-all duration-200 hover:bg-red-500"
+      className="flex w-8 cursor-pointer items-center justify-center rounded-md bg-red-700 transition-all duration-200 hover:bg-red-500"
     >
-      <MdDeleteForever />
+      <MdDeleteForever className="text-xl" />
     </button>
   );
 }

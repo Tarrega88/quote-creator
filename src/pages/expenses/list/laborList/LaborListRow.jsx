@@ -1,5 +1,7 @@
-function LaborListRow({ data, odd }) {
-  const { expenseName, costInDollars, paidByThe } = data;
+import RowDelete from "../RowDelete";
+
+function LaborListRow({ data, odd, handleDelete }) {
+  const { expenseType, expenseName, costInDollars, paidByThe } = data;
 
   const bgColor = odd ? "bg-slate-600" : "bg-slate-700";
 
@@ -7,10 +9,11 @@ function LaborListRow({ data, odd }) {
     paidByThe === "flat" ? "flat rate" : `per ${paidByThe}`;
 
   return (
-    <div className={`grid grid-cols-3 ${bgColor} py-1 pl-4`}>
+    <div className={`grid grid-cols-4 ${bgColor} py-1 pl-4`}>
       <span>{expenseName}</span>
       <span>${costInDollars}</span>
       <span>{flatOrTimeText}</span>
+      <RowDelete onClick={() => handleDelete(expenseType, expenseName)} />
     </div>
   );
 }
