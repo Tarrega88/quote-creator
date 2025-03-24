@@ -1,10 +1,9 @@
 import { StyleSheet, Text, View } from "@react-pdf/renderer";
 import { capitalizeFirst } from "../../helpers/capitalize";
-import ExpenseRow from "./ExpenseRow";
+import ServiceRow from "./ServiceRow";
 
-function ExpenseCategory({ title, data }) {
+function ServiceCategory({ title, data }) {
   const keys = Object.keys(data);
-
   const styles = StyleSheet.create({
     categoryText: {
       fontSize: 14,
@@ -41,6 +40,27 @@ function ExpenseCategory({ title, data }) {
         <Text style={styles.colD}>Line Total</Text>
       </View>
       {keys.map((e, i) => (
+        <ServiceRow key={i} odd={i % 2} data={data[e]} />
+      ))}
+    </View>
+  );
+}
+
+export default ServiceCategory;
+
+{
+  /*
+function ExpenseCategory({ title, data }) {
+  return (
+    <View style={styles.view}>
+      <Text style={styles.categoryText}>{capitalizeFirst(title)}</Text>
+      <View style={styles.titleRow}>
+        <Text style={styles.colA}>Item</Text>
+        <Text style={styles.colB}>Rate</Text>
+        <Text style={styles.colC}>Quantity</Text>
+        <Text style={styles.colD}>Line Total</Text>
+      </View>
+      {keys.map((e, i) => (
         <ExpenseRow key={i} odd={i % 2} data={data[e]} />
       ))}
     </View>
@@ -48,3 +68,6 @@ function ExpenseCategory({ title, data }) {
 }
 
 export default ExpenseCategory;
+
+    */
+}

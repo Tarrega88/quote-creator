@@ -29,9 +29,7 @@ function Banner({ data, imgSrc }) {
 
   return (
     <View style={styles.banner} key={crypto.randomUUID()}>
-      <View>
-        <Image src={imgSrc} />
-      </View>
+      <View>{imgSrc ? <Image src={imgSrc} /> : null}</View>
       <View style={{ ...styles.lightText, alignItems: "flex-end" }}>
         <Text>{myName}</Text>
         <Text>{myCompany}</Text>

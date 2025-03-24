@@ -22,7 +22,7 @@ function Expenses({ expenses }) {
       fontSize: 12,
       fontWeight: "bold",
       columnGap: "4",
-      paddingTop: "12",
+      paddingTop: 16,
       paddingHorizontal: "4",
       justifyContent: "flex-end",
     },

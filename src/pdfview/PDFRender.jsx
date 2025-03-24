@@ -13,6 +13,7 @@ import "../registerFonts";
 import MainBody from "./MainBody";
 import Expenses from "./expenses/Expenses";
 import Banner from "./Banner";
+import Services from "./services/Services";
 
 const styles = StyleSheet.create({
   document: {
@@ -101,6 +102,7 @@ function PDFRender() {
             <Text style={styles.subBannerText}>{dateText}</Text>
           </View>
           <MainBody>
+            <Services services={quoteData.services} />
             <Expenses expenses={quoteData.expenses} />
           </MainBody>
         </Page>

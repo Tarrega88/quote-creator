@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "@react-pdf/renderer";
+import { formatUSD } from "../../helpers/formatUSD";
 import { capitalizeFirst } from "../../helpers/capitalize";
 import { pluralToSingle } from "../../helpers/pluralToSingle";
-import { formatUSD } from "../../helpers/formatUSD";
 
 function getBText(
   paymentModel,
@@ -14,8 +14,8 @@ function getBText(
     case "measurement":
       return `${formattedUSD} per ${
         unitAmount > 1
-          ? `${unitAmount} ${measurementUnit}`
-          : pluralToSingle[paymentModel][measurementUnit]
+          ? `${unitAmount} ${measurementUnit.replaceAll("_", " ")}`
+          : pluralToSingle[paymentModel][measurementUnit.replaceAll("_", " ")]
       }`;
     case "time":
       return `${formattedUSD} per ${paidByThe}`;
@@ -36,8 +36,8 @@ function getCText(
   switch (paymentModel) {
     case "measurement":
       return unitAmount > 1
-        ? `${unitAmount} ${measurementUnit}`
-        : `${unitAmount} ${pluralToSingle[paymentModel][measurementUnit]}`;
+        ? `${unitAmount} ${measurementUnit.replaceAll("_", " ")}`
+        : `${unitAmount} ${pluralToSingle[paymentModel][measurementUnit.replaceAll("_", " ")]}`;
     case "time":
       return `${multiple} ${multiple > 1 ? `${paidByThe}s` : paidByThe}`;
     case "flat":
@@ -65,14 +65,18 @@ const styles = StyleSheet.create({
   columnD: { width: "25%", textAlign: "right" },
 });
 
-function ExpenseRow({ odd, data }) {
+function ServiceRow({ odd, data }) {
   const styleChoice = odd ? styles.odd : styles.even;
-  // console.log(data);
+  console.log(data);
+  //cost in dollars => pay
+  //expenseName => serviceName
+  //expenseType => serviceCategory
   const {
-    costInDollars,
+    pay,
+    category,
     paymentModel,
-    expenseName,
-    expenseType,
+    serviceName,
+    serviceCategory,
     multiple,
     paidByThe,
     measurementType,
@@ -80,7 +84,46 @@ function ExpenseRow({ odd, data }) {
     unitAmount,
   } = data;
 
-  const formattedUSD = formatUSD(costInDollars);
+  const formattedUSD = formatUSD(pay);
+
+  return (
+    <View style={{ ...styleChoice, ...styles.view }}>
+      <Text style={{ ...styles.text, ...styles.columnA }}>
+        {capitalizeFirst(data.serviceName)}
+      </Text>
+      <Text style={{ ...styles.text, ...styles.columnB }}>
+        {getBText(
+          paymentModel,
+          formattedUSD,
+          unitAmount,
+          measurementUnit,
+          paidByThe,
+        )}
+      </Text>
+      <Text style={{ ...styles.text, ...styles.columnC }}>
+        {getCText(
+          paymentModel,
+          unitAmount,
+          measurementUnit,
+          paidByThe,
+          multiple,
+        )}
+      </Text>
+      <Text style={{ ...styles.text, ...styles.columnD }}>
+        {formatUSD(multiple * pay)}
+      </Text>
+    </View>
+  );
+}
+
+export default ServiceRow;
+
+{
+  /*
+
+
+
+function ExpenseRow({ odd, data }) {
 
   return (
     <View style={{ ...styleChoice, ...styles.view }}>
@@ -113,3 +156,6 @@ function ExpenseRow({ odd, data }) {
 }
 
 export default ExpenseRow;
+
+    */
+}
