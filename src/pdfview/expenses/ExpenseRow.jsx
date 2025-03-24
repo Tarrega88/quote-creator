@@ -12,11 +12,15 @@ function getBText(
 ) {
   switch (paymentModel) {
     case "measurement":
-      return `${formattedUSD} per ${
-        unitAmount > 1
-          ? `${unitAmount} ${measurementUnit}`
-          : pluralToSingle[paymentModel][measurementUnit]
-      }`;
+      if (measurementUnit === "count") {
+        return `${formattedUSD} per ${unitAmount}`;
+      } else {
+        return `${formattedUSD} per ${
+          unitAmount > 1
+            ? `${unitAmount} ${measurementUnit}`
+            : pluralToSingle[paymentModel][measurementUnit]
+        }`;
+      }
     case "time":
       return `${formattedUSD} per ${paidByThe}`;
     case "flat":
@@ -35,9 +39,13 @@ function getCText(
 ) {
   switch (paymentModel) {
     case "measurement":
-      return unitAmount > 1
-        ? `${unitAmount} ${measurementUnit}`
-        : `${unitAmount} ${pluralToSingle[paymentModel][measurementUnit]}`;
+      if (measurementUnit === "count") {
+        return unitAmount;
+      } else {
+        return unitAmount > 1
+          ? `${unitAmount} ${measurementUnit}`
+          : `${unitAmount} ${pluralToSingle[paymentModel][measurementUnit]}`;
+      }
     case "time":
       return `${multiple} ${multiple > 1 ? `${paidByThe}s` : paidByThe}`;
     case "flat":

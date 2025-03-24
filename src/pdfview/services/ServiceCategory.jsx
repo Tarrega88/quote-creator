@@ -31,7 +31,7 @@ function ServiceCategory({ title, data }) {
   });
 
   return (
-    <View style={styles.view}>
+    <View style={styles.view} wrap={false}>
       <Text style={styles.categoryText}>{capitalizeFirst(title)}</Text>
       <View style={styles.titleRow}>
         <Text style={styles.colA}>Item</Text>
@@ -47,27 +47,3 @@ function ServiceCategory({ title, data }) {
 }
 
 export default ServiceCategory;
-
-{
-  /*
-function ExpenseCategory({ title, data }) {
-  return (
-    <View style={styles.view}>
-      <Text style={styles.categoryText}>{capitalizeFirst(title)}</Text>
-      <View style={styles.titleRow}>
-        <Text style={styles.colA}>Item</Text>
-        <Text style={styles.colB}>Rate</Text>
-        <Text style={styles.colC}>Quantity</Text>
-        <Text style={styles.colD}>Line Total</Text>
-      </View>
-      {keys.map((e, i) => (
-        <ExpenseRow key={i} odd={i % 2} data={data[e]} />
-      ))}
-    </View>
-  );
-}
-
-export default ExpenseCategory;
-
-    */
-}

@@ -14,6 +14,7 @@ import MainBody from "./MainBody";
 import Expenses from "./expenses/Expenses";
 import Banner from "./Banner";
 import Services from "./services/Services";
+import Total from "./Total";
 
 const styles = StyleSheet.create({
   document: {
@@ -104,6 +105,7 @@ function PDFRender() {
           <MainBody>
             <Services services={quoteData.services} />
             <Expenses expenses={quoteData.expenses} />
+            <Total quoteData={quoteData} />
           </MainBody>
         </Page>
       </Document>

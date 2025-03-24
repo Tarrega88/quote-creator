@@ -32,7 +32,7 @@ function ExpenseCategory({ title, data }) {
   });
 
   return (
-    <View style={styles.view}>
+    <View style={styles.view} wrap={false}>
       <Text style={styles.categoryText}>{capitalizeFirst(title)}</Text>
       <View style={styles.titleRow}>
         <Text style={styles.colA}>Item</Text>
