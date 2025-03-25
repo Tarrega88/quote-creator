@@ -1,15 +1,17 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 import ElectronStore from 'electron-store';
-const __dirname = process.cwd();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const store = new ElectronStore({
     cwd: path.join(app.getPath('userData'), 'store')
 });
 
-
 let mainWindow;
-
 const isDev = !app.isPackaged;
 
 function createWindow() {
@@ -21,14 +23,12 @@ function createWindow() {
             contextIsolation: true,
             nodeIntegration: false
         }
-
     });
 
     if (isDev) {
         mainWindow.loadURL('http://localhost:5173');
     } else {
-        mainWindow.loadFile(path.join(__dirname, 'dist', 'index.html'));
-
+        mainWindow.loadURL(`file://${__dirname}/dist/index.html`);
     }
 
     mainWindow.on('closed', () => {
@@ -48,12 +48,10 @@ ipcMain.on('save-state', (event, state) => {
     store.set('appState', state);
 });
 
-
 ipcMain.on('load-state', (event) => {
-    event.returnValue = store.get('appState', {}); // Return saved state
+    event.returnValue = store.get('appState', {});
 });
 
-// Quit when all windows are closed
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit();
 });
