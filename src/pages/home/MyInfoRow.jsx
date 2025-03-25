@@ -23,7 +23,7 @@ function MyInfoRow({ text, onSubmit, title }) {
     : "bg-slate-700 hover:bg-slate-500 transition-all duration-200";
 
   return (
-    <li className="">
+    <li>
       <div className="grid grid-cols-[3fr_6fr_1fr] items-center gap-2">
         <div className="flex gap-4">
           <div>{title}:</div>
