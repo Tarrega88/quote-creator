@@ -23,7 +23,7 @@ function TypeOfMeasurement() {
 
   const text =
     measurementType === "quantity"
-      ? "Just click count - will build this out later"
+      ? "Click Count"
       : `What is ${materialName} ${verbText} in?`;
 
   function handleSetMeasurementType(type) {

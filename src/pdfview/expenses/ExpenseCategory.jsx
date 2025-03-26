@@ -21,8 +21,6 @@ function ExpenseCategory({ title, data }) {
       fontSize: 12,
       fontWeight: "bold",
       paddingHorizontal: 6,
-      // paddingLeft: 6,
-      // paddingRight: 6,
       paddingVertical: 2,
     },
     colA: { width: "25%" },

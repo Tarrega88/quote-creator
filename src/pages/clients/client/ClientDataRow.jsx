@@ -41,6 +41,7 @@ function ClientDataRow({ section, data, clientURL }) {
             onChange={(e) => setTempEdit(e.target.value)}
             value={tempEdit}
             onEnter={() => handleConfirmEdit(`client${section}`, tempEdit)}
+            onBlur={() => handleConfirmEdit(`client${section}`, tempEdit)}
           />
           <IoIosCheckmarkCircle
             onClick={() => handleConfirmEdit(`client${section}`, tempEdit)}

@@ -40,11 +40,11 @@ function getCText(
   switch (paymentModel) {
     case "measurement":
       if (measurementUnit === "count") {
-        return unitAmount;
+        return unitAmount * multiple;
       } else {
-        return unitAmount > 1
-          ? `${unitAmount} ${measurementUnit}`
-          : `${unitAmount} ${pluralToSingle[paymentModel][measurementUnit]}`;
+        return unitAmount * multiple > 1
+          ? `${unitAmount * multiple} ${measurementUnit}`
+          : `${unitAmount * multiple} ${pluralToSingle[paymentModel][measurementUnit]}`;
       }
     case "time":
       return `${multiple} ${multiple > 1 ? `${paidByThe}s` : paidByThe}`;

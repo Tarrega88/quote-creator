@@ -35,9 +35,9 @@ function getCText(
 ) {
   switch (paymentModel) {
     case "measurement":
-      return unitAmount > 1
-        ? `${unitAmount} ${measurementUnit.replaceAll("_", " ")}`
-        : `${unitAmount} ${pluralToSingle[paymentModel][measurementUnit.replaceAll("_", " ")]}`;
+      return unitAmount * multiple > 1
+        ? `${unitAmount * multiple} ${measurementUnit.replaceAll("_", " ")}`
+        : `${unitAmount * multiple} ${pluralToSingle[paymentModel][measurementUnit.replaceAll("_", " ")]}`;
     case "time":
       return `${multiple} ${multiple > 1 ? `${paidByThe}s` : paidByThe}`;
     case "flat":
