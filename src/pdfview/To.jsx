@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from "@react-pdf/renderer";
+import { capitalizeEveryWord } from "../helpers/capitalize";
 
 const styles = StyleSheet.create({
   view: {
@@ -22,7 +23,7 @@ function To({ clientData }) {
   return (
     <View style={styles.view}>
       <Text style={styles.preparedFor}>Prepared For:</Text>
-      <Text>{clientName}</Text>
+      <Text>{capitalizeEveryWord(clientName)}</Text>
       <Text>{clientAddress}</Text>
       <Text>{`${clientCity}${clientCity && clientState && ", "}${clientState} ${clientZip}`}</Text>
     </View>

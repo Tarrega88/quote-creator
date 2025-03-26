@@ -32,7 +32,7 @@ function HybridList() {
           setDisplayMode={setDisplayMode}
           setSearchText={setSearchText}
         />
-        <div className="grid h-12 grid-cols-[2fr_4fr_4fr_1fr] items-center gap-2 bg-slate-700 px-4 text-lg font-medium tracking-wide">
+        <div className="grid h-12 grid-cols-[3fr_4fr_4fr] items-center gap-2 bg-slate-700 px-4 text-lg font-medium tracking-wide">
           <div>Client</div>
           <div>Email</div>
           <div>Phone</div>
