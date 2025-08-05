@@ -1,12 +1,7 @@
-# React + Vite
+Quote-Creator is a completely local, Electron-based application proof-of-concept designed to grant manual laborer's an easy way to generate PDF quotes to send out to customers.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A user can create and save any relevant customer data, such as names, address information, and phone numbers.
 
-Currently, two official plugins are available:
+The tool's primary function allows a user to create expenses and services offered, set how they are charged (typically by some measurement of material, time, or flat-rate), and then apply those to any future quotes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+As an example, an expense might be "granite slab" for $25 per square foot. Once saved, that option would be available on all future quotes, and simply adjusting the amount of square feet of granite slab required for the job, the PDF would output that under an expense column and tally up the rest of the expenses and services into relevant totals.
